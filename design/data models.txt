@@ -1,0 +1,26 @@
+/*
+Data Models in Petwork
+*/
+
+Class Photo: 
+	image: File
+	thumbnail: File
+	story: String 			//added
+	user: User
+	
+Class User:
+	displayName: String
+	email: String
+	profilePictureMedium: File
+	profilePictureSmall: File
+	facebookId: String
+	facebookFriends: Array
+	channel: Array			//changed type
+
+Class Activity
+	fromUser: User
+	toUser: User
+	type: String
+	content: String
+	photo: Pointer
+	

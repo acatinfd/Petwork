@@ -24,3 +24,25 @@ Class Activity
 	content: String
 	photo: Pointer
 	
+/*
+Relationships
+*/
+
+Relationship: User liking a photo
+	type: many to many
+
+Relationship: User commenting on a photo
+	type: many to many
+
+Relationship: User following a User
+	type: many to many
+	
+/*
+Activity Feed
+*/
+Activity: join table
+	content: user follows a user
+			 user likes a photo
+			 user comments on a photo
+			 a new user joint Petwork
+	//Later work: how to simplify "unlike" and "unfollow" 

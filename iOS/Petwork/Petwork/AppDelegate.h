@@ -6,12 +6,27 @@
 //  Copyright (c) 2015 Xiaorong Zhu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "PAPTabBarController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, NSURLConnectionDataDelegate, UITabBarControllerDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
 
+@property (nonatomic, strong) PAPTabBarController *tabBarController;
+@property (nonatomic, strong) UINavigationController *navController;
+
+@property (nonatomic, readonly) int networkStatus;
+
+- (BOOL)isParseReachable;
+
+- (void)presentLoginViewController;
+- (void)presentLoginViewController:(BOOL)animated;
+- (void)presentTabBarController;
+
+- (void)logOut;
+
+- (void)autoFollowUsers;
 
 @end
 

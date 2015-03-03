@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.1'
+platform :ios, '8.0'
 xcodeproj 'Anypic.xcodeproj'
 
 
@@ -11,4 +11,4 @@ pod 'ParseCrashReporting'
 pod 'ParseUI'
 pod 'Facebook-iOS-SDK'
 
-link_with 'Parse', 'ParseFacebookUtils', 'ParseCrashReporting', 'ParseUI', 'Facebook-iOS-SDK'
+link_with 'Anypic', 'Parse', 'ParseFacebookUtils', 'ParseCrashReporting', 'ParseUI', 'Facebook-iOS-SDK'

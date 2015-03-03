@@ -137,6 +137,7 @@
 		C4F102E2156C58440061BC3E /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4F102DF156C58440061BC3E /* Entitlements.plist */; };
 		C4F102E7156C58570061BC3E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4F102E5156C58570061BC3E /* InfoPlist.strings */; };
 		C4F102EF156C58E00061BC3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F102EC156C58E00061BC3E /* main.m */; };
+		C6EA00891AA5900E006DAB6B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C6EA00881AA5900E006DAB6B /* Podfile */; };
 		C6EE19271AA57820003C3E9E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6EE19261AA57820003C3E9E /* Bolts.framework */; };
 		C6EE19291AA5782B003C3E9E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6EE19281AA5782B003C3E9E /* Parse.framework */; };
 		C6EE192B1AA578EE003C3E9E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6EE192A1AA578EE003C3E9E /* StoreKit.framework */; };
@@ -325,6 +326,7 @@
 		C4F102EB156C58E00061BC3E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		C4F102EC156C58E00061BC3E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		C4F102ED156C58E00061BC3E /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = SOURCE_ROOT; };
+		C6EA00881AA5900E006DAB6B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		C6EE19261AA57820003C3E9E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		C6EE19281AA5782B003C3E9E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C6EE192A1AA578EE003C3E9E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -403,6 +405,8 @@
 		09ABC06213A1D52D009C3FCF = {
 			isa = PBXGroup;
 			children = (
+				C6EA00881AA5900E006DAB6B /* Podfile */,
+				C6EA00841AA59002006DAB6B /* Pods */,
 				C4F101FE156C54B50061BC3E /* Configuration */,
 				09ABC07713A1D52D009C3FCF /* Anypic */,
 				09ABC07013A1D52D009C3FCF /* Frameworks */,
@@ -741,6 +745,37 @@
 			name = Configuration;
 			sourceTree = "<group>";
 		};
+		C6EA00841AA59002006DAB6B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C6EA00851AA59002006DAB6B /* Headers */,
+				C6EA00861AA59002006DAB6B /* Local Podspecs */,
+				C6EA00871AA59002006DAB6B /* Target Support Files */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C6EA00851AA59002006DAB6B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		C6EA00861AA59002006DAB6B /* Local Podspecs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Local Podspecs";
+			sourceTree = "<group>";
+		};
+		C6EA00871AA59002006DAB6B /* Target Support Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Target Support Files";
+			sourceTree = "<group>";
+		};
 		E7ADD44517BEA09500E975E2 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -931,6 +966,7 @@
 				C4BE67AF157FC7F700A291C2 /* IconTick.png in Resources */,
 				C4BE67B0157FC7F700A291C2 /* IconTick@2x.png in Resources */,
 				C4BE67B1157FC7F700A291C2 /* IconTickSelected.png in Resources */,
+				C6EA00891AA5900E006DAB6B /* Podfile in Resources */,
 				C4BE67B2157FC7F700A291C2 /* IconTickSelected@2x.png in Resources */,
 				C4BE67B3157FC7F700A291C2 /* IconTimeline.png in Resources */,
 				C4BE67B4157FC7F700A291C2 /* IconTimeline@2x.png in Resources */,
@@ -978,7 +1014,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n#\"$/Pods/Target Support Files/Pods/Pods-resources.sh\"";
 			showEnvVarsInLog = 0;
 		};
 		2E15790DA3ADCD669F89A960 /* Check Pods Manifest.lock */ = {

@@ -38,9 +38,12 @@
     [supermarket setObject:@"apple" forKey:@"fruitItem1"];
     [supermarket saveInBackground];
     [self.window makeKeyAndVisible];
+
+    [PFFacebookUtils initializeFacebook];
     
     if (![PFUser currentUser]){
         [self presentLoginControllerAnimated:NO];
+        
     }
     return YES;
 }
@@ -75,6 +78,7 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
+    
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                         withSession:[PFFacebookUtils session]];
@@ -82,6 +86,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+    // Logs 'install' and 'app activate' App Events.
+    [FBAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

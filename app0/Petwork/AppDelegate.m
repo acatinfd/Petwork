@@ -31,6 +31,11 @@
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     testObject[@"foo"] = @"bar";
     [testObject saveInBackground];
+    
+    PFObject *supermarket = [PFObject objectWithClassName:@"Supermarket"];
+    [supermarket setObject:@"apple" forKey:@"fruitItem1"];
+    [supermarket saveInBackground];
+    [self.window makeKeyAndVisible];
 
     return YES;
 }

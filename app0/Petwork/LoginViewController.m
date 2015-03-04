@@ -7,8 +7,11 @@
 //
 
 #import "LoginViewController.h"
+#import <Parse/Parse.h>
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @end
 
@@ -33,5 +36,30 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)login:(id)sender {
+    NSString *username = [self.usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    NSString *password = [self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if (username.length != 0 && password.length != 0){
+        [PFUser logInWithUsernameInBackground:username password:password
+                                        block:^(PFUser *user, NSError *error) {
+                                            if (user) {
+                                                // Do stuff after successful login.
+                                                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                            } else {
+                                                // The login failed. Check error to see why.
+                                                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Login failed, please try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                                [alertView show];
+                                                
+                                            }
+                                        }];
+    }
+    else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username or password field is empty" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+
+}
 
 @end

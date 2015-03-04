@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="1490" y="1400"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="NOE-ZW-Ten">
             <objects>
-                <viewController id="mMq-6w-DrP" sceneMemberID="viewController">
+                <viewController id="mMq-6w-DrP" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tuP-yq-a7n"/>
                         <viewControllerLayoutGuide type="bottom" id="pZs-VP-H4i"/>
@@ -72,13 +72,16 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wCM-XK-Za5">
                                 <rect key="frame" x="64" y="256" width="287" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6C-wb-4eh">
                                 <rect key="frame" x="188" y="314" width="38" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="mMq-6w-DrP" eventType="touchUpInside" id="ccz-NE-Thf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgY-Zo-Vjy">
                                 <rect key="frame" x="274" y="392" width="53" height="30"/>
@@ -112,15 +115,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="tqW-g0-Mvk"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="wCM-XK-Za5" id="ADO-bG-Dmm"/>
+                        <outlet property="usernameTextField" destination="bOI-hp-rNr" id="vRZ-6K-ziQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fz-4p-qox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1495" y="2150"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="sQL-mJ-BTU">
             <objects>
-                <viewController id="KUt-Wl-16s" sceneMemberID="viewController">
+                <viewController id="KUt-Wl-16s" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gHQ-gS-vG2"/>
                         <viewControllerLayoutGuide type="bottom" id="DKM-ou-8uA"/>
@@ -137,13 +144,16 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5m-bw-Q8L">
                                 <rect key="frame" x="157" y="280" width="287" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WW4-jM-DGv">
                                 <rect key="frame" x="281" y="334" width="53" height="30"/>
                                 <state key="normal" title="Sign up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signup:" destination="KUt-Wl-16s" eventType="touchUpInside" id="mod-G0-fAi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,6 +163,10 @@
                             <constraint firstAttribute="centerY" secondItem="BWs-bv-UVT" secondAttribute="centerY" constant="57" id="kYM-Mn-dK3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="k5m-bw-Q8L" id="BoE-qC-zqo"/>
+                        <outlet property="usernameTextField" destination="BWs-bv-UVT" id="1NR-ff-4DG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfr-7s-A9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -264,7 +278,7 @@
         <!--Navigation Controller-->
         <scene sceneID="SXE-Vs-YhP">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mO7-UW-4jC" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginNav" automaticallyAdjustsScrollViewInsets="NO" id="mO7-UW-4jC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zKm-QG-c0O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

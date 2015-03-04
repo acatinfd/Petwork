@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FacebookAppID</key>
-	<string>726965784067486</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -17,7 +15,7 @@
 	<key>CFBundleIcons~ipad</key>
 	<dict/>
 	<key>CFBundleIdentifier</key>
-	<string>${BUNDLE_IDENTIFIER}</string>
+	<string>$(BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -63,6 +61,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>${APP_VERSION}</string>
+	<key>FacebookAppID</key>
+	<string>726965784067486</string>
 	<key>FacebookDisplayName</key>
 	<string>Petwork</string>
 	<key>LSApplicationCategoryType</key>
@@ -98,7 +98,7 @@
 				<key>Blue</key>
 				<real>0.117841511964798</real>
 				<key>Green</key>
-				<real>0.1536859273910522</real>
+				<real>0.15368592739105219</real>
 				<key>Red</key>
 				<real>0.2008436918258667</real>
 			</dict>

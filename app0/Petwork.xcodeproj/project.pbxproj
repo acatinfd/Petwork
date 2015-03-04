@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69065FB1AA683EF00D45092 /* ParseTableViewController.m */; };
+		C69066041AA6C3C000D45092 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69066031AA6C3C000D45092 /* ParseUI.framework */; };
+		C69066071AA6C42700D45092 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69066061AA6C42700D45092 /* HomeViewController.m */; };
+		C6CF3C071AA6D23200300292 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C061AA6D23200300292 /* LoginViewController.m */; };
+		C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C091AA6D25100300292 /* SignUpViewController.m */; };
 		C6EA00A01AA6424F006DAB6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EA009F1AA6424F006DAB6B /* main.m */; };
 		C6EA00A31AA6424F006DAB6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EA00A21AA6424F006DAB6B /* AppDelegate.m */; };
 		C6EA00AC1AA6424F006DAB6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6EA00AA1AA6424F006DAB6B /* Main.storyboard */; };
@@ -43,6 +47,13 @@
 /* Begin PBXFileReference section */
 		C69065FA1AA683EF00D45092 /* ParseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseTableViewController.h; sourceTree = "<group>"; };
 		C69065FB1AA683EF00D45092 /* ParseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseTableViewController.m; sourceTree = "<group>"; };
+		C69066031AA6C3C000D45092 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		C69066051AA6C42700D45092 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C69066061AA6C42700D45092 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C6CF3C051AA6D23200300292 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C6CF3C061AA6D23200300292 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C6CF3C081AA6D25100300292 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		C6CF3C091AA6D25100300292 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		C6EA009A1AA6424F006DAB6B /* Petwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EA009E1AA6424F006DAB6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6EA009F1AA6424F006DAB6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,6 +98,7 @@
 				C6F9D2FF1AA6511400C0F585 /* QuartzCore.framework in Frameworks */,
 				C6F9D3001AA6511400C0F585 /* Security.framework in Frameworks */,
 				C6F9D3011AA6511400C0F585 /* StoreKit.framework in Frameworks */,
+				C69066041AA6C3C000D45092 /* ParseUI.framework in Frameworks */,
 				C6F9D3021AA6511400C0F585 /* SystemConfiguration.framework in Frameworks */,
 				C6F9D2EC1AA64F4B00C0F585 /* Parse.framework in Frameworks */,
 			);
@@ -128,6 +140,12 @@
 				C6EA00A21AA6424F006DAB6B /* AppDelegate.m */,
 				C69065FA1AA683EF00D45092 /* ParseTableViewController.h */,
 				C69065FB1AA683EF00D45092 /* ParseTableViewController.m */,
+				C69066051AA6C42700D45092 /* HomeViewController.h */,
+				C69066061AA6C42700D45092 /* HomeViewController.m */,
+				C6CF3C051AA6D23200300292 /* LoginViewController.h */,
+				C6CF3C061AA6D23200300292 /* LoginViewController.m */,
+				C6CF3C081AA6D25100300292 /* SignUpViewController.h */,
+				C6CF3C091AA6D25100300292 /* SignUpViewController.m */,
 				C6EA00AA1AA6424F006DAB6B /* Main.storyboard */,
 				C6EA00AD1AA6424F006DAB6B /* Images.xcassets */,
 				C6EA00AF1AA6424F006DAB6B /* LaunchScreen.xib */,
@@ -165,6 +183,7 @@
 		C6F9D2EA1AA64F0B00C0F585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C69066031AA6C3C000D45092 /* ParseUI.framework */,
 				C6F9D3051AA6555900C0F585 /* ParseFacebookUtils.framework */,
 				C6F9D3031AA652E700C0F585 /* Bolts.framework */,
 				C6F9D2ED1AA6511400C0F585 /* AudioToolbox.framework */,
@@ -285,7 +304,10 @@
 			files = (
 				C6EA00A31AA6424F006DAB6B /* AppDelegate.m in Sources */,
 				C6EA00A01AA6424F006DAB6B /* main.m in Sources */,
+				C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */,
 				C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */,
+				C69066071AA6C42700D45092 /* HomeViewController.m in Sources */,
+				C6CF3C071AA6D23200300292 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

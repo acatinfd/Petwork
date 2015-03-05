@@ -15,6 +15,7 @@
 		C69066041AA6C3C000D45092 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69066031AA6C3C000D45092 /* ParseUI.framework */; };
 		C69066071AA6C42700D45092 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69066061AA6C42700D45092 /* HomeViewController.m */; };
 		C695EDD31AA8182400536830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C695EDD21AA8182400536830 /* UIKit.framework */; };
+		C695EDD61AA81DAD00536830 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C695EDD51AA81DAD00536830 /* CameraViewController.m */; };
 		C6CF3C071AA6D23200300292 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C061AA6D23200300292 /* LoginViewController.m */; };
 		C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C091AA6D25100300292 /* SignUpViewController.m */; };
 		C6EA00A01AA6424F006DAB6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EA009F1AA6424F006DAB6B /* main.m */; };
@@ -61,6 +62,8 @@
 		C69066051AA6C42700D45092 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		C69066061AA6C42700D45092 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		C695EDD21AA8182400536830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C695EDD41AA81DAD00536830 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		C695EDD51AA81DAD00536830 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		C6CF3C051AA6D23200300292 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C6CF3C061AA6D23200300292 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C6CF3C081AA6D25100300292 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				C69065FB1AA683EF00D45092 /* ParseTableViewController.m */,
 				C69066051AA6C42700D45092 /* HomeViewController.h */,
 				C69066061AA6C42700D45092 /* HomeViewController.m */,
+				C695EDD41AA81DAD00536830 /* CameraViewController.h */,
+				C695EDD51AA81DAD00536830 /* CameraViewController.m */,
 				C6CF3C051AA6D23200300292 /* LoginViewController.h */,
 				C6CF3C061AA6D23200300292 /* LoginViewController.m */,
 				C6CF3C081AA6D25100300292 /* SignUpViewController.h */,
@@ -324,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6EA00A31AA6424F006DAB6B /* AppDelegate.m in Sources */,
+				C695EDD61AA81DAD00536830 /* CameraViewController.m in Sources */,
 				C6EA00A01AA6424F006DAB6B /* main.m in Sources */,
 				C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */,
 				C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */,

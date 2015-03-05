@@ -38,7 +38,7 @@
     [supermarket setObject:@"apple" forKey:@"fruitItem1"];
     [supermarket saveInBackground];
     [self.window makeKeyAndVisible];
-
+    
     [PFFacebookUtils initializeFacebook];
     
     if (![PFUser currentUser] && ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
@@ -114,9 +114,9 @@
     PFUser *user = [PFUser currentUser];
     if (user){
         //update current user with facebook name and id
-        NSString *facebookName = result(@"name");
+        NSString *facebookName = result[@"name"];
         user.username = facebookName;
-        NSString *facebookId = result(@"id");
+        NSString *facebookId = result[@"id" ];
         user[@"facebookId"] = facebookId;
         
         //download user profile picture from facebook
@@ -128,7 +128,7 @@
 
 
 - (void) connection:(NSURLConnection *)connection didFailWithError: (NSError *)error {
-        [self showErrorAndLogout];
+    [self showErrorAndLogout];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
@@ -138,7 +138,7 @@
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [self.profilePictureData appendData:data];
 }
-    
+
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {
     if (self.profilePictureData.length == 0 || !self.profilePictureData){
         [self showErrorAndLogout];
@@ -161,8 +161,8 @@
         }];
     }
 }
-    
-    
+
+
 - (void)applicationWillTerminate:(UIApplication *)application {
     [[PFFacebookUtils session] close];
 }

@@ -14,6 +14,7 @@
 		C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69065FB1AA683EF00D45092 /* ParseTableViewController.m */; };
 		C69066041AA6C3C000D45092 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69066031AA6C3C000D45092 /* ParseUI.framework */; };
 		C69066071AA6C42700D45092 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69066061AA6C42700D45092 /* HomeViewController.m */; };
+		C695EDD31AA8182400536830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C695EDD21AA8182400536830 /* UIKit.framework */; };
 		C6CF3C071AA6D23200300292 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C061AA6D23200300292 /* LoginViewController.m */; };
 		C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C091AA6D25100300292 /* SignUpViewController.m */; };
 		C6EA00A01AA6424F006DAB6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EA009F1AA6424F006DAB6B /* main.m */; };
@@ -59,6 +60,7 @@
 		C69066031AA6C3C000D45092 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		C69066051AA6C42700D45092 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		C69066061AA6C42700D45092 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C695EDD21AA8182400536830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C6CF3C051AA6D23200300292 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C6CF3C061AA6D23200300292 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C6CF3C081AA6D25100300292 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C695EDD31AA8182400536830 /* UIKit.framework in Frameworks */,
 				C66C408D1AA6E65A008C3E52 /* Accounts.framework in Frameworks */,
 				C66C408B1AA6E650008C3E52 /* Social.framework in Frameworks */,
 				C6F9D3061AA6555900C0F585 /* ParseFacebookUtils.framework in Frameworks */,
@@ -197,6 +200,7 @@
 		C6F9D2EA1AA64F0B00C0F585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C695EDD21AA8182400536830 /* UIKit.framework */,
 				C66C408C1AA6E65A008C3E52 /* Accounts.framework */,
 				C66C408A1AA6E650008C3E52 /* Social.framework */,
 				C66C40851AA6DD96008C3E52 /* FacebookSDK.framework */,

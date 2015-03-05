@@ -8,6 +8,7 @@
 
 #import "CameraViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
+#import <Parse/Parse.h>
 
 @interface CameraViewController ()
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
@@ -54,6 +55,7 @@
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.chosenImageView.image = chosenImage;
     [self dismissViewControllerAnimated:YES completion:nil];
+    //[self presentViewController:self.imagePicker animated:NO completion:nil]; //Added myself
 }
 
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -67,8 +69,34 @@
 }
 
 - (IBAction)share:(id)sender {
+    if (self.chosenImageView.image) {
+        NSData *imageData = UIImagePNGRepresentation(self.chosenImageView.image);
+        PFFile *photoFile = [PFFile fileWithData: imageData];
+        PFObject *photo = [PFObject objectWithClassName:@"Photo"];
+        photo[@"image"] = photoFile;
+        photo[@"whoTook"] = [PFUser currentUser];
+        photo[@"title"] = self.titleTextField.text;
+        
+        [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!succeeded) {
+                [self showError];
+            }
+        }];
+    }else{
+        [self showError];
+    }
+    [self clear];
+    [self.tabBarController setSelectedIndex:0];
 }
 
+- (void) showError {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not post your photo, please try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.titleTextField resignFirstResponder];
+}
 
 
 

@@ -14,19 +14,23 @@
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *chosenImageView;
+@property (nonatomic, assign) BOOL imagePickerIsDisplayed;
 @end
 
 @implementation CameraViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -43,7 +47,13 @@
     }
     
     self.imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeImage, nil];
-    [self presentViewController:self.imagePicker animated:NO completion:nil];
+    //[self presentViewController:self.imagePicker animated:NO completion:nil]; //changed NO to YES //commented
+    if (!self.imagePickerIsDisplayed) {
+        [self presentViewController:self.imagePicker animated:NO completion:nil];
+        self.imagePickerIsDisplayed = YES;
+    }
+
+     
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -54,13 +64,14 @@
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.chosenImageView.image = chosenImage;
-    [self dismissViewControllerAnimated:YES completion:nil];
-    //[self presentViewController:self.imagePicker animated:NO completion:nil]; //Added myself
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{self.imagePickerIsDisplayed = NO;}];
 }
 
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:NO completion:nil];
     [self.tabBarController setSelectedIndex:0];
+    self.imagePickerIsDisplayed = NO;
 }
 
 - (void) clear {
@@ -73,9 +84,13 @@
         NSData *imageData = UIImagePNGRepresentation(self.chosenImageView.image);
         PFFile *photoFile = [PFFile fileWithData: imageData];
         PFObject *photo = [PFObject objectWithClassName:@"Photo"];
-        photo[@"image"] = photoFile;
-        photo[@"whoTook"] = [PFUser currentUser];
-        photo[@"title"] = self.titleTextField.text;
+        if(photoFile)
+            photo[@"image"] = photoFile;
+        PFUser *curUser = [PFUser currentUser];
+        if(curUser)
+            photo[@"whoTook"] = [PFUser currentUser];
+        if(self.titleTextField.text)
+            photo[@"title"] = self.titleTextField.text;
         
         [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!succeeded) {

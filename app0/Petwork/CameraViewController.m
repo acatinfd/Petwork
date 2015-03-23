@@ -93,10 +93,10 @@
         if(self.titleTextField.text)
             photo[@"title"] = self.titleTextField.text;
         */
-        PFUser *curUser = [PFUser currentUser];
+        
         photo[@"image"] = photoFile;
-        //photo[@"whoTook"] = [PFUser currentUser];
         photo[@"user"] = [PFUser currentUser];
+        photo[@"whoTook"] = [PFUser currentUser];
         if(self.titleTextField.text)
             photo[@"title"] = self.titleTextField.text;
         [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

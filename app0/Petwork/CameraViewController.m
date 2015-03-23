@@ -84,6 +84,7 @@
         NSData *imageData = UIImagePNGRepresentation(self.chosenImageView.image);
         PFFile *photoFile = [PFFile fileWithData: imageData];
         PFObject *photo = [PFObject objectWithClassName:@"Photo"];
+        /*
         if(photoFile)
             photo[@"image"] = photoFile;
         PFUser *curUser = [PFUser currentUser];
@@ -91,7 +92,13 @@
             photo[@"whoTook"] = [PFUser currentUser];
         if(self.titleTextField.text)
             photo[@"title"] = self.titleTextField.text;
-        
+        */
+        PFUser *curUser = [PFUser currentUser];
+        photo[@"image"] = photoFile;
+        //photo[@"whoTook"] = [PFUser currentUser];
+        photo[@"user"] = [PFUser currentUser];
+        if(self.titleTextField.text)
+            photo[@"title"] = self.titleTextField.text;
         [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!succeeded) {
                 [self showError];

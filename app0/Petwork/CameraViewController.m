@@ -76,7 +76,7 @@
 
 - (void) clear {
     self.chosenImageView.image = nil;
-    self.titleTextField = nil;
+    self.titleTextField.text = nil;
 }
 
 - (IBAction)share:(id)sender {

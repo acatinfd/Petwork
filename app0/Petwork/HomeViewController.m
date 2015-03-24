@@ -64,11 +64,20 @@
 // return objects in a different indexpath order. in this case we return object based on the section, not row, the default is row
 
 - (PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.objects objectAtIndex:indexPath.section];
+    if (indexPath.section < self.objects.count) {
+        return [self.objects objectAtIndex:indexPath.section];
+    }
+    else {
+        return nil;
+    }
 }
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == self.objects.count) {
+        return nil;
+    }
+    
     static NSString *CellIdentifier = @"SectionHeaderCell";
     UITableViewCell *sectionHeaderView = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -94,6 +103,9 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger sections = self.objects.count;
+    if (self.paginationEnabled && sections >0) {
+        sections++;
+    }
     return sections;
 }
 
@@ -102,6 +114,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+    if (indexPath.section == self.objects.count) {
+        UITableViewCell *cell = [self tableView:tableView cellForNextPageAtIndexPath:indexPath];
+        return cell;
+    }
     static NSString *CellIdentifier = @"PhotoCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     PFImageView *photo = (PFImageView *)[cell viewWithTag:1];
@@ -112,23 +128,33 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == self.objects.count) {
+        return 0.0f;
+    }
     return 50.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == self.objects.count) {
+        return 50.0f;
+    }
     return 320.0f;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"LoadMoreCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == self.objects.count && self.paginationEnabled) {
+        [self loadNextPage];
+    }
 }
-*/
 
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
@@ -136,7 +162,14 @@
     [query orderByDescending:@"createdAt"];
     return query;
 }
- 
+
+
+//Solved the "LoadMore" crash. 
+- (NSIndexPath *)_indexPathForPaginationCell {
+    
+    return [NSIndexPath indexPathForRow:0 inSection:[self.objects count]];
+    
+}
 
 /*
 #pragma mark - PFQueryTableViewDataSource and Delegates

@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< Updated upstream
 		C6434AA51AC24348001B93CF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6434AA41AC24348001B93CF /* ProfileViewController.m */; };
+<<<<<<< HEAD
+=======
+		C66C40861AA6DD96008C3E52 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C40851AA6DD96008C3E52 /* FacebookSDK.framework */; };
+=======
+		8C0724CE1AC24892002ED7A1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0724CD1AC24892002ED7A1 /* FacebookSDK.framework */; };
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 		C66C40891AA6E1FA008C3E52 /* ParseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66C40881AA6E1FA008C3E52 /* ParseLoginViewController.m */; };
 		C66C408B1AA6E650008C3E52 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C408A1AA6E650008C3E52 /* Social.framework */; };
 		C66C408D1AA6E65A008C3E52 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C408C1AA6E65A008C3E52 /* Accounts.framework */; };
@@ -24,7 +32,6 @@
 		C6EA00A31AA6424F006DAB6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EA00A21AA6424F006DAB6B /* AppDelegate.m */; };
 		C6EA00AC1AA6424F006DAB6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6EA00AA1AA6424F006DAB6B /* Main.storyboard */; };
 		C6EA00AE1AA6424F006DAB6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6EA00AD1AA6424F006DAB6B /* Images.xcassets */; };
-		C6EA00B11AA6424F006DAB6B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6EA00AF1AA6424F006DAB6B /* LaunchScreen.xib */; };
 		C6EA00BD1AA64250006DAB6B /* PetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EA00BC1AA64250006DAB6B /* PetworkTests.m */; };
 		C6F9D2EC1AA64F4B00C0F585 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F9D2EB1AA64F4B00C0F585 /* Parse.framework */; };
 		C6F9D2F81AA6511400C0F585 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F9D2ED1AA6511400C0F585 /* AudioToolbox.framework */; };
@@ -53,8 +60,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< Updated upstream
 		C6434AA31AC24348001B93CF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		C6434AA41AC24348001B93CF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		C66C40851AA6DD96008C3E52 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+=======
+		8C0724CD1AC24892002ED7A1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 		C66C40871AA6E1FA008C3E52 /* ParseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLoginViewController.h; sourceTree = "<group>"; };
 		C66C40881AA6E1FA008C3E52 /* ParseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseLoginViewController.m; sourceTree = "<group>"; };
 		C66C408A1AA6E650008C3E52 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -81,7 +96,6 @@
 		C6EA00A21AA6424F006DAB6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C6EA00AB1AA6424F006DAB6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6EA00AD1AA6424F006DAB6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C6EA00B01AA6424F006DAB6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C6EA00B61AA64250006DAB6B /* PetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EA00BB1AA64250006DAB6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6EA00BC1AA64250006DAB6B /* PetworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PetworkTests.m; sourceTree = "<group>"; };
@@ -107,7 +121,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C695EDD31AA8182400536830 /* UIKit.framework in Frameworks */,
+<<<<<<< HEAD
 				C6AA66AA1AC3032F00C39099 /* FacebookSDK.framework in Frameworks */,
+=======
+				8C0724CE1AC24892002ED7A1 /* FacebookSDK.framework in Frameworks */,
+>>>>>>> origin/master
 				C66C408D1AA6E65A008C3E52 /* Accounts.framework in Frameworks */,
 				C66C408B1AA6E650008C3E52 /* Social.framework in Frameworks */,
 				C6F9D3061AA6555900C0F585 /* ParseFacebookUtils.framework in Frameworks */,
@@ -141,7 +159,11 @@
 		C6EA00911AA6424F006DAB6B = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				C6AA66A91AC3032F00C39099 /* FacebookSDK.framework */,
+=======
+				8C0724CD1AC24892002ED7A1 /* FacebookSDK.framework */,
+>>>>>>> origin/master
 				C6F9D2EA1AA64F0B00C0F585 /* Frameworks */,
 				C6EA009C1AA6424F006DAB6B /* Petwork */,
 				C6EA00B91AA64250006DAB6B /* PetworkTests */,
@@ -181,7 +203,6 @@
 				C6B2EBE01AC23867008B044D /* FollowButton.h */,
 				C6B2EBE11AC23867008B044D /* FollowButton.m */,
 				C6EA00AD1AA6424F006DAB6B /* Images.xcassets */,
-				C6EA00AF1AA6424F006DAB6B /* LaunchScreen.xib */,
 				C6EA009D1AA6424F006DAB6B /* Supporting Files */,
 			);
 			path = Petwork;
@@ -319,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6EA00AC1AA6424F006DAB6B /* Main.storyboard in Resources */,
-				C6EA00B11AA6424F006DAB6B /* LaunchScreen.xib in Resources */,
 				C6EA00AE1AA6424F006DAB6B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,14 +396,6 @@
 				C6EA00AB1AA6424F006DAB6B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C6EA00AF1AA6424F006DAB6B /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C6EA00B01AA6424F006DAB6B /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

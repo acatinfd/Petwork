@@ -7,8 +7,10 @@
 //
 
 #import <ParseUI/ParseUI.h>
+#import "FollowButton.h"
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
-@interface HomeViewController : PFQueryTableViewController
+@interface HomeViewController : PFQueryTableViewController <FollowButtonDelegate>
 
 @end
 

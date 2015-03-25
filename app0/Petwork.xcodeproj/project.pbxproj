@@ -16,6 +16,7 @@
 		C69066071AA6C42700D45092 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69066061AA6C42700D45092 /* HomeViewController.m */; };
 		C695EDD31AA8182400536830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C695EDD21AA8182400536830 /* UIKit.framework */; };
 		C695EDD61AA81DAD00536830 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C695EDD51AA81DAD00536830 /* CameraViewController.m */; };
+		C6B2EBE21AC23867008B044D /* FollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B2EBE11AC23867008B044D /* FollowButton.m */; };
 		C6CF3C071AA6D23200300292 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C061AA6D23200300292 /* LoginViewController.m */; };
 		C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C091AA6D25100300292 /* SignUpViewController.m */; };
 		C6EA00A01AA6424F006DAB6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EA009F1AA6424F006DAB6B /* main.m */; };
@@ -64,6 +65,8 @@
 		C695EDD21AA8182400536830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C695EDD41AA81DAD00536830 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		C695EDD51AA81DAD00536830 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		C6B2EBE01AC23867008B044D /* FollowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowButton.h; sourceTree = "<group>"; };
+		C6B2EBE11AC23867008B044D /* FollowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowButton.m; sourceTree = "<group>"; };
 		C6CF3C051AA6D23200300292 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C6CF3C061AA6D23200300292 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C6CF3C081AA6D25100300292 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				C6CF3C081AA6D25100300292 /* SignUpViewController.h */,
 				C6CF3C091AA6D25100300292 /* SignUpViewController.m */,
 				C6EA00AA1AA6424F006DAB6B /* Main.storyboard */,
+				C6B2EBE01AC23867008B044D /* FollowButton.h */,
+				C6B2EBE11AC23867008B044D /* FollowButton.m */,
 				C6EA00AD1AA6424F006DAB6B /* Images.xcassets */,
 				C6EA00AF1AA6424F006DAB6B /* LaunchScreen.xib */,
 				C6EA009D1AA6424F006DAB6B /* Supporting Files */,
@@ -333,6 +338,7 @@
 				C6EA00A01AA6424F006DAB6B /* main.m in Sources */,
 				C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */,
 				C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */,
+				C6B2EBE21AC23867008B044D /* FollowButton.m in Sources */,
 				C69066071AA6C42700D45092 /* HomeViewController.m in Sources */,
 				C66C40891AA6E1FA008C3E52 /* ParseLoginViewController.m in Sources */,
 				C6CF3C071AA6D23200300292 /* LoginViewController.m in Sources */,

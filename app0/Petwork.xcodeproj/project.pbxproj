@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6434AA51AC24348001B93CF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6434AA41AC24348001B93CF /* ProfileViewController.m */; };
 		C66C40861AA6DD96008C3E52 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C40851AA6DD96008C3E52 /* FacebookSDK.framework */; };
 		C66C40891AA6E1FA008C3E52 /* ParseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66C40881AA6E1FA008C3E52 /* ParseLoginViewController.m */; };
 		C66C408B1AA6E650008C3E52 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C408A1AA6E650008C3E52 /* Social.framework */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C6434AA31AC24348001B93CF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		C6434AA41AC24348001B93CF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		C66C40851AA6DD96008C3E52 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		C66C40871AA6E1FA008C3E52 /* ParseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLoginViewController.h; sourceTree = "<group>"; };
 		C66C40881AA6E1FA008C3E52 /* ParseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseLoginViewController.m; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				C69065FB1AA683EF00D45092 /* ParseTableViewController.m */,
 				C69066051AA6C42700D45092 /* HomeViewController.h */,
 				C69066061AA6C42700D45092 /* HomeViewController.m */,
+				C6434AA31AC24348001B93CF /* ProfileViewController.h */,
+				C6434AA41AC24348001B93CF /* ProfileViewController.m */,
 				C695EDD41AA81DAD00536830 /* CameraViewController.h */,
 				C695EDD51AA81DAD00536830 /* CameraViewController.m */,
 				C6CF3C051AA6D23200300292 /* LoginViewController.h */,
@@ -337,6 +342,7 @@
 				C695EDD61AA81DAD00536830 /* CameraViewController.m in Sources */,
 				C6EA00A01AA6424F006DAB6B /* main.m in Sources */,
 				C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */,
+				C6434AA51AC24348001B93CF /* ProfileViewController.m in Sources */,
 				C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */,
 				C6B2EBE21AC23867008B044D /* FollowButton.m in Sources */,
 				C69066071AA6C42700D45092 /* HomeViewController.m in Sources */,

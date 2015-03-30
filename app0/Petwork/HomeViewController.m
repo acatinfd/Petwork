@@ -85,6 +85,9 @@
         return [self.objects objectAtIndex:indexPath.section];
     }
     else {
+        //Show that no more photos to be loaded
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thank you for reviewing" message:@"There is no more photos!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
         return nil;
     }
 }

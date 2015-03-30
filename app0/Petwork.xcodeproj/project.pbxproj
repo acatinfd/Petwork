@@ -18,6 +18,7 @@
 		C695EDD61AA81DAD00536830 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C695EDD51AA81DAD00536830 /* CameraViewController.m */; };
 		C6AA66AA1AC3032F00C39099 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AA66A91AC3032F00C39099 /* FacebookSDK.framework */; };
 		C6B2EBE21AC23867008B044D /* FollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B2EBE11AC23867008B044D /* FollowButton.m */; };
+		C6C47FD81AC89D7C000F91A5 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C47FD71AC89D7C000F91A5 /* CategoryViewController.m */; };
 		C6CF3C071AA6D23200300292 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C061AA6D23200300292 /* LoginViewController.m */; };
 		C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CF3C091AA6D25100300292 /* SignUpViewController.m */; };
 		C6EA00A01AA6424F006DAB6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EA009F1AA6424F006DAB6B /* main.m */; };
@@ -70,6 +71,8 @@
 		C6AA66A91AC3032F00C39099 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C6B2EBE01AC23867008B044D /* FollowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowButton.h; sourceTree = "<group>"; };
 		C6B2EBE11AC23867008B044D /* FollowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowButton.m; sourceTree = "<group>"; };
+		C6C47FD61AC89D7C000F91A5 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		C6C47FD71AC89D7C000F91A5 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		C6CF3C051AA6D23200300292 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C6CF3C061AA6D23200300292 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C6CF3C081AA6D25100300292 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -169,15 +172,17 @@
 				C69065FB1AA683EF00D45092 /* ParseTableViewController.m */,
 				C69066051AA6C42700D45092 /* HomeViewController.h */,
 				C69066061AA6C42700D45092 /* HomeViewController.m */,
-				C6434AA31AC24348001B93CF /* ProfileViewController.h */,
-				C6434AA41AC24348001B93CF /* ProfileViewController.m */,
 				C695EDD41AA81DAD00536830 /* CameraViewController.h */,
 				C695EDD51AA81DAD00536830 /* CameraViewController.m */,
+				C6434AA31AC24348001B93CF /* ProfileViewController.h */,
+				C6434AA41AC24348001B93CF /* ProfileViewController.m */,
 				C6CF3C051AA6D23200300292 /* LoginViewController.h */,
 				C6CF3C061AA6D23200300292 /* LoginViewController.m */,
 				C6CF3C081AA6D25100300292 /* SignUpViewController.h */,
 				C6CF3C091AA6D25100300292 /* SignUpViewController.m */,
 				C6EA00AA1AA6424F006DAB6B /* Main.storyboard */,
+				C6C47FD61AC89D7C000F91A5 /* CategoryViewController.h */,
+				C6C47FD71AC89D7C000F91A5 /* CategoryViewController.m */,
 				C6B2EBE01AC23867008B044D /* FollowButton.h */,
 				C6B2EBE11AC23867008B044D /* FollowButton.m */,
 				C6EA00AD1AA6424F006DAB6B /* Images.xcassets */,
@@ -341,6 +346,7 @@
 				C6EA00A31AA6424F006DAB6B /* AppDelegate.m in Sources */,
 				C695EDD61AA81DAD00536830 /* CameraViewController.m in Sources */,
 				C6EA00A01AA6424F006DAB6B /* main.m in Sources */,
+				C6C47FD81AC89D7C000F91A5 /* CategoryViewController.m in Sources */,
 				C6CF3C0A1AA6D25100300292 /* SignUpViewController.m in Sources */,
 				C6434AA51AC24348001B93CF /* ProfileViewController.m in Sources */,
 				C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */,

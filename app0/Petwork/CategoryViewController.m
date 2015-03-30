@@ -1,22 +1,18 @@
 //
-//  ProfileViewController.m
+//  CategoryViewController.m
 //  Petwork
 //
-//  Created by Xiaorong Zhu on 3/24/15.
+//  Created by Xiaorong Zhu on 3/29/15.
 //  Copyright (c) 2015 Xiaorong Zhu. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "CategoryViewController.h"
 
-@interface ProfileViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@interface CategoryViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *followerNumberLabel;
-@property (weak, nonatomic) IBOutlet UILabel *followingNumberLabel;
 @end
 
-@implementation ProfileViewController
+@implementation CategoryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

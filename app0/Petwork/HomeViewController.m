@@ -33,7 +33,7 @@
         self.parseClassName = @"Photo";
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
-        self.objectsPerPage = 3;
+        self.objectsPerPage = 10;
     }
     return self;
 }
@@ -139,7 +139,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger sections = self.objects.count;
-    if (self.paginationEnabled && sections >0) {
+    if (self.paginationEnabled && sections > 0) {
         sections++;
     }
     return sections;

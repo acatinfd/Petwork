@@ -481,6 +481,7 @@
 					/Users/xiaorongzhu/Documents/FacebookSDK,
 					/Users/xiaorongzhu/GitHub/Petwork/FacebookSDK,
 				);
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = Petwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -497,6 +498,7 @@
 					/Users/xiaorongzhu/Documents/FacebookSDK,
 					/Users/xiaorongzhu/GitHub/Petwork/FacebookSDK,
 				);
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = Petwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

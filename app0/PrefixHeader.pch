@@ -1,0 +1,17 @@
+//
+//  Petwork_PrefixHeader.pch
+//  Petwork
+//
+//  Created by Xiaorong Zhu on 3/30/15.
+//  Copyright (c) 2015 Xiaorong Zhu. All rights reserved.
+//
+
+#ifndef Petwork_PrefixHeader_pch
+#define Petwork_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+
+#define BLUE_COLOR [UIColor colorWithRed:49/255.0 green:150/255.0 blue:214/255.0 alpha:1.0]

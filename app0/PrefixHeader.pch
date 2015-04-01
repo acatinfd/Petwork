@@ -14,4 +14,4 @@
 
 #endif
 
-#define BLUE_COLOR [UIColor colorWithRed:49/255.0 green:150/255.0 blue:214/255.0 alpha:1.0]
+#define BLUE_COLOR [UIColor colorWithRed:53/255.0 green:159/255.0 blue:235/255.0 alpha:1.0]

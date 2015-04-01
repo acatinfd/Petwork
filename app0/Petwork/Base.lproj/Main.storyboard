@@ -223,6 +223,7 @@
                                         </label>
                                         <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3G-Ed-gb0" customClass="FollowButton">
                                             <rect key="frame" x="193" y="16" width="66" height="18"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                             <state key="normal" title="Follow" backgroundImage="follow_background">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -251,7 +252,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ig0-p7-ZeV">
-                        <barButtonItem key="rightBarButtonItem" title="Profile" id="8Bu-dj-hes">
+                        <barButtonItem key="rightBarButtonItem" image="profile_button" id="8Bu-dj-hes">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="hOd-G6-izQ" kind="custom" id="I8H-ob-4cz"/>
@@ -331,6 +332,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.20784313725490197" green="0.62352941176470589" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -512,6 +517,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="UXM-fh-yI9">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="B8g-Fa-bEN">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="logout:" destination="hOd-G6-izQ" id="SmF-le-Gt3"/>
                             </connections>
@@ -526,13 +532,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eS5-46-Lrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2382" y="-372"/>
+            <point key="canvasLocation" x="2574" y="-298"/>
         </scene>
     </scenes>
     <resources>
         <image name="animal-element-7" width="30" height="30"/>
         <image name="follow_background" width="66" height="18"/>
         <image name="plus-simple-7" width="30" height="30"/>
+        <image name="profile_button" width="29" height="29"/>
         <image name="search-7" width="30" height="30"/>
         <image name="unfollow_background" width="66" height="18"/>
     </resources>

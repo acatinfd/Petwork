@@ -278,6 +278,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SzG-8E-uee">
                                 <rect key="frame" x="0.0" y="127" width="320" height="320"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-aJ-kOY">
+                                <rect key="frame" x="20" y="84" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qT-3Q-k50">
                                 <rect key="frame" x="78" y="455" width="164" height="38"/>
                                 <state key="normal" title="Share">
@@ -287,14 +292,10 @@
                                     <action selector="share:" destination="vW5-kr-YRc" eventType="touchUpInside" id="upt-8K-wqU"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-aJ-kOY">
-                                <rect key="frame" x="20" y="84" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="hdq-EL-9KO">
                         <barButtonItem key="rightBarButtonItem" style="done" id="M1w-3G-eUF">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CpN-6a-RBN">
@@ -310,6 +311,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="chosenImageView" destination="SzG-8E-uee" id="y0x-MI-V6z"/>
                         <outlet property="titleTextField" destination="Auz-aJ-kOY" id="Wg5-Rj-GEj"/>
@@ -323,7 +325,7 @@
         <scene sceneID="e8F-Lx-HaH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TwR-mV-Gdw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="home_button" id="aTm-BK-bT9"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="animal-element-7" id="aTm-BK-bT9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HYp-3L-es3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -339,11 +341,11 @@
             </objects>
             <point key="canvasLocation" x="618" y="-372"/>
         </scene>
-        <!--Camera-->
+        <!--New Post-->
         <scene sceneID="TMZ-4G-mpe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ghV-Lm-nSP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Camera" image="camera_button" id="WNc-mm-ykV"/>
+                    <tabBarItem key="tabBarItem" title="New Post" image="plus-simple-7" id="WNc-mm-ykV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VTp-as-MgA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -359,11 +361,11 @@
             </objects>
             <point key="canvasLocation" x="674" y="406"/>
         </scene>
-        <!--Search-->
+        <!--Categories-->
         <scene sceneID="mX2-IT-7GU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="298-cU-An1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="profile_button" id="i9q-OV-YVm"/>
+                    <tabBarItem key="tabBarItem" title="Categories" image="search-7" id="i9q-OV-YVm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fye-Xi-Rw1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -528,10 +530,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera_button" width="41" height="30"/>
+        <image name="animal-element-7" width="30" height="30"/>
         <image name="follow_background" width="66" height="18"/>
-        <image name="home_button" width="35" height="32"/>
-        <image name="profile_button" width="29" height="29"/>
+        <image name="plus-simple-7" width="30" height="30"/>
+        <image name="search-7" width="30" height="30"/>
         <image name="unfollow_background" width="66" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>

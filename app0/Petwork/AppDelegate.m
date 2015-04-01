@@ -29,7 +29,9 @@
                   clientKey:@"BXh54eaTKobw6AnYuZsf8eEd61IgSothgMGumgu5"];
     
     // [Optional] Track statistics around application opens.
+    
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    /*
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     testObject[@"foo"] = @"bar";
     [testObject saveInBackground];
@@ -37,7 +39,10 @@
     PFObject *supermarket = [PFObject objectWithClassName:@"Supermarket"];
     [supermarket setObject:@"apple" forKey:@"fruitItem1"];
     [supermarket saveInBackground];
+     */
+    
     [self.window makeKeyAndVisible];
+    
     
     [PFFacebookUtils initializeFacebook];
     

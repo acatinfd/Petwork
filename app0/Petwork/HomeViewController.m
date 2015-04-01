@@ -139,6 +139,66 @@
     return sectionHeaderView;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (section == self.objects.count) {
+        return nil;
+    }
+    static NSString *CellIdentifier = @"SectionFooterCell";
+    UITableViewCell *sectionFooterView = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    UILabel *userNameLabel = (UILabel *)[sectionFooterView viewWithTag:1];
+    UILabel *commentLabel = (UILabel *)[sectionFooterView viewWithTag:2];
+    UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
+    UILabel *commentNumberLabel = (UILabel *)[sectionFooterView viewWithTag:4];
+    
+    PFObject *photo = [self.objects objectAtIndex:section]; //May delete
+    PFUser *user = [photo objectForKey:@"whoTook"]; //May delete
+    PFFile *profilePicture = [user objectForKey:@"profilePicture"];//May delete
+    NSString *title = photo[@"title"]; //May delete
+    
+    userNameLabel.text = user.username;
+    commentLabel.text = title;
+    
+    /*
+     //Like button
+     FollowButton *followButton = (FollowButton *)[sectionHeaderView viewWithTag:4];
+     followButton.delegate = self;
+     followButton.sectionIndex = section;
+     
+     if (!self.followingArray || [user.objectId isEqualToString:[PFUser currentUser].objectId]) {
+     followButton.hidden = YES;
+     }
+     else {
+     followButton.hidden = NO;
+     NSInteger indexOfMatchedObject = [self.followingArray indexOfObject:user.objectId];
+     if (indexOfMatchedObject == NSNotFound) {
+     followButton.selected = NO;
+     }
+     else {
+     followButton.selected = YES;
+     }
+     }
+     
+     PFQuery *followingQuery = [PFQuery queryWithClassName:@"Activity"];
+     [followingQuery whereKey:@"fromUser" equalTo:user];
+     [followingQuery whereKey:@"type" equalTo:@"follow"];
+     [followingQuery findObjectsInBackgroundWithBlock:^(NSArray *followingActivities, NSError *error) {
+     if (!error) {
+     self.followingNumberLabel.text = [[NSNumber numberWithInteger:followingActivities.count] stringValue];
+     }
+     }];
+     
+     PFQuery *followerQuery = [PFQuery queryWithClassName:@"Activity"];
+     [followerQuery whereKey:@"toUser" equalTo:user];
+     [followerQuery whereKey:@"type" equalTo:@"follow"];
+     [followerQuery findObjectsInBackgroundWithBlock:^(NSArray *followerActivities, NSError *error) {
+     if (!error) {
+     self.followerNumberLabel.text = [[NSNumber numberWithInteger:followerActivities.count] stringValue];
+     }
+     }];
+     */
+    return sectionFooterView;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger sections = self.objects.count;
@@ -167,6 +227,13 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == self.objects.count) {
+        return 0.0f;
+    }
+    return 50.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == self.objects.count) {
         return 0.0f;
     }

@@ -202,32 +202,32 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionHeaderCell" id="tK3-Ri-d7q">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionHeaderCell" rowHeight="50" id="tK3-Ri-d7q">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tK3-Ri-d7q" id="6ou-0c-ptc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-C4-Cbo" customClass="PFImageView">
-                                            <rect key="frame" x="12" y="9" width="32" height="32"/>
+                                            <rect key="frame" x="12" y="11" width="32" height="32"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sou-Wn-SgP">
                                             <rect key="frame" x="64" y="5" width="170" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pz-XT-3qT">
                                             <rect key="frame" x="64" y="28" width="170" height="13"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3G-Ed-gb0" customClass="FollowButton">
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3G-Ed-gb0" customClass="FollowButton">
                                             <rect key="frame" x="193" y="16" width="66" height="18"/>
-                                            <state key="normal" title="Follow">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="Follow" backgroundImage="follow_background">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
-                                            <state key="selected" title="Unfollow"/>
+                                            <state key="selected" title="Unfollow" backgroundImage="unfollow_background"/>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -251,7 +251,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ig0-p7-ZeV">
-                        <barButtonItem key="rightBarButtonItem" title="Home" id="8Bu-dj-hes">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="8Bu-dj-hes">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="hOd-G6-izQ" kind="custom" id="I8H-ob-4cz"/>
                             </connections>
@@ -295,7 +296,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hdq-EL-9KO">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="M1w-3G-eUF">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="M1w-3G-eUF">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CpN-6a-RBN">
                                 <rect key="frame" x="518" y="7" width="66" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -306,6 +307,7 @@
                                     <action selector="share:" destination="vW5-kr-YRc" eventType="touchUpInside" id="6Zg-Pj-fZJ"/>
                                 </connections>
                             </button>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -321,11 +323,12 @@
         <scene sceneID="e8F-Lx-HaH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TwR-mV-Gdw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="aTm-BK-bT9"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_button" id="aTm-BK-bT9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HYp-3L-es3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20784313725490197" green="0.62352941176470589" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -340,11 +343,12 @@
         <scene sceneID="TMZ-4G-mpe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ghV-Lm-nSP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Camera" id="WNc-mm-ykV"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="camera_button" id="WNc-mm-ykV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VTp-as-MgA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20784313730000001" green="0.62352941179999999" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -353,13 +357,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VG3-UI-QoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="626" y="454"/>
+            <point key="canvasLocation" x="674" y="406"/>
         </scene>
         <!--Search-->
         <scene sceneID="mX2-IT-7GU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="298-cU-An1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="i9q-OV-YVm"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="profile_button" id="i9q-OV-YVm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fye-Xi-Rw1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -523,7 +527,15 @@
             <point key="canvasLocation" x="2382" y="-372"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera_button" width="41" height="30"/>
+        <image name="follow_background" width="66" height="18"/>
+        <image name="home_button" width="35" height="32"/>
+        <image name="profile_button" width="29" height="29"/>
+        <image name="unfollow_background" width="66" height="18"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="I8H-ob-4cz"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.20784313730000001" green="0.62352941179999999" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

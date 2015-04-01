@@ -39,7 +39,7 @@
     frame.origin.y = 150;
     self.logInView.logo.frame = frame;
     frame = self.logInView.facebookButton.frame;
-    frame.origin.y = 300;
+    frame.origin.y = 400;
     self.logInView.facebookButton.frame = frame;
 }
 

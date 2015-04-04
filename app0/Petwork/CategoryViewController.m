@@ -23,12 +23,14 @@
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 10;
+        self.tagsArray = [[NSArray alloc] init];
     }
     return self;
 }
 
 -(void) viewDidLoad{
     [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_logo"]];
 }
 
 
@@ -46,12 +48,13 @@
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
     PFQuery *query = [PFQuery queryWithClassName:@"TagsActivity"];
-    [query includeKey:@"tags"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *tags, NSError *error) {
         if (!error) {
             // Do something with the found objects
             NSMutableSet *tagsSet = [[NSMutableSet alloc]init];
-            [tagsSet addObjectsFromArray:tags];
+            for (PFObject *object in tags) {
+                [tagsSet addObject:object[@"tags"]];
+            }
             self.tagsArray = (NSMutableArray *)[tagsSet allObjects];
 //            self.tagsArray = tags;
             [self.tableView reloadData];
@@ -59,16 +62,25 @@
             NSLog(@"Error");
         }
     }];
-    [self.tableView reloadData];
-    
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSInteger sections = self.objects.count;
-    if (self.paginationEnabled && sections > 0) {
-        sections++;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+    if (indexPath.section == self.objects.count) {
+        UITableViewCell *cell = [self tableView:tableView cellForNextPageAtIndexPath:indexPath];
+        return cell;
     }
+    static NSString *CellIdentifier = @"CategoryCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    UILabel *tagLabel = (UILabel *)[cell viewWithTag:1];
+    tagLabel.text = object[@"tags"];
+
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    NSInteger sections = self.tagsArray.count;
     return sections;
 }
 
@@ -76,6 +88,9 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     if (indexPath.section == self.objects.count) {
@@ -125,17 +140,16 @@
         [self loadNextPage];
     }
 }
- 
+*/
 
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
-    [query includeKey:@"tags"];
-    [query orderByDescending:@"tags"];
+    [query orderByAscending:@"tags"];
     return query;
 }
 
 
+/*
 - (NSIndexPath *)_indexPathForPaginationCell {
     
     return [NSIndexPath indexPathForRow : 0 inSection:[self.objects count]];

@@ -47,7 +47,6 @@
     }
     
     self.imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeImage, nil];
-    //[self presentViewController:self.imagePicker animated:NO completion:nil]; //changed NO to YES //commented
     if (!self.imagePickerIsDisplayed) {
         [self presentViewController:self.imagePicker animated:NO completion:nil];
         self.imagePickerIsDisplayed = YES;
@@ -64,7 +63,6 @@
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.chosenImageView.image = chosenImage;
-    //[self dismissViewControllerAnimated:YES completion:nil];
     [self dismissViewControllerAnimated:YES completion:^{self.imagePickerIsDisplayed = NO;}];
 }
 
@@ -84,15 +82,6 @@
         NSData *imageData = UIImagePNGRepresentation(self.chosenImageView.image);
         PFFile *photoFile = [PFFile fileWithData: imageData];
         PFObject *photo = [PFObject objectWithClassName:@"Photo"];
-        /*
-        if(photoFile)
-            photo[@"image"] = photoFile;
-        PFUser *curUser = [PFUser currentUser];
-        if(curUser)
-            photo[@"whoTook"] = [PFUser currentUser];
-        if(self.titleTextField.text)
-            photo[@"title"] = self.titleTextField.text;
-        */
         
         photo[@"image"] = photoFile;
         photo[@"user"] = [PFUser currentUser];

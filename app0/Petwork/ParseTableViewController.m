@@ -25,7 +25,7 @@
 -(void) viewDidLoad{
     [super viewDidLoad];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"TestObject"];
+    PFQuery *query = [PFQuery queryWithClassName:@"TagsActivity"];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -66,7 +66,7 @@
     
     // Configure the cell...
     PFObject *testObject = [self.objects objectAtIndex:indexPath.row];
-    cell.textLabel.text = testObject[@"foo"];
+    cell.textLabel.text = testObject[@"tags"];
     
     return cell;
 }

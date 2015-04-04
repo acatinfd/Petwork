@@ -122,17 +122,14 @@
     profileImageView.layer.masksToBounds = YES;
     
     UILabel *userNameLabel = (UILabel *)[sectionHeaderView viewWithTag:2];
-    //UILabel *titleLabel = (UILabel *)[sectionHeaderView viewWithTag:3];
     
     PFObject *photo = [self.objects objectAtIndex:section];
     PFUser *user = [photo objectForKey:@"whoTook"];
     PFFile *profilePicture = [user objectForKey:@"profilePicture"];
-    //NSString *title = photo[@"title"];
     
     userNameLabel.text = user.username;
-    //titleLabel.text = title;
-    
     profileImageView.file = profilePicture;
+    
     [profileImageView loadInBackground];
     
     //follow button
@@ -166,8 +163,9 @@
     
     UILabel *userNameLabel = (UILabel *)[sectionFooterView viewWithTag:1];
     UILabel *commentLabel = (UILabel *)[sectionFooterView viewWithTag:2];
-    UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:4];
     UILabel *commentNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
+    UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:4];
+
     
     PFObject *photo = [self.objects objectAtIndex:section];
     PFUser *user = [photo objectForKey:@"whoTook"];
@@ -198,27 +196,6 @@
         }
     }];
 
-    
-    /*
-     
-     PFQuery *followingQuery = [PFQuery queryWithClassName:@"Activity"];
-     [followingQuery whereKey:@"fromUser" equalTo:user];
-     [followingQuery whereKey:@"type" equalTo:@"follow"];
-     [followingQuery findObjectsInBackgroundWithBlock:^(NSArray *followingActivities, NSError *error) {
-     if (!error) {
-     self.followingNumberLabel.text = [[NSNumber numberWithInteger:followingActivities.count] stringValue];
-     }
-     }];
-     
-     PFQuery *followerQuery = [PFQuery queryWithClassName:@"Activity"];
-     [followerQuery whereKey:@"toUser" equalTo:user];
-     [followerQuery whereKey:@"type" equalTo:@"follow"];
-     [followerQuery findObjectsInBackgroundWithBlock:^(NSArray *followerActivities, NSError *error) {
-     if (!error) {
-     self.followerNumberLabel.text = [[NSNumber numberWithInteger:followerActivities.count] stringValue];
-     }
-     }];
-     */
     return sectionFooterView;
 }
 

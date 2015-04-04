@@ -12,6 +12,7 @@
 		C66C408B1AA6E650008C3E52 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C408A1AA6E650008C3E52 /* Social.framework */; };
 		C66C408D1AA6E65A008C3E52 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C408C1AA6E65A008C3E52 /* Accounts.framework */; };
 		C671A4241ACF9DD100906F52 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C671A4231ACF9DD100906F52 /* LikeButton.m */; };
+		C671A4271AD043F100906F52 /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C671A4261AD043F100906F52 /* TagsTableViewController.m */; };
 		C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69065FB1AA683EF00D45092 /* ParseTableViewController.m */; };
 		C69066041AA6C3C000D45092 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69066031AA6C3C000D45092 /* ParseUI.framework */; };
 		C69066071AA6C42700D45092 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69066061AA6C42700D45092 /* HomeViewController.m */; };
@@ -63,6 +64,8 @@
 		C66C408C1AA6E65A008C3E52 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		C671A4221ACF9DD100906F52 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
 		C671A4231ACF9DD100906F52 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
+		C671A4251AD043F100906F52 /* TagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableViewController.h; sourceTree = "<group>"; };
+		C671A4261AD043F100906F52 /* TagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsTableViewController.m; sourceTree = "<group>"; };
 		C69065FA1AA683EF00D45092 /* ParseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseTableViewController.h; sourceTree = "<group>"; };
 		C69065FB1AA683EF00D45092 /* ParseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseTableViewController.m; sourceTree = "<group>"; };
 		C69066031AA6C3C000D45092 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				C66C40881AA6E1FA008C3E52 /* ParseLoginViewController.m */,
 				C69065FA1AA683EF00D45092 /* ParseTableViewController.h */,
 				C69065FB1AA683EF00D45092 /* ParseTableViewController.m */,
+				C671A4251AD043F100906F52 /* TagsTableViewController.h */,
+				C671A4261AD043F100906F52 /* TagsTableViewController.m */,
 				C69066051AA6C42700D45092 /* HomeViewController.h */,
 				C69066061AA6C42700D45092 /* HomeViewController.m */,
 				C695EDD41AA81DAD00536830 /* CameraViewController.h */,
@@ -349,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6EA00A31AA6424F006DAB6B /* AppDelegate.m in Sources */,
+				C671A4271AD043F100906F52 /* TagsTableViewController.m in Sources */,
 				C695EDD61AA81DAD00536830 /* CameraViewController.m in Sources */,
 				C6EA00A01AA6424F006DAB6B /* main.m in Sources */,
 				C6C47FD81AC89D7C000F91A5 /* CategoryViewController.m in Sources */,

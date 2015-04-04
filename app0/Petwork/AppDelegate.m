@@ -31,15 +31,17 @@
     // [Optional] Track statistics around application opens.
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     /*
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     testObject[@"foo"] = @"bar";
     [testObject saveInBackground];
     
-    PFObject *supermarket = [PFObject objectWithClassName:@"Supermarket"];
-    [supermarket setObject:@"apple" forKey:@"fruitItem1"];
-    [supermarket saveInBackground];
-     */
+    
+    PFObject *tagsTest = [PFObject objectWithClassName:@"TagsActivity"];
+    [tagsTest setObject:@"dog" forKey:@"tags"];
+    [tagsTest saveInBackground];
+    */
     
     [self.window makeKeyAndVisible];
     

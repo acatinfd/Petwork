@@ -11,6 +11,7 @@
 		C66C40891AA6E1FA008C3E52 /* ParseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66C40881AA6E1FA008C3E52 /* ParseLoginViewController.m */; };
 		C66C408B1AA6E650008C3E52 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C408A1AA6E650008C3E52 /* Social.framework */; };
 		C66C408D1AA6E65A008C3E52 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C408C1AA6E65A008C3E52 /* Accounts.framework */; };
+		C671A4241ACF9DD100906F52 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C671A4231ACF9DD100906F52 /* LikeButton.m */; };
 		C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69065FB1AA683EF00D45092 /* ParseTableViewController.m */; };
 		C69066041AA6C3C000D45092 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69066031AA6C3C000D45092 /* ParseUI.framework */; };
 		C69066071AA6C42700D45092 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69066061AA6C42700D45092 /* HomeViewController.m */; };
@@ -60,6 +61,8 @@
 		C66C40881AA6E1FA008C3E52 /* ParseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseLoginViewController.m; sourceTree = "<group>"; };
 		C66C408A1AA6E650008C3E52 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		C66C408C1AA6E65A008C3E52 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		C671A4221ACF9DD100906F52 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
+		C671A4231ACF9DD100906F52 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		C69065FA1AA683EF00D45092 /* ParseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseTableViewController.h; sourceTree = "<group>"; };
 		C69065FB1AA683EF00D45092 /* ParseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseTableViewController.m; sourceTree = "<group>"; };
 		C69066031AA6C3C000D45092 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -185,6 +188,8 @@
 				C6C47FD71AC89D7C000F91A5 /* CategoryViewController.m */,
 				C6B2EBE01AC23867008B044D /* FollowButton.h */,
 				C6B2EBE11AC23867008B044D /* FollowButton.m */,
+				C671A4221ACF9DD100906F52 /* LikeButton.h */,
+				C671A4231ACF9DD100906F52 /* LikeButton.m */,
 				C6EA00AD1AA6424F006DAB6B /* Images.xcassets */,
 				C6EA00AF1AA6424F006DAB6B /* LaunchScreen.xib */,
 				C6EA009D1AA6424F006DAB6B /* Supporting Files */,
@@ -351,6 +356,7 @@
 				C6434AA51AC24348001B93CF /* ProfileViewController.m in Sources */,
 				C69065FC1AA683EF00D45092 /* ParseTableViewController.m in Sources */,
 				C6B2EBE21AC23867008B044D /* FollowButton.m in Sources */,
+				C671A4241ACF9DD100906F52 /* LikeButton.m in Sources */,
 				C69066071AA6C42700D45092 /* HomeViewController.m in Sources */,
 				C66C40891AA6E1FA008C3E52 /* ParseLoginViewController.m in Sources */,
 				C6CF3C071AA6D23200300292 /* LoginViewController.m in Sources */,

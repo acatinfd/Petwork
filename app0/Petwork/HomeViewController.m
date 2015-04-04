@@ -12,6 +12,7 @@
 
 @interface HomeViewController ()
 @property (nonatomic, strong) NSMutableArray *followingArray;
+@property (nonatomic, strong) NSMutableArray *likePhotoArray;
 @end
 
 @implementation HomeViewController
@@ -59,17 +60,34 @@
 #pragma mark - PFQueryTableViewDataSource and Delegates
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
-    PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
-    [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-    [query whereKey:@"type" equalTo:@"follow"];
-    [query includeKey:@"toUser"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+    PFQuery *queryFollow = [PFQuery queryWithClassName:@"Activity"];
+    [queryFollow whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    [queryFollow whereKey:@"type" equalTo:@"follow"];
+    [queryFollow includeKey:@"toUser"];
+    [queryFollow findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if (!error) {
             self.followingArray = [NSMutableArray array];
             if (objects.count >0) {
                 for (PFObject *activity in objects) {
                     PFUser *user = activity[@"toUser"];
                     [self.followingArray addObject:user.objectId];
+                }
+            }
+            [self.tableView reloadData];
+        }
+    }];
+    
+    PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
+    [queryLike whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    [queryLike whereKey:@"type" equalTo:@"like"];
+    [queryLike includeKey:@"toPhoto"];
+    [queryLike findObjectsInBackgroundWithBlock:^(NSArray *likeObjects, NSError *error) {
+        if (!error) {
+            self.likePhotoArray = [NSMutableArray array];
+            if (likeObjects.count > 0) {
+                for (PFObject *activity in likeObjects) {
+                    PFObject *photo = activity[@"toPhoto"];
+                    [self.likePhotoArray addObject:photo.objectId];
                 }
             }
             [self.tableView reloadData];
@@ -151,20 +169,28 @@
     UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
     UILabel *commentNumberLabel = (UILabel *)[sectionFooterView viewWithTag:4];
     
-    PFObject *photo = [self.objects objectAtIndex:section]; //May delete
-    PFUser *user = [photo objectForKey:@"whoTook"]; //May delete
-    PFFile *profilePicture = [user objectForKey:@"profilePicture"];//May delete
-    NSString *title = photo[@"title"]; //May delete
+    PFObject *photo = [self.objects objectAtIndex:section];
+    PFUser *user = [photo objectForKey:@"whoTook"];
+    NSString *title = photo[@"title"];
     
     userNameLabel.text = user.username;
     commentLabel.text = title;
     
+    //Like button
+    LikeButton *likeButton = (LikeButton *)[sectionFooterView viewWithTag:7];
+    likeButton.delegate = self;
+    likeButton.sectionIndex = section;
+    
+    NSInteger indexOfMatchedObject = [self.likePhotoArray indexOfObject:photo.objectId];
+    if (indexOfMatchedObject == NSNotFound) {
+        likeButton.selected = NO;
+    }
+    else {
+        likeButton.selected = YES;
+    }
+
+    
     /*
-     //Like button
-     FollowButton *followButton = (FollowButton *)[sectionHeaderView viewWithTag:4];
-     followButton.delegate = self;
-     followButton.sectionIndex = section;
-     
      if (!self.followingArray || [user.objectId isEqualToString:[PFUser currentUser].objectId]) {
      followButton.hidden = YES;
      }
@@ -320,6 +346,57 @@
         
     }];
 }
+
+- (void) likeButton:(LikeButton *)button didTapWithSectionIndex:(NSInteger)index {
+    PFObject *photo = [self.objects objectAtIndex: index];
+    
+    if (!button.selected) {
+        [self likePhoto:photo];
+    }
+    else {
+        [self unlikePhoto:photo];
+    }
+    [self.tableView reloadData];
+}
+
+- (void) likePhoto: (PFObject *) photo {
+    [self.likePhotoArray addObject:photo.objectId];
+    PFObject *likeActivity = [PFObject objectWithClassName:@"PhotoActivity"];
+    likeActivity[@"fromUser"] = [PFUser currentUser];
+    likeActivity[@"toPhoto"] = photo;
+    likeActivity[@"type"] = @"like";
+    [likeActivity saveEventually];
+}
+
+- (void) unlikePhoto: (PFObject *) photo {
+    [self.likePhotoArray removeObject:photo.objectId];
+    PFQuery *query = [PFQuery queryWithClassName:@"PhotoActivity"];
+    [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    [query whereKey:@"toPhoto" equalTo:photo];
+    [query whereKey:@"type" equalTo:@"like"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *likeActivities, NSError *error) {
+        if (!error) {
+            for (PFObject *likeActivity in likeActivities) {
+                [likeActivity deleteEventually];
+            }
+        }
+    }];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (NSIndexPath *)_indexPathForPaginationCell {
     

@@ -166,8 +166,8 @@
     
     UILabel *userNameLabel = (UILabel *)[sectionFooterView viewWithTag:1];
     UILabel *commentLabel = (UILabel *)[sectionFooterView viewWithTag:2];
-    UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
-    UILabel *commentNumberLabel = (UILabel *)[sectionFooterView viewWithTag:4];
+    UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:4];
+    UILabel *commentNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
     
     PFObject *photo = [self.objects objectAtIndex:section];
     PFUser *user = [photo objectForKey:@"whoTook"];
@@ -189,21 +189,17 @@
         likeButton.selected = YES;
     }
 
+    PFQuery *likePhotoQuery = [PFQuery queryWithClassName:@"PhotoActivity"];
+    [likePhotoQuery whereKey:@"toPhoto" equalTo:photo];
+    [likePhotoQuery whereKey:@"type" equalTo:@"like"];
+    [likePhotoQuery findObjectsInBackgroundWithBlock:^(NSArray *likePhotoActivities, NSError *error) {
+        if (!error) {
+            likeNumberLabel.text = [[NSNumber numberWithInteger:likePhotoActivities.count] stringValue];
+        }
+    }];
+
     
     /*
-     if (!self.followingArray || [user.objectId isEqualToString:[PFUser currentUser].objectId]) {
-     followButton.hidden = YES;
-     }
-     else {
-     followButton.hidden = NO;
-     NSInteger indexOfMatchedObject = [self.followingArray indexOfObject:user.objectId];
-     if (indexOfMatchedObject == NSNotFound) {
-     followButton.selected = NO;
-     }
-     else {
-     followButton.selected = YES;
-     }
-     }
      
      PFQuery *followingQuery = [PFQuery queryWithClassName:@"Activity"];
      [followingQuery whereKey:@"fromUser" equalTo:user];

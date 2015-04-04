@@ -104,15 +104,15 @@
     profileImageView.layer.masksToBounds = YES;
     
     UILabel *userNameLabel = (UILabel *)[sectionHeaderView viewWithTag:2];
-    UILabel *titleLabel = (UILabel *)[sectionHeaderView viewWithTag:3];
+    //UILabel *titleLabel = (UILabel *)[sectionHeaderView viewWithTag:3];
     
     PFObject *photo = [self.objects objectAtIndex:section];
     PFUser *user = [photo objectForKey:@"whoTook"];
     PFFile *profilePicture = [user objectForKey:@"profilePicture"];
-    NSString *title = photo[@"title"];
+    //NSString *title = photo[@"title"];
     
     userNameLabel.text = user.username;
-    titleLabel.text = title;
+    //titleLabel.text = title;
     
     profileImageView.file = profilePicture;
     [profileImageView loadInBackground];

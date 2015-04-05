@@ -37,9 +37,8 @@
     testObject[@"foo"] = @"bar";
     [testObject saveInBackground];
     
-    
     PFObject *tagsTest = [PFObject objectWithClassName:@"TagsActivity"];
-    [tagsTest setObject:@"dog" forKey:@"tags"];
+    [tagsTest setObject:@"cat" forKey:@"tags"];
     [tagsTest saveInBackground];
     */
     

@@ -20,6 +20,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
        self.parseClassName = @"TagsActivity";
+        self.textKey = @"tags";
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 10;
@@ -65,11 +66,8 @@
 }
 
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-    if (indexPath.section == self.objects.count) {
-        UITableViewCell *cell = [self tableView:tableView cellForNextPageAtIndexPath:indexPath];
-        return cell;
-    }
     static NSString *CellIdentifier = @"CategoryCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
@@ -132,15 +130,15 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     return cell;
 }
+ - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (indexPath.section == self.objects.count && self.paginationEnabled) {
+ [self loadNextPage];
+ }
+ }
 
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == self.objects.count && self.paginationEnabled) {
-        [self loadNextPage];
-    }
-}
 */
+
 
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];

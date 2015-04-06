@@ -175,6 +175,9 @@
                                 <rect key="frame" x="157" y="228" width="287" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="157" y="328" width="287" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5m-bw-Q8L">
                                 <rect key="frame" x="157" y="280" width="287" height="30"/>
@@ -403,7 +406,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SzG-8E-uee">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SzG-8E-uee">
                                 <rect key="frame" x="0.0" y="127" width="320" height="320"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-aJ-kOY">
@@ -622,12 +625,44 @@
                                         </label>
                                         <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BM0-2B-h86" customClass="FollowButton">
                                             <rect key="frame" x="188" y="16" width="66" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="66" id="Luf-L5-Oqk"/>
+                                                <constraint firstAttribute="height" constant="18" id="lHU-W7-aQD"/>
+                                            </constraints>
                                             <state key="normal" title="Follow">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="selected" title="Unfollow"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Luf-L5-Oqk"/>
+                                                    <exclude reference="lHU-W7-aQD"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="Luf-L5-Oqk"/>
+                                                    <include reference="lHU-W7-aQD"/>
+                                                </mask>
+                                            </variation>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="BM0-2B-h86" secondAttribute="centerY" constant="-3.5" id="1aI-rg-soX"/>
+                                        <constraint firstAttribute="centerX" secondItem="BM0-2B-h86" secondAttribute="centerX" constant="-21" id="B0j-fB-6RP"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="1aI-rg-soX"/>
+                                            <exclude reference="B0j-fB-6RP"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="constraints">
+                                            <include reference="1aI-rg-soX"/>
+                                            <include reference="B0j-fB-6RP"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="320" id="hmw-4j-1BP">

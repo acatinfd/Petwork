@@ -67,12 +67,12 @@
 
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"CategoryCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     UILabel *tagLabel = (UILabel *)[cell viewWithTag:1];
-    tagLabel.text = object[@"tags"];
+    tagLabel.text = self.tagsArray[indexPath.section];
 
     return cell;
 }

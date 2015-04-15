@@ -416,9 +416,10 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qT-3Q-k50">
                                 <rect key="frame" x="78" y="455" width="164" height="38"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Share">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Share" backgroundImage="share_background">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="share:" destination="vW5-kr-YRc" eventType="touchUpInside" id="upt-8K-wqU"/>
@@ -441,7 +442,8 @@
                                 <rect key="frame" x="518" y="7" width="66" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Share">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="share:" destination="vW5-kr-YRc" eventType="touchUpInside" id="6Zg-Pj-fZJ"/>
@@ -513,6 +515,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fye-Xi-Rw1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20784313725490197" green="0.62352941176470589" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -728,6 +731,7 @@
         <image name="plus-simple-7" width="30" height="30"/>
         <image name="profile_button" width="29" height="29"/>
         <image name="search-7" width="30" height="30"/>
+        <image name="share_background" width="164" height="38"/>
         <image name="unfollow_background" width="66" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>

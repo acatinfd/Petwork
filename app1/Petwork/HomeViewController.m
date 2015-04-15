@@ -29,6 +29,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
+    //self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         // This table displays items in the Todo class
         self.parseClassName = @"Photo";

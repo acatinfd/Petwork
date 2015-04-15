@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>0F0CD015-30D5-4C76-86C0-C49CB90EEE81</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Petwork</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>59FBF40CFBADEDEA81E5116C6DCCA05D1FF792E0</key>
 		<string>https://github.com/acatinfd/petwork.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>app0/Petwork.xcodeproj</string>
+	<string>app0/Petwork.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>59FBF40CFBADEDEA81E5116C6DCCA05D1FF792E0</key>

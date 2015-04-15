@@ -387,6 +387,18 @@
     //TODO: there is bug here. After logout, user will not be able to login. 
 }
 
+/* to fix floating headers */
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGPoint p = scrollView.contentOffset;
+    
+    CGFloat height = 320.0f;
+    
+    if (p.y <= height && p.y >= 0) {
+        self.tableView.contentInset = UIEdgeInsetsMake(-p.y, 0, 0, 0);
+    } else if (p.y >= height) {
+        self.tableView.contentInset = UIEdgeInsetsMake(-height, 0, 0, 0);
+    }
+}
 
 - (NSIndexPath *)_indexPathForPaginationCell {
     

@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>59FBF40CFBADEDEA81E5116C6DCCA05D1FF792E0</key>
-		<string>https://github.com/acatinfd/petwork.git</string>
+		<string>https://github.com/acatinfd/Petwork.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>app1/Petwork.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/acatinfd/petwork.git</string>
+	<string>https://github.com/acatinfd/Petwork.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

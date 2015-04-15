@@ -11,19 +11,14 @@
             <rect key="frame" x="0.0" y="0.0" width="413" height="634"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LaunchImageR4" translatesAutoresizingMaskIntoConstraints="NO" id="qy0-YZ-JAa">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImageR4" translatesAutoresizingMaskIntoConstraints="NO" id="qy0-YZ-JAa">
                     <rect key="frame" x="0.0" y="0.0" width="413" height="634"/>
                     <color key="backgroundColor" red="0.17254901960784313" green="0.54509803921568623" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="573" id="0j5-lk-4TU"/>
-                        <constraint firstAttribute="width" secondItem="qy0-YZ-JAa" secondAttribute="height" multiplier="110:191" id="1sd-Pm-mxS"/>
-                        <constraint firstAttribute="width" constant="330" id="2ll-FQ-LeR"/>
-                        <constraint firstAttribute="height" constant="573" id="Sv4-ht-J0K"/>
-                        <constraint firstAttribute="width" secondItem="qy0-YZ-JAa" secondAttribute="height" multiplier="110:191" id="fZP-oA-dWH"/>
-                        <constraint firstAttribute="width" secondItem="qy0-YZ-JAa" secondAttribute="height" multiplier="110:191" id="gmQ-vH-5Zg"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="tpI-Kw-JxA"/>
-                        <constraint firstAttribute="width" secondItem="qy0-YZ-JAa" secondAttribute="height" multiplier="110:191" id="z88-ob-At4"/>
+                        <constraint firstAttribute="height" constant="634" id="0n3-0P-BBA"/>
+                        <constraint firstAttribute="width" constant="413" id="a1J-4F-5Ol"/>
+                        <constraint firstAttribute="width" secondItem="qy0-YZ-JAa" secondAttribute="height" multiplier="413:634" id="w6D-Tb-MoF"/>
                     </constraints>
                 </imageView>
             </subviews>

@@ -11,7 +11,7 @@
 #import "LikeButton.h"
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
-@interface HomeViewController : PFQueryTableViewController <FollowButtonDelegate, LikeButtonDelegate>
+@interface HomeViewController : PFQueryTableViewController <FollowButtonDelegate, LikeButtonDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @end
 

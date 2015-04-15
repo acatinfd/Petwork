@@ -7,6 +7,8 @@
 //
 
 #import "HomeViewController.h"
+#import "LoginViewController.h"
+#import "SignUpViewController.h"
 #import <ParseUI/ParseUI.h>
 #import <Parse/Parse.h>
 
@@ -48,7 +50,52 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    /*if (![PFUser currentUser] && ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        //UIViewController *LoginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginNav"];
+        //[self presentViewController:LoginViewController animated:YES completion:nil];
+        PFLogInViewController *login = [[PFLogInViewController alloc]init];
+        [self presentModalViewController:login animated:YES];
+    }*/
+    
+    /*
+    if (![PFUser currentUser] && ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // No user logged in
+        // Create the log in view controller
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+    
+        [self presentViewController:logInViewController animated:YES completion:nil];
+        // Create the sign up view controller
+        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        // Assign our sign up controller to be displayed from the login controller
+        [logInViewController setSignUpController:signUpViewController];
+        
+        // Present the log in view controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+    }*/
     [self loadObjects];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Check if user is logged in
+    if (![PFUser currentUser]) {
+        // Customize the Log In View Controller
+        LoginViewController *logInViewController = [[LoginViewController alloc] init];
+        logInViewController.delegate = self;
+        logInViewController.facebookPermissions = @[@"friends_about_me"];
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsSignUpButton | PFLogInFieldsDismissButton;
+        
+        // Customize the Sign Up View Controller
+        SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
+        signUpViewController.delegate = self;
+        signUpViewController.fields = PFSignUpFieldsDefault | PFSignUpFieldsAdditional;
+        logInViewController.signUpController = signUpViewController;
+        
+        // Present Log In View Controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -355,19 +402,6 @@
         }
     }];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,8 @@
     // Override point for customization after application launch.
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS
+    //self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     [Parse enableLocalDatastore];
     
     // Initialize Parse.
@@ -46,14 +49,19 @@
     
     
     [PFFacebookUtils initializeFacebook];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
-    if (![PFUser currentUser] && ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+    //self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+    /*if (![PFUser currentUser] && ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         [self presentLoginControllerAnimated:NO];
         
-    }
+    }*/
     return YES;
 }
 
+/*
 - (void)presentLoginControllerAnimated:(BOOL)animated {
     //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //UINavigationController *loginNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"loginNav"];
@@ -63,6 +71,7 @@
     [loginViewController setFields:PFLogInFieldsFacebook];
     [self.window.rootViewController presentViewController:loginViewController animated:animated completion:nil];
 }
+*/
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

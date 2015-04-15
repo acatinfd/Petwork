@@ -13,5 +13,6 @@
 
 @interface HomeViewController : PFQueryTableViewController <FollowButtonDelegate, LikeButtonDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
+- (IBAction)logoutButton:(id)sender;
 @end
 

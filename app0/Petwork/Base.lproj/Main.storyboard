@@ -338,8 +338,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ig0-p7-ZeV">
-                        <barButtonItem key="rightBarButtonItem" image="profile_button" id="8Bu-dj-hes">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Logout" id="8Bu-dj-hes">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="logoutButton:" destination="XS1-AT-uha" id="idu-2n-I2T"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>

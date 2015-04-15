@@ -23,7 +23,7 @@
     // Override point for customization after application launch.
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS
-    //self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [Parse enableLocalDatastore];
     
@@ -44,7 +44,7 @@
     [tagsTest setObject:@"cat" forKey:@"tags"];
     [tagsTest saveInBackground];
     */
-    
+
     [self.window makeKeyAndVisible];
     
     

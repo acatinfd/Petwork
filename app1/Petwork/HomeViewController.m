@@ -237,7 +237,7 @@
     if (section == self.objects.count) {
         return 0.0f;
     }
-    return 50.0f;
+    return 67.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

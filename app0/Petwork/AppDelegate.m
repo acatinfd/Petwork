@@ -23,7 +23,6 @@
     // Override point for customization after application launch.
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS
-    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [Parse enableLocalDatastore];
     
@@ -34,30 +33,14 @@
     // [Optional] Track statistics around application opens.
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    /*
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
-    
-    PFObject *tagsTest = [PFObject objectWithClassName:@"TagsActivity"];
-    [tagsTest setObject:@"cat" forKey:@"tags"];
-    [tagsTest saveInBackground];
-    */
 
     [self.window makeKeyAndVisible];
     
-    
     [PFFacebookUtils initializeFacebook];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    //self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
-    /*if (![PFUser currentUser] && ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+    if (![PFUser currentUser] && ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         [self presentLoginControllerAnimated:NO];
         
-    }*/
+    }
     return YES;
 }
 
@@ -72,6 +55,25 @@
     [self.window.rootViewController presentViewController:loginViewController animated:animated completion:nil];
 }
 */
+
+- (void)presentLoginControllerAnimated:(BOOL)animated {
+    //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //UINavigationController *loginNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"loginNav"];
+      //  [self.window.rootViewController presentViewController:loginNavigationController animated:animated completion:nil];
+    LoginViewController *logInViewController = [[LoginViewController alloc] init];
+    logInViewController.delegate = self;
+    logInViewController.facebookPermissions = @[@"friends_about_me"];
+    logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsTwitter | PFLogInFieldsFacebook |PFLogInFieldsSignUpButton | PFLogInFieldsDismissButton;
+    
+    // Customize the Sign Up View Controller
+    SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
+    signUpViewController.delegate = self;
+    signUpViewController.fields = PFSignUpFieldsDefault | PFSignUpFieldsAdditional;
+    logInViewController.signUpController = signUpViewController;
+    
+    // Present Log In View Controller
+    [self.window.rootViewController presentViewController:logInViewController animated:animated completion:nil];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

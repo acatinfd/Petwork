@@ -79,6 +79,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    /*
     // Check if user is logged in
     if (![PFUser currentUser]) {
         // Customize the Log In View Controller
@@ -96,6 +97,7 @@
         // Present Log In View Controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
+     */
 }
 
 - (void)didReceiveMemoryWarning
@@ -210,7 +212,7 @@
     
     UILabel *userNameLabel = (UILabel *)[sectionFooterView viewWithTag:1];
     UILabel *commentLabel = (UILabel *)[sectionFooterView viewWithTag:2];
-    UILabel *commentNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
+    //UILabel *commentNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
     UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:4];
 
     

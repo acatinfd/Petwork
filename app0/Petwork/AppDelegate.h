@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ParseLoginViewController.h"
+#import "LoginViewController.h"
+#import "SignUpViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, NSURLConnectionDataDelegate>
 

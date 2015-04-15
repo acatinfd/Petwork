@@ -36,7 +36,7 @@
     [self.logInView.facebookButton setImage:nil forState:UIControlStateHighlighted];
     [self.logInView.facebookButton setBackgroundImage:[UIImage imageNamed:@"FacebookDown.png"] forState:UIControlStateHighlighted];
     [self.logInView.facebookButton setBackgroundImage:[UIImage imageNamed:@"Facebook.png"] forState:UIControlStateNormal];
-    [self.logInView.facebookButton setTitle:@"" forState:UIControlStateNormal];
+    [self.logInView.facebookButton setTitle:@"Login with Facebook" forState:UIControlStateNormal];
     [self.logInView.facebookButton setTitle:@"" forState:UIControlStateHighlighted];
     
     [self.logInView.twitterButton setImage:nil forState:UIControlStateNormal];

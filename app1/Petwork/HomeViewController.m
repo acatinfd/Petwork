@@ -26,10 +26,10 @@
     return self;
 }
 
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    //self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         // This table displays items in the Todo class
         self.parseClassName = @"Photo";
@@ -39,7 +39,7 @@
     }
     return self;
 }
-
+ 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -358,18 +358,23 @@
 }
 
 
-/* to fix floating headers */
+// to fix floating headers
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGPoint p = scrollView.contentOffset;
+
+    CGFloat height = self.tableView.sectionHeaderHeight;
     
-    CGFloat height = 320.0f;
-    
-    if (p.y <= height && p.y >= 0) {
+   // UITableViewCell *cell = [self tableView:
+   // if(self.tableView indexPathForCell:self.tableView )
+    if (p.y <= height && p.y > 0) {
         self.tableView.contentInset = UIEdgeInsetsMake(-p.y, 0, 0, 0);
+        
     } else if (p.y >= height) {
         self.tableView.contentInset = UIEdgeInsetsMake(-height, 0, 0, 0);
     }
 }
+
+
 
 - (NSIndexPath *)_indexPathForPaginationCell {
     

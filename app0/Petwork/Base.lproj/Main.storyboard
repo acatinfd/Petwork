@@ -522,15 +522,20 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#follower" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXa-IJ-Cuc">
                                     <rect key="frame" x="8" y="94" width="42" height="21"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="42" id="ozt-MM-Zdy"/>
+                                        <constraint firstAttribute="width" constant="53" id="ozt-MM-Zdy"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="vHV-3f-D1i"/>
                                         <constraint firstAttribute="height" constant="21" id="vLa-ks-cph"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="vHV-3f-D1i"/>
+                                        </mask>
+                                    </variation>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDY-DV-5WT">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDY-DV-5WT">
                                     <rect key="frame" x="8" y="123" width="50" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="53" id="QNy-JE-aJ4"/>
@@ -542,31 +547,36 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBb-gq-6hZ">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBb-gq-6hZ">
                                     <rect key="frame" x="80" y="94" width="42" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="jDX-5E-rSL"/>
-                                        <constraint firstAttribute="width" constant="42" id="nrQ-go-9FQ"/>
+                                        <constraint firstAttribute="width" constant="53" id="nrQ-go-9FQ"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59e-dN-5S7">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59e-dN-5S7">
                                     <rect key="frame" x="80" y="123" width="50" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="57V-7W-Ewf"/>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="IGT-lq-qbg"/>
-                                        <constraint firstAttribute="width" constant="50" id="kog-6A-F5L"/>
+                                        <constraint firstAttribute="width" constant="53" id="kog-6A-F5L"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="IGT-lq-qbg"/>
+                                        </mask>
+                                    </variation>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiE-xQ-bbl">
                                     <rect key="frame" x="159" y="94" width="42" height="21"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="42" id="Cum-Ne-stT"/>
+                                        <constraint firstAttribute="width" constant="53" id="Cum-Ne-stT"/>
                                         <constraint firstAttribute="height" constant="21" id="ebf-q6-uz6"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -578,11 +588,16 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="QF5-hh-Prb"/>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="VwR-9N-GAh"/>
-                                        <constraint firstAttribute="width" constant="50" id="si1-Xj-WIm"/>
+                                        <constraint firstAttribute="width" constant="53" id="si1-Xj-WIm"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="VwR-9N-GAh"/>
+                                        </mask>
+                                    </variation>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Pet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmW-by-NVH">
                                     <rect key="frame" x="532" y="22" width="60" height="21"/>
@@ -597,12 +612,20 @@
                                         <constraint firstAttribute="width" constant="80" id="tw2-gG-S76"/>
                                     </constraints>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lTR-tS-NNU">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lTR-tS-NNU" customClass="PFImageView">
                                     <rect key="frame" x="8" y="22" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="6mi-cu-iXn"/>
                                         <constraint firstAttribute="width" constant="50" id="Nie-do-9UG"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Rts-0r-0kW"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="gal-4k-pL1"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Rts-0r-0kW"/>
+                                            <exclude reference="gal-4k-pL1"/>
+                                        </mask>
+                                    </variation>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -616,16 +639,19 @@
                                 <constraint firstItem="dli-Xe-1zk" firstAttribute="leading" secondItem="QiE-xQ-bbl" secondAttribute="leading" id="AMc-c4-9kS"/>
                                 <constraint firstItem="JmW-by-NVH" firstAttribute="centerY" secondItem="0FK-I2-bMg" secondAttribute="centerY" id="BOu-MS-K0v"/>
                                 <constraint firstItem="YDY-DV-5WT" firstAttribute="baseline" secondItem="dli-Xe-1zk" secondAttribute="baseline" id="BQz-1c-LSH"/>
+                                <constraint firstItem="YDY-DV-5WT" firstAttribute="leading" secondItem="OXa-IJ-Cuc" secondAttribute="leading" id="BmQ-7B-Z1S"/>
                                 <constraint firstItem="dli-Xe-1zk" firstAttribute="trailing" secondItem="QiE-xQ-bbl" secondAttribute="trailing" id="EQv-Si-SVE"/>
                                 <constraint firstItem="lTR-tS-NNU" firstAttribute="top" secondItem="WvV-MP-bmz" secondAttribute="topMargin" id="ETh-Uj-K20"/>
                                 <constraint firstItem="YDY-DV-5WT" firstAttribute="leading" secondItem="OXa-IJ-Cuc" secondAttribute="leading" id="Egq-Op-MpU"/>
                                 <constraint firstItem="QiE-xQ-bbl" firstAttribute="leading" secondItem="dli-Xe-1zk" secondAttribute="leading" id="Ezc-Nk-ehV"/>
                                 <constraint firstItem="YDY-DV-5WT" firstAttribute="trailing" secondItem="OXa-IJ-Cuc" secondAttribute="trailing" constant="8" id="Gdq-nn-Wxd"/>
                                 <constraint firstItem="59e-dN-5S7" firstAttribute="leading" secondItem="aBb-gq-6hZ" secondAttribute="leading" id="JDl-Iw-jce"/>
+                                <constraint firstItem="aBb-gq-6hZ" firstAttribute="centerY" secondItem="OXa-IJ-Cuc" secondAttribute="centerY" id="NjM-Qy-xQo"/>
                                 <constraint firstAttribute="bottom" secondItem="YDY-DV-5WT" secondAttribute="bottom" constant="7" id="Nnx-ln-uKC"/>
                                 <constraint firstItem="aBb-gq-6hZ" firstAttribute="leading" secondItem="0FK-I2-bMg" secondAttribute="leading" id="O5u-sn-vZS"/>
                                 <constraint firstItem="dli-Xe-1zk" firstAttribute="trailing" secondItem="QiE-xQ-bbl" secondAttribute="trailing" constant="8" id="Oh1-hH-S0o"/>
                                 <constraint firstItem="JMB-BG-Rat" firstAttribute="top" secondItem="JmW-by-NVH" secondAttribute="bottom" constant="7" id="Q3O-z3-eUL"/>
+                                <constraint firstItem="YDY-DV-5WT" firstAttribute="centerX" secondItem="OXa-IJ-Cuc" secondAttribute="centerX" constant="4" id="QMh-0d-i40"/>
                                 <constraint firstItem="OXa-IJ-Cuc" firstAttribute="top" secondItem="lTR-tS-NNU" secondAttribute="bottom" constant="5" id="UMM-7h-Ema"/>
                                 <constraint firstItem="YDY-DV-5WT" firstAttribute="top" secondItem="OXa-IJ-Cuc" secondAttribute="bottom" constant="8" id="VA5-M2-5ug"/>
                                 <constraint firstItem="59e-dN-5S7" firstAttribute="centerY" secondItem="dli-Xe-1zk" secondAttribute="centerY" id="ZAO-M1-pVv"/>
@@ -635,7 +661,7 @@
                                 <constraint firstItem="0FK-I2-bMg" firstAttribute="baseline" secondItem="JmW-by-NVH" secondAttribute="baseline" id="dg6-GY-ymO"/>
                                 <constraint firstItem="59e-dN-5S7" firstAttribute="top" secondItem="aBb-gq-6hZ" secondAttribute="bottom" constant="8" id="g4U-R3-vgd"/>
                                 <constraint firstItem="0FK-I2-bMg" firstAttribute="firstBaseline" secondItem="JmW-by-NVH" secondAttribute="baseline" id="gKH-SJ-uFt"/>
-                                <constraint firstItem="dli-Xe-1zk" firstAttribute="leading" secondItem="59e-dN-5S7" secondAttribute="trailing" constant="29" id="gPI-yi-8tR"/>
+                                <constraint firstItem="dli-Xe-1zk" firstAttribute="leading" secondItem="59e-dN-5S7" secondAttribute="trailing" constant="30" id="gPI-yi-8tR"/>
                                 <constraint firstItem="lTR-tS-NNU" firstAttribute="leading" secondItem="OXa-IJ-Cuc" secondAttribute="leading" id="h6n-qg-psi"/>
                                 <constraint firstItem="dli-Xe-1zk" firstAttribute="baseline" secondItem="YDY-DV-5WT" secondAttribute="baseline" id="iAC-X9-as0"/>
                                 <constraint firstItem="59e-dN-5S7" firstAttribute="bottom" secondItem="WvV-MP-bmz" secondAttribute="bottomMargin" constant="1" id="iUH-yv-HsW"/>
@@ -647,6 +673,7 @@
                                 <constraint firstItem="aBb-gq-6hZ" firstAttribute="top" secondItem="0FK-I2-bMg" secondAttribute="bottom" constant="36" id="rnf-Bl-Z2C"/>
                                 <constraint firstItem="JMB-BG-Rat" firstAttribute="centerX" secondItem="JmW-by-NVH" secondAttribute="centerX" constant="-10" id="ucr-Mv-CMW"/>
                                 <constraint firstItem="aBb-gq-6hZ" firstAttribute="baseline" secondItem="OXa-IJ-Cuc" secondAttribute="baseline" id="vb3-Zr-c2j"/>
+                                <constraint firstItem="OXa-IJ-Cuc" firstAttribute="centerY" secondItem="QiE-xQ-bbl" secondAttribute="centerY" id="vjs-fw-qI8"/>
                                 <constraint firstItem="aBb-gq-6hZ" firstAttribute="leading" secondItem="OXa-IJ-Cuc" secondAttribute="trailing" constant="30" id="wBF-Xk-3Xk"/>
                                 <constraint firstItem="QiE-xQ-bbl" firstAttribute="firstBaseline" secondItem="aBb-gq-6hZ" secondAttribute="firstBaseline" id="wmN-uj-awO"/>
                                 <constraint firstAttribute="trailing" secondItem="JmW-by-NVH" secondAttribute="trailing" constant="8" id="zwl-E7-J4q"/>
@@ -655,14 +682,22 @@
                                 <mask key="constraints">
                                     <exclude reference="BQz-1c-LSH"/>
                                     <exclude reference="Egq-Op-MpU"/>
+                                    <exclude reference="Gdq-nn-Wxd"/>
                                     <exclude reference="Nnx-ln-uKC"/>
+                                    <exclude reference="QMh-0d-i40"/>
                                     <exclude reference="bc4-UY-p9K"/>
                                     <exclude reference="0V7-eh-a1f"/>
+                                    <exclude reference="O5u-sn-vZS"/>
+                                    <exclude reference="j9g-34-NUo"/>
+                                    <exclude reference="pBz-e1-ZyN"/>
                                     <exclude reference="rnf-Bl-Z2C"/>
+                                    <exclude reference="vb3-Zr-c2j"/>
+                                    <exclude reference="iUH-yv-HsW"/>
                                     <exclude reference="Ezc-Nk-ehV"/>
                                     <exclude reference="d4J-T9-zmD"/>
                                     <exclude reference="wmN-uj-awO"/>
                                     <exclude reference="EQv-Si-SVE"/>
+                                    <exclude reference="Oh1-hH-S0o"/>
                                     <exclude reference="bxX-Yg-5cG"/>
                                 </mask>
                             </variation>
@@ -851,6 +886,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="followerNumberLabel" destination="OXa-IJ-Cuc" id="BI8-mL-B6D"/>
+                        <outlet property="followingNumberLabel" destination="aBb-gq-6hZ" id="NhT-t7-Kej"/>
+                        <outlet property="profileImageView" destination="lTR-tS-NNU" id="PZJ-EE-bBL"/>
+                        <outlet property="userNameLabel" destination="0FK-I2-bMg" id="mJi-0N-FWa"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKO-56-l9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

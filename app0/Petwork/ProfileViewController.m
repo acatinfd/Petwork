@@ -37,7 +37,7 @@
 
 - (void)updateUserStatus {
     PFUser *user = [PFUser currentUser];
-    self.profileImageView.file = user[@"profilePicture"];
+    self.profileImageView.file = user[@"profilePicture"];;
     [self.profileImageView loadInBackground];
     self.userNameLabel.text = user.username;
     

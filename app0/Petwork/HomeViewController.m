@@ -7,10 +7,11 @@
 //
 
 #import "HomeViewController.h"
+#import "AppDelegate.h"
 #import <ParseUI/ParseUI.h>
 #import <Parse/Parse.h>
-#import "LoginViewController.h"
-#import "SignUpViewController.h"
+//#import "LoginViewController.h"
+//#import "SignUpViewController.h"
 
 @interface HomeViewController ()
 @property (nonatomic, strong) NSMutableArray *followingArray;
@@ -370,7 +371,10 @@
     [FBSession setActiveSession:nil];
     [PFUser logOut];
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate presentLoginControllerAnimated:YES];
     //TODO: to present another view
+    /*
     LoginViewController *logInViewController = [[LoginViewController alloc] init];
     logInViewController.delegate = self;
     //logInViewController.facebookPermissions = @[@"friends_about_me"];
@@ -385,9 +389,13 @@
     [self presentViewController:logInViewController animated:YES completion:nil];
     
     //TODO: there is bug here. After logout, user will not be able to login. 
+     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+     [appDelegate presentLoginControllerAnimated:YES];
+     */
 }
 
-/* to fix floating headers */
+/*
+// to fix floating headers
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGPoint p = scrollView.contentOffset;
     
@@ -399,6 +407,7 @@
         self.tableView.contentInset = UIEdgeInsetsMake(-height, 0, 0, 0);
     }
 }
+*/
 
 - (NSIndexPath *)_indexPathForPaginationCell {
     

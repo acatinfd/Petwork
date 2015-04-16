@@ -44,7 +44,6 @@
     return YES;
 }
 
-/*
 - (void)presentLoginControllerAnimated:(BOOL)animated {
     //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //UINavigationController *loginNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"loginNav"];
@@ -54,8 +53,9 @@
     [loginViewController setFields:PFLogInFieldsFacebook];
     [self.window.rootViewController presentViewController:loginViewController animated:animated completion:nil];
 }
-*/
 
+
+/*
 - (void)presentLoginControllerAnimated:(BOOL)animated {
     //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //UINavigationController *loginNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"loginNav"];
@@ -78,6 +78,7 @@
     // Present Log In View Controller
     [self.window.rootViewController presentViewController:logInViewController animated:animated completion:nil];
 }
+*/
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

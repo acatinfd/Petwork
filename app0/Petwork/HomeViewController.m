@@ -140,7 +140,7 @@
     [profileImageView loadInBackground];
     
     //follow button
-    FollowButton *followButton = (FollowButton *)[sectionHeaderView viewWithTag:4];
+    FollowButton *followButton = (FollowButton *)[sectionHeaderView viewWithTag:3];
     followButton.delegate = self;
     followButton.sectionIndex = section;
     
@@ -171,7 +171,7 @@
     UILabel *userNameLabel = (UILabel *)[sectionFooterView viewWithTag:1];
     UILabel *commentLabel = (UILabel *)[sectionFooterView viewWithTag:2];
     //UILabel *commentNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
-    UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:4];
+    UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
 
     
     PFObject *photo = [self.objects objectAtIndex:section];
@@ -182,7 +182,7 @@
     commentLabel.text = title;
     
     //Like button
-    LikeButton *likeButton = (LikeButton *)[sectionFooterView viewWithTag:7];
+    LikeButton *likeButton = (LikeButton *)[sectionFooterView viewWithTag:4];
     likeButton.delegate = self;
     likeButton.sectionIndex = section;
     

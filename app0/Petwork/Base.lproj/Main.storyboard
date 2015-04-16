@@ -166,7 +166,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rfn-OL-8gw" id="mzM-qp-SfY">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Load More" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V2-ef-FXe">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Load More" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V2-ef-FXe">
                                             <rect key="frame" x="111" y="14" width="98" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="98" id="KoF-dZ-65I"/>
@@ -200,16 +200,15 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQo-ZJ-Sey">
-                                            <rect key="frame" x="546" y="9" width="46" height="30"/>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQo-ZJ-Sey" customClass="FollowButton">
+                                            <rect key="frame" x="546" y="13" width="46" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="16s-jn-zUN"/>
+                                                <constraint firstAttribute="height" constant="22" id="16s-jn-zUN"/>
                                                 <constraint firstAttribute="width" constant="46" id="7Z8-Lv-0Xs"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                                            <state key="normal" title="Follow">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
+                                            <state key="normal" title="Follow" backgroundImage="follow_background"/>
+                                            <state key="selected" title="Unfollow" backgroundImage="follow_background"/>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -268,8 +267,11 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eyS-Di-YPK" id="Oya-td-Xwn">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Caption" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQZ-zo-sLN">
-                                            <rect key="frame" x="69" y="0.0" width="531" height="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Caption" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQZ-zo-sLN">
+                                            <rect key="frame" x="69" y="0.0" width="531" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="tHu-rl-Qtf"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -277,17 +279,23 @@
                                                 <rect key="frame" x="25" y="8" width="42" height="21"/>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAG-gp-Axr">
-                                            <rect key="frame" x="8" y="0.0" width="53" height="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAG-gp-Axr">
+                                            <rect key="frame" x="8" y="0.0" width="60" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="53" id="adY-Bt-fuP"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="cTF-lO-iaz"/>
                                                 <constraint firstAttribute="height" constant="22" id="p2w-eI-XpU"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="adY-Bt-fuP"/>
+                                                </mask>
+                                            </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiG-ZZ-tac">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiG-ZZ-tac">
                                             <rect key="frame" x="510" y="23" width="40" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="42" id="YSW-qG-XWW"/>
@@ -297,16 +305,16 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LI8-xj-puu">
-                                            <rect key="frame" x="546" y="19" width="30" height="30"/>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LI8-xj-puu" customClass="LikeButton">
+                                            <rect key="frame" x="558" y="23" width="22" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="evn-se-9YX"/>
-                                                <constraint firstAttribute="height" constant="30" id="ygE-6N-1b5"/>
+                                                <constraint firstAttribute="width" constant="22" id="evn-se-9YX"/>
+                                                <constraint firstAttribute="height" constant="22" id="ygE-6N-1b5"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                                            <state key="normal" title="like">
+                                            <state key="normal" title="like" image="heart-7">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <state key="selected" title="Unlike" image="redheart"/>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -315,15 +323,19 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="gQZ-zo-sLN" secondAttribute="trailing" id="A2t-RQ-OA2"/>
                                         <constraint firstItem="LI8-xj-puu" firstAttribute="trailing" secondItem="Oya-td-Xwn" secondAttribute="trailingMargin" id="Gwo-Pp-dB7"/>
                                         <constraint firstItem="LI8-xj-puu" firstAttribute="leading" secondItem="fiG-ZZ-tac" secondAttribute="trailing" constant="5" id="MXh-Uf-aux"/>
+                                        <constraint firstItem="LI8-xj-puu" firstAttribute="top" secondItem="gQZ-zo-sLN" secondAttribute="bottom" constant="1" id="dJu-UM-iJz"/>
                                         <constraint firstItem="fiG-ZZ-tac" firstAttribute="centerY" secondItem="LI8-xj-puu" secondAttribute="centerY" constant="-0.5" id="dzO-Ed-pgF"/>
+                                        <constraint firstItem="LI8-xj-puu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gQZ-zo-sLN" secondAttribute="bottom" constant="-3" id="gKT-hb-eBL"/>
                                         <constraint firstItem="PAG-gp-Axr" firstAttribute="top" secondItem="Oya-td-Xwn" secondAttribute="topMargin" id="jZv-Ok-iBe"/>
                                         <constraint firstItem="gQZ-zo-sLN" firstAttribute="leading" secondItem="PAG-gp-Axr" secondAttribute="trailing" constant="8" id="oqd-rB-bNE"/>
                                         <constraint firstItem="PAG-gp-Axr" firstAttribute="centerY" secondItem="gQZ-zo-sLN" secondAttribute="centerY" id="qIs-bq-YYH"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="LI8-xj-puu" secondAttribute="bottom" constant="-8" id="tch-a5-tAG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="LI8-xj-puu" secondAttribute="bottom" constant="2" id="tch-a5-tAG"/>
                                         <constraint firstItem="LI8-xj-puu" firstAttribute="top" secondItem="gQZ-zo-sLN" secondAttribute="bottom" constant="-3" id="vea-lF-Qmw"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="gKT-hb-eBL"/>
+                                            <exclude reference="tch-a5-tAG"/>
                                             <exclude reference="vea-lF-Qmw"/>
                                         </mask>
                                     </variation>
@@ -709,7 +721,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ro5-Oc-sqP" id="3Tc-RL-1Cj">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Load More" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIJ-mm-d2h">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Load More" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIJ-mm-d2h">
                                             <rect key="frame" x="111" y="14" width="98" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="98" id="jBN-4y-BPy"/>
@@ -769,9 +781,9 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="4uk-hg-P3m"/>
                                             <exclude reference="OWX-Qf-b3o"/>
                                             <exclude reference="bGY-4A-vS2"/>
-                                            <exclude reference="4uk-hg-P3m"/>
                                             <exclude reference="pmd-NF-Y9R"/>
                                         </mask>
                                     </variation>
@@ -924,8 +936,11 @@
     </scenes>
     <resources>
         <image name="animal-element-7" width="30" height="30"/>
+        <image name="follow_background" width="66" height="18"/>
+        <image name="heart-7" width="30" height="30"/>
         <image name="plus-simple-7" width="30" height="30"/>
         <image name="profile_button" width="29" height="29"/>
+        <image name="redheart" width="1000" height="914"/>
     </resources>
     <color key="tintColor" red="0.20784313730000001" green="0.62352941179999999" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

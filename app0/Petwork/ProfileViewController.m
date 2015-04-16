@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followerNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *likeNumberLabel;
 @end
 
 @implementation ProfileViewController
@@ -56,6 +57,15 @@
     [followerQuery findObjectsInBackgroundWithBlock:^(NSArray *followerActivities, NSError *error) {
         if (!error) {
             self.followerNumberLabel.text = [[NSNumber numberWithInteger:followerActivities.count] stringValue];
+        }
+    }];
+    
+    PFQuery *likesQuery = [PFQuery queryWithClassName:@"PhotoActivity"];
+    [likesQuery whereKey:@"toUser" equalTo:user];
+    [likesQuery whereKey:@"type" equalTo:@"like"];
+    [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likeActivities, NSError *error) {
+        if (!error) {
+            self.likeNumberLabel.text = [[NSNumber numberWithInteger:likeActivities.count] stringValue];
         }
     }];
 }

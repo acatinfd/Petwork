@@ -342,9 +342,10 @@
 
 - (void) likePhoto: (PFObject *) photo {
     [self.likePhotoArray addObject:photo.objectId];
-    PFObject *likeActivity = [PFObject objectWithClassName:@"PhotoActivity"];
+    PFObject *likeActivity = [PFObject objectWithClassName:@"PhotoActivity"]; //which is actually a table for like activity
     likeActivity[@"fromUser"] = [PFUser currentUser];
     likeActivity[@"toPhoto"] = photo;
+    likeActivity[@"toUser"] = photo[@"whoTook"];
     likeActivity[@"type"] = @"like";
     [likeActivity saveEventually];
 }

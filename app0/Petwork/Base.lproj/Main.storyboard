@@ -927,6 +927,7 @@
                     <connections>
                         <outlet property="followerNumberLabel" destination="OXa-IJ-Cuc" id="BI8-mL-B6D"/>
                         <outlet property="followingNumberLabel" destination="aBb-gq-6hZ" id="NhT-t7-Kej"/>
+                        <outlet property="likeNumberLabel" destination="QiE-xQ-bbl" id="3fo-i4-nyz"/>
                         <outlet property="profileImageView" destination="lTR-tS-NNU" id="PZJ-EE-bBL"/>
                         <outlet property="userNameLabel" destination="0FK-I2-bMg" id="mJi-0N-FWa"/>
                     </connections>

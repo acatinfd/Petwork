@@ -47,6 +47,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_logo"]];
+    [self.tableView setSeparatorColor:[UIColor clearColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

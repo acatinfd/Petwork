@@ -17,10 +17,19 @@
     // Drawing code
 }
 */
+/*
 - (id) initWithCoder:(NSCoder *)aDecoder {
     if (self == [super initWithCoder:aDecoder]){
         [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     }
+    return self;
+}
+*/
+
+- (id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self)
+        [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     return self;
 }
 

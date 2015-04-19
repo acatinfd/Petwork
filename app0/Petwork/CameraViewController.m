@@ -35,7 +35,6 @@
 
 
 - (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     _imagePicker = [[UIImagePickerController alloc] init];
     self.imagePicker.delegate = self;
     
@@ -45,16 +44,17 @@
         NSString *camera = @"Take photo";
         NSString *library = @"Choose from library";
         NSString *cancelTitle = @"Cancel";
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Pick a color:"
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:actionSheetTitle
                                                              delegate:self
                                                     cancelButtonTitle:cancelTitle
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:camera, library, nil];
-    
+        
         [actionSheet showInView:self.view];
     }else{
         [self pickImageSource:1]; //from library
     }
+    [super viewWillAppear:animated];
 }
 
 -(void) pickImageSource:(NSInteger ) source {

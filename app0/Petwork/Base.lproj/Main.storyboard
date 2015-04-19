@@ -462,7 +462,14 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="hdq-EL-9KO"/>
+                    <navigationItem key="navigationItem" id="hdq-EL-9KO">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="j75-Js-8VK">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButton:" destination="vW5-kr-YRc" id="6gK-v8-Q6a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="chosenImageView" destination="SzG-8E-uee" id="y0x-MI-V6z"/>

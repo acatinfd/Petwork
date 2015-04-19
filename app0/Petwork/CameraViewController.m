@@ -140,6 +140,10 @@
 }
 
 
+- (IBAction)cancelButton:(id)sender {
+    [self clear];
+    [self.tabBarController setSelectedIndex:0];
+}
 
 
 

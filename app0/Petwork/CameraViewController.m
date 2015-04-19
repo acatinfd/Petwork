@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *chosenImageView;
 @property (nonatomic, assign) BOOL imagePickerIsDisplayed;
+@property (nonatomic, assign) BOOL imageSource; //true: camera; false: library
+
 @end
 
 @implementation CameraViewController
@@ -38,12 +40,31 @@
     self.imagePicker.delegate = self;
     
     self.imagePicker.allowsEditing = YES;
+    if(!self.imagePickerIsDisplayed && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        NSString *actionSheetTitle = @"Pick a photo source"; //Action Sheet Title
+        NSString *camera = @"Take photo";
+        NSString *library = @"Choose from library";
+        NSString *cancelTitle = @"Cancel";
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Pick a color:"
+                                                             delegate:self
+                                                    cancelButtonTitle:cancelTitle
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:camera, library, nil];
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [actionSheet showInView:self.view];
+    }else{
+        [self pickImageSource:1]; //from library
     }
-    else {
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+}
+
+-(void) pickImageSource:(NSInteger ) source {
+    switch (source) {
+        case 0:
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            break;
+            
+        default:
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     
     self.imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeImage, nil];
@@ -51,8 +72,17 @@
         [self presentViewController:self.imagePicker animated:NO completion:nil];
         self.imagePickerIsDisplayed = YES;
     }
+}
 
-     
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 2) {
+        //Cancel taking photo
+        [self viewWillDisappear:YES];
+        [self.tabBarController setSelectedIndex:0];
+        self.imagePickerIsDisplayed = NO;
+    }else {
+        [self pickImageSource:buttonIndex];
+    }
 }
 
 - (void) viewWillDisappear:(BOOL)animated {

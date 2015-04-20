@@ -13,6 +13,8 @@
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet PFImageView *profileImageView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *petProfileImageView;
+
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followerNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingNumberLabel;
@@ -38,9 +40,15 @@
 
 - (void)updateUserStatus {
     PFUser *user = [PFUser currentUser];
-    self.profileImageView.file = user[@"profilePicture"];;
+    //self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2;
+    self.profileImageView.layer.masksToBounds = YES;
+    self.profileImageView.file = user[@"profilePicture"];
     [self.profileImageView loadInBackground];
+    
     self.userNameLabel.text = user.username;
+    
+    //self.petProfileImageView.layer.cornerRadius = self.petProfileImageView.frame.size.width/2;
+    self.petProfileImageView.layer.masksToBounds = YES;
     
     PFQuery *followingQuery = [PFQuery queryWithClassName:@"Activity"];
     [followingQuery whereKey:@"fromUser" equalTo:user];
@@ -126,6 +134,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     [appDelegate presentLoginControllerAnimated:YES];
 }
+
 
 /*
 #pragma mark - Navigation

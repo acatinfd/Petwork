@@ -9,9 +9,10 @@
 #import <ParseUI/ParseUI.h>
 #import "FollowButton.h"
 #import "LikeButton.h"
+#import "DeletePhotoButton.h"
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
-@interface HomeViewController : PFQueryTableViewController <FollowButtonDelegate, LikeButtonDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface HomeViewController : PFQueryTableViewController <FollowButtonDelegate, LikeButtonDelegate, DeletePhotoButtonDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 - (IBAction)logoutButton:(id)sender;
 @end

@@ -16,6 +16,7 @@
 @interface HomeViewController ()
 @property (nonatomic, strong) NSMutableArray *followingArray;
 @property (nonatomic, strong) NSMutableArray *likePhotoArray;
+@property (nonatomic, strong) NSMutableArray *deletePhotoArray;
 @end
 
 @implementation HomeViewController
@@ -203,6 +204,18 @@
             likeNumberLabel.text = [[NSNumber numberWithInteger:likePhotoActivities.count] stringValue];
         }
     }];
+    
+    DeletePhotoButton *deleteButton = (DeletePhotoButton *)[sectionFooterView viewWithTag:5];
+    deleteButton.delegate = self;
+    deleteButton.sectionIndex = section;
+    
+    if ([user.objectId isEqualToString:[PFUser currentUser].objectId]) {
+        deleteButton.hidden = NO;
+    }
+    else {
+        deleteButton.hidden = YES;
+    }
+
 
     return sectionFooterView;
 }
@@ -364,6 +377,58 @@
         }
     }];
 }
+
+- (void) deletePhotoButton:(DeletePhotoButton *)button didTapWithSectionIndex:(NSInteger)index {
+    NSLog(@"didTapWithSectionIndex");
+    PFObject *photo = [self.objects objectAtIndex: index];
+    [self.deletePhotoArray addObject:photo.objectId];
+    
+    NSString *actionSheetTitle = @"Confirm to delete your photo permanently?"; //Action Sheet Title
+    NSString *deletePhoto = @"Delete";
+    NSString *cancelTitle = @"Cancel";
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:actionSheetTitle
+                                                             delegate:self
+                                                    cancelButtonTitle:cancelTitle
+                                               destructiveButtonTitle:deletePhoto
+                                                    otherButtonTitles:nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 0) {
+        //Delete
+        PFObject *photo = [self.deletePhotoArray lastObject];
+        PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+        [query whereKey:@"objectId" equalTo:photo.objectId];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *deletePhotos, NSError *error) {
+            if (!error) {
+                for (PFObject *deletePhoto in deletePhotos) {
+                    [deletePhoto deleteEventually];
+                }
+            }
+        }];
+        
+        PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
+        [queryLike whereKey:@"toPhoto" equalTo:photo];
+        [queryLike whereKey:@"type" equalTo:@"like"];
+        [queryLike findObjectsInBackgroundWithBlock:^(NSArray *deletePhotoLikes, NSError *error) {
+            if (!error) {
+                for (PFObject *deleteLikes in deletePhotoLikes) {
+                    [deleteLikes deleteEventually];
+                }
+            }
+        }];
+        
+        [self.likePhotoArray removeObject:photo.objectId];
+        [self.deletePhotoArray removeLastObject]; //TODO: delete the related like activitiy ?
+        [self.tableView reloadData];
+    }else {
+        //Cancel detele
+        [self.deletePhotoArray removeLastObject];
+    }
+}
+
 
 - (IBAction)logoutButton:(id)sender {
     [[PFFacebookUtils session] closeAndClearTokenInformation];

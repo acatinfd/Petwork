@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -187,7 +187,7 @@
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionHeaderCell" rowHeight="50" id="tK3-Ri-d7q">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tK3-Ri-d7q" id="6ou-0c-ptc">
+                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tK3-Ri-d7q" id="6ou-0c-ptc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-C4-Cbo" customClass="PFImageView">
@@ -213,6 +213,7 @@
                                             <state key="selected" title="Unfollow" backgroundImage="follow_background"/>
                                         </button>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="0.95000000000000007" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="8mG-C4-Cbo" firstAttribute="bottom" secondItem="bQo-ZJ-Sey" secondAttribute="bottom" id="BRk-bw-NvA"/>
                                         <constraint firstAttribute="centerY" secondItem="Sou-Wn-SgP" secondAttribute="centerY" constant="-0.5" id="DXC-bE-G4w"/>
@@ -318,12 +319,12 @@
                                             </state>
                                             <state key="selected" title="Unlike" image="redheart"/>
                                         </button>
-                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZT4-JX-rms" customClass="DeletePhotoButton">
-                                            <rect key="frame" x="8" y="19" width="45" height="22"/>
+                                        <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZT4-JX-rms" customClass="DeletePhotoButton">
+                                            <rect key="frame" x="15" y="19" width="32" height="26"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="45" id="Y2H-hz-GQ0"/>
                                             </constraints>
-                                            <state key="normal" title="Delete"/>
+                                            <state key="normal" title="Delete" image="bin-7"/>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -709,7 +710,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.2626626311480833" green="0.59846545297329157" blue="0.91372549020000005" alpha="0.37" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.49019607843137253" green="0.74901960784313726" blue="0.93333333333333335" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="JMB-BG-Rat" firstAttribute="centerX" secondItem="JmW-by-NVH" secondAttribute="centerX" constant="-6.5" id="006-iD-tF1"/>
                                 <constraint firstItem="aBb-gq-6hZ" firstAttribute="firstBaseline" secondItem="OXa-IJ-Cuc" secondAttribute="firstBaseline" id="0V7-eh-a1f"/>
@@ -1006,6 +1007,7 @@
                                             <state key="selected" title="Unfollow" backgroundImage="follow_background"/>
                                         </button>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="NtF-ig-BWv" firstAttribute="top" secondItem="xWq-NP-qC6" secondAttribute="topMargin" constant="2" id="2p1-lD-n1d"/>
                                         <constraint firstItem="LQk-Kv-M8C" firstAttribute="trailing" secondItem="xWq-NP-qC6" secondAttribute="trailingMargin" id="BCj-dk-fwA"/>
@@ -1147,9 +1149,9 @@
                                             <exclude reference="cYj-bp-sfI"/>
                                             <exclude reference="pat-o6-smE"/>
                                             <exclude reference="5Uv-N9-avx"/>
-                                            <exclude reference="qNX-2n-TZF"/>
-                                            <exclude reference="kh0-aZ-u4w"/>
                                             <exclude reference="RY1-kN-PRB"/>
+                                            <exclude reference="kh0-aZ-u4w"/>
+                                            <exclude reference="qNX-2n-TZF"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular">
@@ -1215,6 +1217,7 @@
     <resources>
         <image name="App logo_1" width="120" height="120"/>
         <image name="animal-element-7" width="30" height="30"/>
+        <image name="bin-7" width="29" height="30"/>
         <image name="follow_background" width="66" height="18"/>
         <image name="heart-7" width="30" height="30"/>
         <image name="plus-simple-7" width="30" height="30"/>

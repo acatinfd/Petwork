@@ -168,11 +168,11 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rfn-OL-8gw" id="mzM-qp-SfY">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Load More" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V2-ef-FXe">
-                                            <rect key="frame" x="111" y="14" width="98" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Load More..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V2-ef-FXe">
+                                            <rect key="frame" x="266" y="11" width="98" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="98" id="KoF-dZ-65I"/>
-                                                <constraint firstAttribute="height" constant="22" id="f2k-0o-2hR"/>
+                                                <constraint firstAttribute="height" constant="21" id="f2k-0o-2hR"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,7 +182,15 @@
                                     <constraints>
                                         <constraint firstAttribute="centerY" secondItem="4V2-ef-FXe" secondAttribute="centerY" constant="-3.5" id="Eva-vr-GEZ"/>
                                         <constraint firstAttribute="centerX" secondItem="4V2-ef-FXe" secondAttribute="centerX" constant="140" id="QHi-Ag-W3y"/>
+                                        <constraint firstAttribute="centerX" secondItem="4V2-ef-FXe" secondAttribute="centerX" constant="-15" id="iSb-fd-TOJ"/>
+                                        <constraint firstAttribute="centerY" secondItem="4V2-ef-FXe" secondAttribute="centerY" id="zJl-b7-bWy"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Eva-vr-GEZ"/>
+                                            <exclude reference="QHi-Ag-W3y"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionHeaderCell" rowHeight="50" id="tK3-Ri-d7q">

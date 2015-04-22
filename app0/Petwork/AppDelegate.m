@@ -32,9 +32,9 @@
     
     // [Optional] Track statistics around application opens.
     
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     NSLog(@"didFinishLaunchWithOptions: makeKeyAndVisible");
-    [self.window makeKeyAndVisible];
+    //[self.window makeKeyAndVisible];
     NSLog(@"didFinishLaunchWithOptions: didmakeKeyAndVisible");
     [PFFacebookUtils initializeFacebook];
         NSLog(@"didFinishLaunchWithOptions: makeKeyAndVisible");
@@ -43,6 +43,8 @@
         NSLog(@"didFinishLaunchWithOptions: had facebook user");
         
     }
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     return YES;
 }
 

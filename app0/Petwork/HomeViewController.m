@@ -257,8 +257,45 @@
     if (section == self.objects.count) {
         return 0.0f;
     }
-    return 50.0f;
+    return 100.0f;
 }
+
+/*- (NSString *)tableView: (UITableView * )tableView comment : (NSInteger)section
+ {
+ static NSString *CellIdentifier = @"SectionFooterCell";
+ UITableViewCell *sectionFooterView = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+ 
+ UILabel *commentLabel = (UILabel *)[sectionFooterView viewWithTag:2];
+ 
+ 
+ PFObject *photo = [self.objects objectAtIndex:section];
+ PFUser *user = [photo objectForKey:@"whoTook"];
+ NSString *title = photo[@"title"];
+ 
+ commentLabel.text = title;
+ return commentLabel.text;
+ }
+ 
+ - (CGFloat)heightForText:(NSString *)comment
+ {
+ UIFont *cellFont = [UIFont systemFontOfSize:10];
+ CGSize constraintSize = CGSizeMake(600, MAXFLOAT);
+ CGSize labelSize = [comment sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+ CGFloat height = labelSize.height ;
+ NSLog(@"height=%f", height);
+ return height;
+ }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == self.objects.count) {
+        return 0.0f;
+    }
+    // NSString *labelText = [self.comment objectAtIndex:indexPath.row];
+    return 100.0f;
+    //[self heightForText:labelText];
+    
+}*/
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == self.objects.count) {

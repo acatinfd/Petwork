@@ -34,7 +34,7 @@
     
     
     NSLog(@"didFinishLaunchWithOptions: makeKeyAndVisible");
-    //[self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];
     NSLog(@"didFinishLaunchWithOptions: didmakeKeyAndVisible");
     [PFFacebookUtils initializeFacebook];
         NSLog(@"didFinishLaunchWithOptions: makeKeyAndVisible");

@@ -39,6 +39,7 @@
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 10;
+
     }
     return self;
 }
@@ -99,7 +100,8 @@
             if (likeObjects.count > 0) {
                 for (PFObject *activity in likeObjects) {
                     PFObject *photo = activity[@"toPhoto"];
-                    [self.likePhotoArray addObject:photo.objectId];
+                    if(photo[@"image"])
+                        [self.likePhotoArray addObject:photo.objectId];
                 }
             }
             [self.tableView reloadData];
@@ -190,6 +192,10 @@
     LikeButton *likeButton = (LikeButton *)[sectionFooterView viewWithTag:4];
     likeButton.delegate = self;
     likeButton.sectionIndex = section;
+    
+    if (!self.likePhotoArray) {
+        likeButton.selected = NO;
+    }
     
     NSInteger indexOfMatchedObject = [self.likePhotoArray indexOfObject:photo.objectId];
     if (indexOfMatchedObject == NSNotFound) {

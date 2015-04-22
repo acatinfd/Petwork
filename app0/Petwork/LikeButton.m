@@ -35,6 +35,7 @@
     
     return self;
 }
+
 - (void) buttonPressed {
     [self.delegate likeButton:self didTapWithSectionIndex:self.sectionIndex];
 }

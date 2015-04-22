@@ -192,10 +192,10 @@
     LikeButton *likeButton = (LikeButton *)[sectionFooterView viewWithTag:4];
     likeButton.delegate = self;
     likeButton.sectionIndex = section;
-    
+    /*
     if (!self.likePhotoArray) {
         likeButton.selected = NO;
-    }
+    }*/
     
     NSInteger indexOfMatchedObject = [self.likePhotoArray indexOfObject:photo.objectId];
     if (indexOfMatchedObject == NSNotFound) {
@@ -390,38 +390,51 @@
 - (void) likeButton:(LikeButton *)button didTapWithSectionIndex:(NSInteger)index {
     PFObject *photo = [self.objects objectAtIndex: index];
     
-    if (!button.selected) {
-        [self likePhoto:photo];
+    NSInteger indexOfMatchedObject = [self.likePhotoArray indexOfObject:photo.objectId];
+    if (indexOfMatchedObject == NSNotFound && !button.selected) {
+            [self likePhoto:photo];
+            button.selected = YES;
     }
     else {
-        [self unlikePhoto:photo];
+        if(button.selected){
+            [self unlikePhoto:photo];
+            button.selected = NO;
+        }
     }
     [self.tableView reloadData];
 }
 
 - (void) likePhoto: (PFObject *) photo {
-    [self.likePhotoArray addObject:photo.objectId];
-    PFObject *likeActivity = [PFObject objectWithClassName:@"PhotoActivity"]; //which is actually a table for like activity
-    likeActivity[@"fromUser"] = [PFUser currentUser];
-    likeActivity[@"toPhoto"] = photo;
-    likeActivity[@"toUser"] = photo[@"whoTook"];
-    likeActivity[@"type"] = @"like";
-    [likeActivity saveEventually];
+    NSInteger indexOfMatchedObject = [self.likePhotoArray indexOfObject:photo.objectId];
+    if (indexOfMatchedObject == NSNotFound) {
+        [self.likePhotoArray addObject:photo.objectId];
+        PFObject *likeActivity = [PFObject objectWithClassName:@"PhotoActivity"]; //which is actually a table for like activity
+        likeActivity[@"fromUser"] = [PFUser currentUser];
+        likeActivity[@"toPhoto"] = photo;
+        likeActivity[@"toUser"] = photo[@"whoTook"];
+        likeActivity[@"type"] = @"like";
+        [likeActivity saveEventually];
+    }
 }
 
 - (void) unlikePhoto: (PFObject *) photo {
-    [self.likePhotoArray removeObject:photo.objectId];
-    PFQuery *query = [PFQuery queryWithClassName:@"PhotoActivity"];
-    [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-    [query whereKey:@"toPhoto" equalTo:photo];
-    [query whereKey:@"type" equalTo:@"like"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *likeActivities, NSError *error) {
-        if (!error) {
-            for (PFObject *likeActivity in likeActivities) {
-                [likeActivity deleteEventually];
+    NSInteger indexOfMatchedObject = [self.likePhotoArray indexOfObject:photo.objectId];
+    if (indexOfMatchedObject == NSNotFound) {
+        //DO Nothing
+    }else {
+        [self.likePhotoArray removeObject:photo.objectId];
+        PFQuery *query = [PFQuery queryWithClassName:@"PhotoActivity"];
+        [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        [query whereKey:@"toPhoto" equalTo:photo];
+        [query whereKey:@"type" equalTo:@"like"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *likeActivities, NSError *error) {
+            if (!error) {
+                for (PFObject *likeActivity in likeActivities) {
+                    [likeActivity deleteEventually];
+                }
             }
-        }
-    }];
+        }];
+    }
 }
 
 - (void) deletePhotoButton:(DeletePhotoButton *)button didTapWithSectionIndex:(NSInteger)index {
@@ -439,6 +452,7 @@
                                                     otherButtonTitles:nil];
     
     [actionSheet showInView:self.view];
+    NSLog(@"Did finished shown actionsheet");
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
@@ -493,11 +507,13 @@
         [alertView show];
         
         [self.tableView reloadData];
-        
+        NSLog(@"Did delete from actionsheet");
     }else {
         //Cancel detele
         [self.deletePhotoArray removeLastObject];
+        NSLog(@"Did cancel from actionsheet");
     }
+    NSLog(@"Did finished actionsheet");
 }
 
 

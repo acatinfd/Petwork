@@ -69,6 +69,9 @@
 #pragma mark - PFQueryTableViewDataSource and Delegates
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
+    
+    self.deletePhotoArray = [NSMutableArray array];
+    
     PFQuery *queryFollow = [PFQuery queryWithClassName:@"Activity"];
     [queryFollow whereKey:@"fromUser" equalTo:[PFUser currentUser]];
     [queryFollow whereKey:@"type" equalTo:@"follow"];
@@ -434,32 +437,57 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if(buttonIndex == 0) {
+        //[self deletePhoto];
         //Delete
+        
         PFObject *photo = [self.deletePhotoArray lastObject];
         PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
-        [query whereKey:@"objectId" equalTo:photo.objectId];
+        [query whereKey:@"objectId" equalTo:photo];
+        NSArray *photoObjects = [query findObjects];
+        
+        for (PFObject *photoObject in photoObjects) {
+            PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
+            [queryLike whereKey:@"toPhoto" equalTo:photoObject.objectId];
+            [queryLike whereKey:@"type" equalTo:@"like"];
+            NSArray *deletePhotoLikes = [queryLike findObjects];
+            for (PFObject *deleteLikes in deletePhotoLikes) {
+                        [deleteLikes deleteEventually];
+            }
+        }
+        
+        for (PFObject *photoObject in photoObjects) {
+            [photoObject deleteEventually];
+        }
+        
+        /*
         [query findObjectsInBackgroundWithBlock:^(NSArray *deletePhotos, NSError *error) {
             if (!error) {
                 for (PFObject *deletePhoto in deletePhotos) {
-                    [deletePhoto deleteEventually];
+                    PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
+                    [queryLike whereKey:@"toPhoto" equalTo:deletePhoto.objectId];
+                    [queryLike whereKey:@"type" equalTo:@"like"];
+                    [queryLike findObjectsInBackgroundWithBlock:^(NSArray *deletePhotoLikes, NSError *error) {
+                        if (!error) {
+                            for (PFObject *deleteLikes in deletePhotoLikes) {
+                                [deleteLikes deleteEventually];
+                            }
+                        }
+                    }];
+                    [deletePhoto deleteEventually]; //TODO: not successfully delete like activitity
                 }
             }
         }];
         
-        PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
-        [queryLike whereKey:@"toPhoto" equalTo:photo];
-        [queryLike whereKey:@"type" equalTo:@"like"];
-        [queryLike findObjectsInBackgroundWithBlock:^(NSArray *deletePhotoLikes, NSError *error) {
-            if (!error) {
-                for (PFObject *deleteLikes in deletePhotoLikes) {
-                    [deleteLikes deleteEventually];
-                }
-            }
-        }];
+        */
         
-        [self.likePhotoArray removeObject:photo.objectId];
+        [self.likePhotoArray removeObject:photo];
         [self.deletePhotoArray removeLastObject]; //TODO: delete the related like activitiy ?
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Successfully deleted your photo!" message:@"Changes will be reflected soon" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alertView show];
+        
         [self.tableView reloadData];
+        
     }else {
         //Cancel detele
         [self.deletePhotoArray removeLastObject];

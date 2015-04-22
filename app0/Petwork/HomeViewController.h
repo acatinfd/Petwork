@@ -12,7 +12,7 @@
 #import "DeletePhotoButton.h"
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
-@interface HomeViewController : PFQueryTableViewController <FollowButtonDelegate, LikeButtonDelegate, DeletePhotoButtonDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface HomeViewController : PFQueryTableViewController <FollowButtonDelegate, LikeButtonDelegate, DeletePhotoButtonDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIActionSheetDelegate>
 
 - (IBAction)logoutButton:(id)sender;
 @end

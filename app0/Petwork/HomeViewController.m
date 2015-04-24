@@ -439,8 +439,7 @@
 
 - (void) deletePhotoButton:(DeletePhotoButton *)button didTapWithSectionIndex:(NSInteger)index {
     NSLog(@"didTapWithSectionIndex");
-    PFObject *photo = [self.objects objectAtIndex: index];
-    [self.deletePhotoArray addObject:photo.objectId];
+    [self.deletePhotoArray addObject:[NSNumber numberWithInteger:index]];
     
     NSString *actionSheetTitle = @"Confirm to delete your photo permanently?"; //Action Sheet Title
     NSString *deletePhoto = @"Delete";
@@ -455,56 +454,47 @@
     NSLog(@"Did finished shown actionsheet");
 }
 
+- (void) deletePhoto { //Delete photo that appears in self.deletePhotoArray
+    NSNumber *index = [self.deletePhotoArray lastObject];
+    if (index) {
+        PFObject *photo = [self.objects objectAtIndex:[index integerValue]];
+        PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+        [query whereKey:@"objectId" equalTo:photo.objectId];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *photos, NSError *error) {
+            if (!error) {
+                for (PFObject *p in photos) {
+                    [p deleteEventually];
+                }
+            }
+        }];
+        [self.deletePhotoArray removeLastObject];
+    }
+}
+
+
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if(buttonIndex == 0) {
         //[self deletePhoto];
         //Delete
-        
-        PFObject *photo = [self.deletePhotoArray lastObject];
-        PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
-        [query whereKey:@"objectId" equalTo:photo];
-        NSArray *photoObjects = [query findObjects];
-        
-        for (PFObject *photoObject in photoObjects) {
-            PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
-            [queryLike whereKey:@"toPhoto" equalTo:photoObject.objectId];
-            [queryLike whereKey:@"type" equalTo:@"like"];
-            NSArray *deletePhotoLikes = [queryLike findObjects];
-            for (PFObject *deleteLikes in deletePhotoLikes) {
-                        [deleteLikes deleteEventually];
-            }
-        }
-        
-        for (PFObject *photoObject in photoObjects) {
-            [photoObject deleteEventually];
-        }
-        
-        /*
-        [query findObjectsInBackgroundWithBlock:^(NSArray *deletePhotos, NSError *error) {
+        NSNumber *index = [self.deletePhotoArray lastObject];
+        PFObject *photo = [self.objects objectAtIndex:[index integerValue]];
+        PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
+        [queryLike whereKey:@"toPhoto" equalTo:photo];
+        [queryLike whereKey:@"type" equalTo:@"like"];
+        [queryLike findObjectsInBackgroundWithBlock:^(NSArray *likeActivities, NSError *error) {
             if (!error) {
-                for (PFObject *deletePhoto in deletePhotos) {
-                    PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
-                    [queryLike whereKey:@"toPhoto" equalTo:deletePhoto.objectId];
-                    [queryLike whereKey:@"type" equalTo:@"like"];
-                    [queryLike findObjectsInBackgroundWithBlock:^(NSArray *deletePhotoLikes, NSError *error) {
-                        if (!error) {
-                            for (PFObject *deleteLikes in deletePhotoLikes) {
-                                [deleteLikes deleteEventually];
-                            }
-                        }
-                    }];
-                    [deletePhoto deleteEventually]; //TODO: not successfully delete like activitity
+                for (PFObject *likeActivity in likeActivities) {
+                    [likeActivity deleteEventually];
                 }
             }
         }];
         
-        */
+        [self.likePhotoArray removeObject:photo.objectId];
+        [self deletePhoto];
         
-        [self.likePhotoArray removeObject:photo];
-        [self.deletePhotoArray removeLastObject]; //TODO: delete the related like activitiy ?
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Successfully deleted your photo!" message:@"Changes will be reflected soon" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Successfully deleted!" message:@"Refresh to see changes" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alertView show];
+        
         
         [self.tableView reloadData];
         NSLog(@"Did delete from actionsheet");

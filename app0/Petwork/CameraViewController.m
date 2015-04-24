@@ -90,11 +90,15 @@
     [self clear];
 }
 
+
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    //UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    UIImage *chosenImage = [info objectForKey:UIImagePickerControllerEditedImage];
     self.chosenImageView.image = chosenImage;
+    self.chosenImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self dismissViewControllerAnimated:YES completion:^{self.imagePickerIsDisplayed = NO;}];
 }
+
 
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:NO completion:nil];
@@ -144,9 +148,6 @@
     [self clear];
     [self.tabBarController setSelectedIndex:0];
 }
-
-
-
 
 /*
 #pragma mark - Navigation

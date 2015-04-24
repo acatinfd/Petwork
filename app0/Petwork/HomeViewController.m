@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSMutableArray *followingArray;
 @property (nonatomic, strong) NSMutableArray *likePhotoArray;
 @property (nonatomic, strong) NSMutableArray *deletePhotoArray;
+@property (nonatomic, assign) BOOL noMorePhotosDidWarned;
 @end
 
 @implementation HomeViewController
@@ -39,6 +40,7 @@
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 10;
+        self.noMorePhotosDidWarned = NO;
 
     }
     return self;
@@ -118,8 +120,11 @@
     }
     else {
         //Show that no more photos to be loaded
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thank you for reviewing" message:@"There is no more photos!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+        if (!self.noMorePhotosDidWarned) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thank you for reviewing" message:@"There is no more photos!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            self.noMorePhotosDidWarned = YES;
+        }
         return nil;
     }
 }
@@ -177,7 +182,6 @@
     
     UILabel *userNameLabel = (UILabel *)[sectionFooterView viewWithTag:1];
     UILabel *commentLabel = (UILabel *)[sectionFooterView viewWithTag:2];
-    //UILabel *commentNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
     UILabel *likeNumberLabel = (UILabel *)[sectionFooterView viewWithTag:3];
 
     
@@ -192,10 +196,6 @@
     LikeButton *likeButton = (LikeButton *)[sectionFooterView viewWithTag:4];
     likeButton.delegate = self;
     likeButton.sectionIndex = section;
-    /*
-    if (!self.likePhotoArray) {
-        likeButton.selected = NO;
-    }*/
     
     NSInteger indexOfMatchedObject = [self.likePhotoArray indexOfObject:photo.objectId];
     if (indexOfMatchedObject == NSNotFound) {

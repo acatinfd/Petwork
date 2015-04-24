@@ -316,8 +316,8 @@
                                      NSForegroundColorAttributeName: [UIColor blackColor]};
     const CGSize textSize = [title sizeWithAttributes: userAttributes];
     float increment = 15 * (textSize.width/self.view.frame.size.width);
-    
-    return increment + 70.0f;
+    return 40.0f;
+    //return increment + 70.0f;
 }
 
 /*- (NSString *)tableView: (UITableView * )tableView comment : (NSInteger)section

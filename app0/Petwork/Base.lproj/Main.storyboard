@@ -248,73 +248,6 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eyS-Di-YPK" id="Oya-td-Xwn">
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAG-gp-Axr">
-                                            <rect key="frame" x="8" y="0.0" width="60" height="22"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="53" id="adY-Bt-fuP"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="60" id="cTF-lO-iaz"/>
-                                                <constraint firstAttribute="height" constant="22" id="p2w-eI-XpU"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="adY-Bt-fuP"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="#likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiG-ZZ-tac">
-                                            <rect key="frame" x="510" y="23" width="40" height="22"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="42" id="YSW-qG-XWW"/>
-                                                <constraint firstAttribute="height" constant="22" id="z88-KO-2A7"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular" misplaced="YES">
-                                                <rect key="frame" x="523" y="18" width="42" height="22"/>
-                                            </variation>
-                                        </label>
-                                        <button opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LI8-xj-puu" customClass="LikeButton">
-                                            <rect key="frame" x="558" y="23" width="22" height="22"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="22" id="evn-se-9YX"/>
-                                                <constraint firstAttribute="height" constant="22" id="ygE-6N-1b5"/>
-                                            </constraints>
-                                            <state key="normal" title="like" image="heart-7">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="selected" title="Unlike" image="redheart"/>
-                                            <variation key="heightClass=regular" misplaced="YES">
-                                                <rect key="frame" x="570" y="18" width="22" height="22"/>
-                                            </variation>
-                                        </button>
-                                        <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZT4-JX-rms" customClass="DeletePhotoButton">
-                                            <rect key="frame" x="15" y="19" width="32" height="26"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="45" id="Y2H-hz-GQ0"/>
-                                            </constraints>
-                                            <state key="normal" image="bin-7">
-                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <variation key="heightClass=regular" misplaced="YES">
-                                                <rect key="frame" x="8" y="19" width="45" height="22"/>
-                                            </variation>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="ZT4-JX-rms" firstAttribute="leading" secondItem="PAG-gp-Axr" secondAttribute="leading" id="2Jo-oq-AzN"/>
-                                        <constraint firstItem="PAG-gp-Axr" firstAttribute="leading" secondItem="Oya-td-Xwn" secondAttribute="leadingMargin" id="8LB-ey-fZV"/>
-                                        <constraint firstItem="LI8-xj-puu" firstAttribute="trailing" secondItem="Oya-td-Xwn" secondAttribute="trailingMargin" id="Gwo-Pp-dB7"/>
-                                        <constraint firstItem="LI8-xj-puu" firstAttribute="leading" secondItem="fiG-ZZ-tac" secondAttribute="trailing" constant="5" id="MXh-Uf-aux"/>
-                                        <constraint firstItem="ZT4-JX-rms" firstAttribute="top" secondItem="PAG-gp-Axr" secondAttribute="bottom" constant="-3" id="Ojp-fC-bwM"/>
-                                        <constraint firstItem="ZT4-JX-rms" firstAttribute="bottom" secondItem="Oya-td-Xwn" secondAttribute="bottomMargin" id="dkC-6U-Ps0"/>
-                                        <constraint firstItem="fiG-ZZ-tac" firstAttribute="centerY" secondItem="LI8-xj-puu" secondAttribute="centerY" constant="-0.5" id="dzO-Ed-pgF"/>
-                                        <constraint firstItem="PAG-gp-Axr" firstAttribute="top" secondItem="Oya-td-Xwn" secondAttribute="topMargin" constant="-8" id="jZv-Ok-iBe"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="559" id="kKW-AR-zV1">
@@ -323,13 +256,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kKW-AR-zV1" id="bat-zz-cZu">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOh-Me-SLq" customClass="PFImageView">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOh-Me-SLq" customClass="PFImageView">
                                             <rect key="frame" x="8" y="0.0" width="584" height="319"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="319" id="4oB-Yi-F51"/>
                                                 <constraint firstAttribute="width" constant="584" id="QpU-CL-vqs"/>
+                                                <constraint firstAttribute="width" secondItem="eOh-Me-SLq" secondAttribute="height" multiplier="584:319" id="cOu-yG-3yY"/>
                                                 <constraint firstAttribute="width" secondItem="eOh-Me-SLq" secondAttribute="height" multiplier="584:319" id="pxT-Vi-p31"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="cOu-yG-3yY"/>
+                                                </mask>
+                                            </variation>
                                             <variation key="heightClass=regular" ambiguous="YES">
                                                 <rect key="frame" x="8" y="-1" width="584" height="320"/>
                                                 <mask key="constraints">
@@ -427,11 +366,14 @@
                                         <constraint firstItem="Lfy-W4-vGQ" firstAttribute="top" secondItem="aVx-hI-NJF" secondAttribute="bottom" constant="8" id="RpI-oq-H6f"/>
                                         <constraint firstAttribute="centerY" secondItem="eOh-Me-SLq" secondAttribute="centerY" constant="7" id="Use-HO-N6v"/>
                                         <constraint firstItem="raV-3i-PQe" firstAttribute="centerY" secondItem="j1A-uX-BwA" secondAttribute="centerY" id="bwS-su-1dH"/>
+                                        <constraint firstAttribute="centerY" secondItem="eOh-Me-SLq" secondAttribute="centerY" id="fG7-XH-0t1"/>
                                         <constraint firstItem="aVx-hI-NJF" firstAttribute="top" secondItem="eOh-Me-SLq" secondAttribute="bottom" id="gbI-fR-ExZ"/>
                                         <constraint firstItem="j1A-uX-BwA" firstAttribute="top" secondItem="aVx-hI-NJF" secondAttribute="bottom" constant="8" id="k5r-GQ-18I"/>
                                         <constraint firstItem="j1A-uX-BwA" firstAttribute="trailing" secondItem="bat-zz-cZu" secondAttribute="trailingMargin" constant="-6" id="kgJ-Dg-5yi"/>
                                         <constraint firstItem="eOh-Me-SLq" firstAttribute="leading" secondItem="bat-zz-cZu" secondAttribute="leadingMargin" id="nHc-rU-Z5n"/>
+                                        <constraint firstAttribute="centerX" secondItem="eOh-Me-SLq" secondAttribute="centerX" id="o2u-Zo-ZhX"/>
                                         <constraint firstItem="raV-3i-PQe" firstAttribute="centerY" secondItem="j1A-uX-BwA" secondAttribute="centerY" id="oM2-0a-PJf"/>
+                                        <constraint firstAttribute="centerX" secondItem="eOh-Me-SLq" secondAttribute="centerX" id="rbA-FL-7hP"/>
                                         <constraint firstItem="j1A-uX-BwA" firstAttribute="leading" secondItem="raV-3i-PQe" secondAttribute="trailing" constant="8" id="rml-iE-Dk8"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="aVx-hI-NJF" secondAttribute="trailing" id="uKJ-5c-dYE"/>
                                         <constraint firstItem="aVx-hI-NJF" firstAttribute="leading" secondItem="bat-zz-cZu" secondAttribute="leadingMargin" id="wck-nq-gmq"/>
@@ -443,6 +385,8 @@
                                             <exclude reference="26h-lK-Yeb"/>
                                             <exclude reference="QEI-aY-DCA"/>
                                             <exclude reference="Use-HO-N6v"/>
+                                            <exclude reference="fG7-XH-0t1"/>
+                                            <exclude reference="rbA-FL-7hP"/>
                                             <exclude reference="bwS-su-1dH"/>
                                             <exclude reference="oM2-0a-PJf"/>
                                             <exclude reference="zAe-15-VuF"/>

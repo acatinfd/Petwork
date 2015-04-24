@@ -243,7 +243,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="320" id="kKW-AR-zV1">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="416" id="kKW-AR-zV1">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kKW-AR-zV1" id="bat-zz-cZu">
@@ -254,7 +254,93 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="320" id="4oB-Yi-F51"/>
                                             </constraints>
+                                            <variation key="heightClass=regular" ambiguous="YES">
+                                                <rect key="frame" x="8" y="-1" width="584" height="320"/>
+                                                <mask key="constraints">
+                                                    <exclude reference="4oB-Yi-F51"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" misplaced="YES" text="Caption" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVx-hI-NJF">
+                                            <rect key="frame" x="69" y="0.0" width="531" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="tgA-zI-5sk"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="tgA-zI-5sk"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                                <rect key="frame" x="8" y="322" width="584" height="51"/>
+                                            </variation>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="25" y="8" width="42" height="21"/>
+                                            </variation>
+                                        </label>
+                                        <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfy-W4-vGQ" customClass="DeletePhotoButton">
+                                            <rect key="frame" x="15" y="19" width="32" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="45" id="C5y-mR-xbJ"/>
+                                            </constraints>
+                                            <state key="normal" image="bin-7">
+                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                                <rect key="frame" x="8" y="385" width="45" height="22"/>
+                                                <mask key="constraints">
+                                                    <exclude reference="C5y-mR-xbJ"/>
+                                                </mask>
+                                            </variation>
+                                        </button>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1A-uX-BwA" customClass="LikeButton">
+                                            <rect key="frame" x="558" y="23" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="2J5-6r-uDV"/>
+                                                <constraint firstAttribute="height" constant="22" id="6Fo-GN-kZC"/>
+                                                <constraint firstAttribute="width" constant="22" id="ug0-LG-wNn"/>
+                                                <constraint firstAttribute="height" constant="22" id="z9b-Aq-dSl"/>
+                                            </constraints>
+                                            <state key="normal" title="like" image="heart-7">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="selected" title="Unlike" image="redheart"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="ug0-LG-wNn"/>
+                                                    <exclude reference="z9b-Aq-dSl"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                                <rect key="frame" x="561" y="385" width="22" height="22"/>
+                                                <mask key="constraints">
+                                                    <exclude reference="2J5-6r-uDV"/>
+                                                    <exclude reference="6Fo-GN-kZC"/>
+                                                    <include reference="ug0-LG-wNn"/>
+                                                    <include reference="z9b-Aq-dSl"/>
+                                                </mask>
+                                            </variation>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raV-3i-PQe">
+                                            <rect key="frame" x="510" y="23" width="40" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="Vxp-7Y-daA"/>
+                                                <constraint firstAttribute="width" constant="42" id="y6C-Uh-jPJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                                <rect key="frame" x="505" y="385" width="42" height="22"/>
+                                                <mask key="constraints">
+                                                    <exclude reference="Vxp-7Y-daA"/>
+                                                    <exclude reference="y6C-Uh-jPJ"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
@@ -265,14 +351,33 @@
                                         <constraint firstItem="eOh-Me-SLq" firstAttribute="leading" secondItem="bat-zz-cZu" secondAttribute="leadingMargin" id="nHc-rU-Z5n"/>
                                     </constraints>
                                     <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="aVx-hI-NJF"/>
+                                            <exclude reference="Lfy-W4-vGQ"/>
+                                            <exclude reference="j1A-uX-BwA"/>
+                                            <exclude reference="raV-3i-PQe"/>
+                                        </mask>
                                         <mask key="constraints">
                                             <exclude reference="QEI-aY-DCA"/>
                                             <exclude reference="Use-HO-N6v"/>
                                         </mask>
                                     </variation>
+                                    <variation key="heightClass=regular">
+                                        <mask key="subviews">
+                                            <include reference="aVx-hI-NJF"/>
+                                            <include reference="Lfy-W4-vGQ"/>
+                                            <include reference="j1A-uX-BwA"/>
+                                            <include reference="raV-3i-PQe"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="26h-lK-Yeb"/>
+                                            <exclude reference="2IT-kP-NFY"/>
+                                            <exclude reference="nHc-rU-Z5n"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionFooterCell" rowHeight="50" id="eyS-Di-YPK">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionFooterCell" rowHeight="49" id="eyS-Di-YPK">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eyS-Di-YPK" id="Oya-td-Xwn">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -348,6 +453,9 @@
                                             <state key="normal" image="bin-7">
                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <variation key="heightClass=regular" misplaced="YES">
+                                                <rect key="frame" x="8" y="19" width="45" height="22"/>
+                                            </variation>
                                         </button>
                                     </subviews>
                                     <constraints>

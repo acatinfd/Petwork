@@ -251,6 +251,48 @@
     PFImageView *photo = (PFImageView *)[cell viewWithTag:1];
     photo.file = object[@"image"];
     [photo loadInBackground];
+    
+    UILabel *commentLabel = (UILabel *)[cell viewWithTag:2];
+    UILabel *likeNumberLabel = (UILabel *)[cell viewWithTag:3];
+    
+    PFUser *user = [object objectForKey:@"whoTook"];
+    NSString *title = object[@"title"];
+    
+    commentLabel.text = title;
+    
+    //Like button
+    LikeButton *likeButton = (LikeButton *)[cell viewWithTag:4];
+    likeButton.delegate = self;
+    likeButton.sectionIndex = indexPath.section;  //TODO: fix this
+    
+    NSInteger indexOfMatchedObject = [self.likePhotoArray indexOfObject:object.objectId];
+    if (indexOfMatchedObject == NSNotFound) {
+        likeButton.selected = NO;
+    }
+    else {
+        likeButton.selected = YES;
+    }
+    
+    PFQuery *likePhotoQuery = [PFQuery queryWithClassName:@"PhotoActivity"];
+    [likePhotoQuery whereKey:@"toPhoto" equalTo:object];
+    [likePhotoQuery whereKey:@"type" equalTo:@"like"];
+    [likePhotoQuery findObjectsInBackgroundWithBlock:^(NSArray *likePhotoActivities, NSError *error) {
+        if (!error) {
+            likeNumberLabel.text = [[NSNumber numberWithInteger:likePhotoActivities.count] stringValue];
+        }
+    }];
+    
+    DeletePhotoButton *deleteButton = (DeletePhotoButton *)[cell viewWithTag:5];
+    deleteButton.delegate = self;
+    deleteButton.sectionIndex = indexPath.section;  //TODO: fix this
+    
+    if ([user.objectId isEqualToString:[PFUser currentUser].objectId]) {
+        deleteButton.hidden = NO;
+    }
+    else {
+        deleteButton.hidden = YES;
+    }
+
     return cell;
 }
 
@@ -319,7 +361,17 @@
     if (indexPath.section == self.objects.count) {
         return 50.0f;
     }
-    return 320.0f;
+//    return 320.0f;
+    PFObject *photo = [self.objects objectAtIndex:indexPath.section];
+    // NSLog(@"--, %@", photo[@"title"]);
+    NSString *title = photo[@"title"];
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:12];
+    NSDictionary *userAttributes = @{NSFontAttributeName: font,
+                                     NSForegroundColorAttributeName: [UIColor blackColor]};
+    const CGSize textSize = [title sizeWithAttributes: userAttributes];
+    float increment = 15 * (textSize.width/self.view.frame.size.width);
+    
+    return increment + 320.0f;
 }
 
 

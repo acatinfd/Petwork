@@ -266,7 +266,16 @@
     if (section == self.objects.count) {
         return 0.0f;
     }
-    return 100.0f;
+    PFObject *photo = [self.objects objectAtIndex:section];
+   // NSLog(@"--, %@", photo[@"title"]);
+    NSString *title = photo[@"title"];
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:12];
+    NSDictionary *userAttributes = @{NSFontAttributeName: font,
+                                     NSForegroundColorAttributeName: [UIColor blackColor]};
+    const CGSize textSize = [title sizeWithAttributes: userAttributes];
+    float increment = 15 * (textSize.width/self.view.frame.size.width);
+    
+    return increment + 70.0f;
 }
 
 /*- (NSString *)tableView: (UITableView * )tableView comment : (NSInteger)section

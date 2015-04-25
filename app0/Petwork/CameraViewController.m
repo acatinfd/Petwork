@@ -7,6 +7,7 @@
 //
 
 #import "CameraViewController.h"
+#import "AppDelegate.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <Parse/Parse.h>
 
@@ -112,6 +113,11 @@
 }
 
 - (IBAction)share:(id)sender {
+    if (![PFUser currentUser]) {
+        [self askForLogIn];
+        [self.tabBarController setSelectedIndex:0];
+        return;
+    }
     if (self.chosenImageView.image) {
         NSData *imageData = UIImagePNGRepresentation(self.chosenImageView.image);
         PFFile *photoFile = [PFFile fileWithData: imageData];
@@ -149,6 +155,12 @@
     [self.tabBarController setSelectedIndex:0];
 }
 
+- (void) askForLogIn {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You haven't logged in" message:@"Please log in to use this function" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate presentLoginControllerAnimated:YES];
+}
 /*
 #pragma mark - Navigation
 

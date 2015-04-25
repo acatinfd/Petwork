@@ -75,40 +75,46 @@
     
     self.deletePhotoArray = [NSMutableArray array];
     
-    PFQuery *queryFollow = [PFQuery queryWithClassName:@"Activity"];
-    [queryFollow whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-    [queryFollow whereKey:@"type" equalTo:@"follow"];
-    [queryFollow includeKey:@"toUser"];
-    [queryFollow findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        if (!error) {
-            self.followingArray = [NSMutableArray array];
-            if (objects.count >0) {
-                for (PFObject *activity in objects) {
-                    PFUser *user = activity[@"toUser"];
-                    [self.followingArray addObject:user.objectId];
+    if ([PFUser currentUser]) {
+        PFQuery *queryFollow = [PFQuery queryWithClassName:@"Activity"];
+        [queryFollow whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        [queryFollow whereKey:@"type" equalTo:@"follow"];
+        [queryFollow includeKey:@"toUser"];
+        [queryFollow findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if (!error) {
+                self.followingArray = [NSMutableArray array];
+                if (objects.count >0) {
+                    for (PFObject *activity in objects) {
+                        PFUser *user = activity[@"toUser"];
+                        [self.followingArray addObject:user.objectId];
+                    }
                 }
+                [self.tableView reloadData];
             }
-            [self.tableView reloadData];
-        }
-    }];
+        }];
     
-    PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
-    [queryLike whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-    [queryLike whereKey:@"type" equalTo:@"like"];
-    [queryLike includeKey:@"toPhoto"];
-    [queryLike findObjectsInBackgroundWithBlock:^(NSArray *likeObjects, NSError *error) {
-        if (!error) {
-            self.likePhotoArray = [NSMutableArray array];
-            if (likeObjects.count > 0) {
-                for (PFObject *activity in likeObjects) {
-                    PFObject *photo = activity[@"toPhoto"];
-                    if(photo[@"image"])
-                        [self.likePhotoArray addObject:photo.objectId];
+        PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
+        [queryLike whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        [queryLike whereKey:@"type" equalTo:@"like"];
+        [queryLike includeKey:@"toPhoto"];
+        [queryLike findObjectsInBackgroundWithBlock:^(NSArray *likeObjects, NSError *error) {
+            if (!error) {
+                self.likePhotoArray = [NSMutableArray array];
+                if (likeObjects.count > 0) {
+                    for (PFObject *activity in likeObjects) {
+                        PFObject *photo = activity[@"toPhoto"];
+                        if(photo[@"image"])
+                            [self.likePhotoArray addObject:photo.objectId];
+                    }
                 }
+                [self.tableView reloadData];
             }
-            [self.tableView reloadData];
-        }
-    }];
+        }];
+    } else {
+        self.followingArray = [NSMutableArray array];
+        self.likePhotoArray = [NSMutableArray array];
+        [self.tableView reloadData];
+    }
     
 }
 
@@ -156,7 +162,7 @@
     followButton.delegate = self;
     followButton.sectionIndex = section;
     
-    if (!self.followingArray || [user.objectId isEqualToString:[PFUser currentUser].objectId]) {
+    if (!self.followingArray || ([PFUser currentUser] && [user.objectId isEqualToString:[PFUser currentUser].objectId])) {
         followButton.hidden = YES;
     }
     else {
@@ -173,6 +179,7 @@
     return sectionHeaderView;
 }
 
+/*
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == self.objects.count) {
         return nil;
@@ -228,6 +235,7 @@
 
     return sectionFooterView;
 }
+ */
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger sections = self.objects.count;
@@ -250,6 +258,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     PFImageView *photo = (PFImageView *)[cell viewWithTag:1];
     photo.file = object[@"image"];
+    photo.contentMode = UIViewContentModeScaleAspectFit;
     [photo loadInBackground];
     
     UILabel *commentLabel = (UILabel *)[cell viewWithTag:2];
@@ -286,7 +295,7 @@
     deleteButton.delegate = self;
     deleteButton.sectionIndex = indexPath.section;  //TODO: fix this
     
-    if ([user.objectId isEqualToString:[PFUser currentUser].objectId]) {
+    if ([PFUser currentUser] && [user.objectId isEqualToString:[PFUser currentUser].objectId]) {
         deleteButton.hidden = NO;
     }
     else {
@@ -304,7 +313,8 @@
     return 50.0f;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+/*
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == self.objects.count) {
         return 0.0f;
     }
@@ -320,6 +330,7 @@
     return 0.0f;
     //return increment + 70.0f;
 }
+ */
 
 /*- (NSString *)tableView: (UITableView * )tableView comment : (NSInteger)section
  {
@@ -363,16 +374,25 @@
         return 50.0f;
     }
 //    return 320.0f;
-    PFObject *photo = [self.objects objectAtIndex:indexPath.section];
-    // NSLog(@"--, %@", photo[@"title"]);
-    NSString *title = photo[@"title"];
+    PFObject *photoObject = [self.objects objectAtIndex:indexPath.section];
+    /*
+    PFFile *photo = [photoObject objectForKey:@"image"];
+    UIImage *image = [UIImage imageWithData:[photo getData]];
+    NSLog(@"--, %f, %f", image.size.height, image.size.width);
+    float imageHeight = self.view.frame.size.width;
+    if(image.size.height < image.size.width) {
+        imageHeight = image.size.height/(image.size.width/imageHeight);
+    }
+     */
+    NSString *title = photoObject[@"title"];
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:12];
     NSDictionary *userAttributes = @{NSFontAttributeName: font,
                                      NSForegroundColorAttributeName: [UIColor blackColor]};
     const CGSize textSize = [title sizeWithAttributes: userAttributes];
-    float increment = 15 * (textSize.width/self.view.frame.size.width);
+    float increment = 18 * (textSize.width/self.view.frame.size.width);
     
     return increment + 360.0f;
+    //return increment + imageHeight + 40.0f;
 }
 
 
@@ -391,9 +411,11 @@
 }
 
 - (PFQuery *)queryForTable {
+    /*
     if (![PFUser currentUser] || ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         return nil;
     }
+     */
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     
     [query includeKey:@"whoTook"];
@@ -403,6 +425,11 @@
 }
 
 - (void)followButton:(FollowButton *)button didTapWithSectionIndex:(NSInteger)index {
+    if (![PFUser currentUser]) {
+        [self askForLogIn];
+        return;
+    }
+    
     PFObject *photo = [self.objects objectAtIndex:index];
     PFUser *user = photo[@"whoTook"];
     
@@ -450,6 +477,11 @@
 }
 
 - (void) likeButton:(LikeButton *)button didTapWithSectionIndex:(NSInteger)index {
+    if (![PFUser currentUser]) {
+        [self askForLogIn];
+        return;
+    }
+    
     PFObject *photo = [self.objects objectAtIndex: index];
     
     NSInteger indexOfMatchedObject = [self.likePhotoArray indexOfObject:photo.objectId];
@@ -568,6 +600,12 @@
     NSLog(@"Did finished actionsheet");
 }
 
+- (void) askForLogIn {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You haven't logged in" message:@"Please log in to use this function" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate presentLoginControllerAnimated:YES];
+}
 
 - (IBAction)logoutButton:(id)sender {
     [[PFFacebookUtils session] closeAndClearTokenInformation];

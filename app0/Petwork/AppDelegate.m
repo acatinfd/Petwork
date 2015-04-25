@@ -33,11 +33,10 @@
     // [Optional] Track statistics around application opens.
     
     
-    NSLog(@"didFinishLaunchWithOptions: makeKeyAndVisible");
+    //NSLog(@"didFinishLaunchWithOptions: makeKeyAndVisible");
     [self.window makeKeyAndVisible];
     NSLog(@"didFinishLaunchWithOptions: didmakeKeyAndVisible");
     [PFFacebookUtils initializeFacebook];
-        NSLog(@"didFinishLaunchWithOptions: makeKeyAndVisible");
     if (![PFUser currentUser] && ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         [self presentLoginControllerAnimated:NO];
         NSLog(@"didFinishLaunchWithOptions: had facebook user");
@@ -52,9 +51,12 @@
     //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //UINavigationController *loginNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"loginNav"];
     //    [self.window.rootViewController presentViewController:loginNavigationController animated:animated completion:nil];
+    //ParseLoginViewController *loginViewController = [[ParseLoginViewController alloc] init];
+    //loginViewController.delegate = self;
+    //[loginViewController setFields:PFLogInFieldsFacebook];
     ParseLoginViewController *loginViewController = [[ParseLoginViewController alloc] init];
     loginViewController.delegate = self;
-    [loginViewController setFields:PFLogInFieldsFacebook];
+    [loginViewController setFields: ( PFLogInFieldsDismissButton | PFLogInFieldsFacebook )];
     NSLog(@"presentLoginControllerAnimated");
     [self.window.rootViewController presentViewController:loginViewController animated:animated completion:nil];
 }

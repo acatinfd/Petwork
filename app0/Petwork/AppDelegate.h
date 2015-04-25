@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSMutableData *profilePictureData;
 
 - (void)presentLoginControllerAnimated:(BOOL)animated;
+- (void)enableProfileTab: (BOOL)enable;
 
 @end
 

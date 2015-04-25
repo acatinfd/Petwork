@@ -25,11 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (![PFUser currentUser]) {
-        [self askForLogIn];
-        [self.tabBarController setSelectedIndex:0];
-        return;
-    }
     // Do any additional setup after loading the view.
 }
 
@@ -40,7 +35,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self updateUserStatus];
+    
+    if ([PFUser currentUser])
+        [self updateUserStatus];
+    else {
+        [self.tabBarController setSelectedIndex:0];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+        [appDelegate enableProfileTab:NO];
+    }
 }
 
 - (void)updateUserStatus {
@@ -137,15 +139,11 @@
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate enableProfileTab:NO];
     [appDelegate presentLoginControllerAnimated:YES];
+
 }
 
-- (void) askForLogIn {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You haven't logged in" message:@"Please log in to use this function" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    [appDelegate presentLoginControllerAnimated:YES];
-}
 /*
 #pragma mark - Navigation
 

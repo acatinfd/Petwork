@@ -37,7 +37,9 @@
     [self.window makeKeyAndVisible];
     NSLog(@"didFinishLaunchWithOptions: didmakeKeyAndVisible");
     [PFFacebookUtils initializeFacebook];
+    
     if (![PFUser currentUser] && ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        [self enableProfileTab:NO];
         [self presentLoginControllerAnimated:NO];
         NSLog(@"didFinishLaunchWithOptions: had facebook user");
         
@@ -128,7 +130,8 @@
     [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error){
         if (!error){
             //handle result;
-                 NSLog(@"didLogInUser: no error");
+            [self enableProfileTab:YES];
+             NSLog(@"didLogInUser: no error");
             [self facebookRequestDidLoad:result];
         }else{
                  NSLog(@"didLogInUser: error");
@@ -208,6 +211,12 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [[PFFacebookUtils session] close];
+}
+
+- (void)enableProfileTab: (BOOL)enable {
+    AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    UITabBarController *tabs = (UITabBarController *)[del.window rootViewController];
+    [[[[tabs tabBar] items] objectAtIndex:2] setEnabled:enable];
 }
 
 @end

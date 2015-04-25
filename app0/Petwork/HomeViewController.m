@@ -316,7 +316,8 @@
                                      NSForegroundColorAttributeName: [UIColor blackColor]};
     const CGSize textSize = [title sizeWithAttributes: userAttributes];
     float increment = 15 * (textSize.width/self.view.frame.size.width);
-    return 40.0f;
+    //return 40.0f;
+    return 0.0f;
     //return increment + 70.0f;
 }
 
@@ -371,7 +372,7 @@
     const CGSize textSize = [title sizeWithAttributes: userAttributes];
     float increment = 15 * (textSize.width/self.view.frame.size.width);
     
-    return increment + 320.0f;
+    return increment + 360.0f;
 }
 
 

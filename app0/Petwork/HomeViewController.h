@@ -16,5 +16,6 @@
 @interface HomeViewController : PFQueryTableViewController <FollowButtonDelegate, LikeButtonDelegate, DeletePhotoButtonDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, PhotoInfoButtonDelegate>
 
 - (IBAction)logoutButton:(id)sender;
+@property (nonatomic, strong) NSMutableArray *blackListPhotoArray;
 @end
 

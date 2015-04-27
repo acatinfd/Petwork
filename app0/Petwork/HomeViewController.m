@@ -17,7 +17,6 @@
 @property (nonatomic, strong) NSMutableArray *followingArray;
 @property (nonatomic, strong) NSMutableArray *likePhotoArray;
 @property (nonatomic, strong) NSMutableArray *deletePhotoArray; //store the index of the photo that to be deleted
-@property (nonatomic, strong) NSMutableArray *blackListPhotoArray;
 @property (nonatomic, assign) BOOL noMorePhotosDidWarned;
 @property (nonatomic, assign) NSInteger blockPhotoIndex;
 @end
@@ -54,11 +53,12 @@
     // Do any additional setup after loading the view.
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_logo"]];
     [self.tableView setSeparatorColor:[UIColor clearColor]];
+    [self loadObjects];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self loadObjects];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -130,6 +130,17 @@
     [photosFromCurrentUserQuery whereKey:@"whoTook" equalTo:[PFUser currentUser]];
     
     PFQuery *superQuery = [PFQuery orQueryWithSubqueries:[NSArray arrayWithObjects:photosFromCurrentUserQuery,photosFromFollowedUsersQuery, nil]];
+    
+    PFQuery *blockedPhotoQuery = [PFQuery queryWithClassName:@"PhotoActivity"];
+    [blockedPhotoQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    [blockedPhotoQuery whereKey:@"type" equalTo:@"block"];
+    [blockedPhotoQuery includeKey:@"toPhotoObjectId"];
+    
+    if(self.blackListPhotoArray)
+        [superQuery whereKey:@"objectId" notContainedIn:self.blackListPhotoArray];
+    else
+        [superQuery whereKey:@"objectId" doesNotMatchKey:@"toPhotoObjectId" inQuery:blockedPhotoQuery];
+
     [superQuery includeKey:@"whoTook"];
     [superQuery orderByDescending:@"createdAt"];
     

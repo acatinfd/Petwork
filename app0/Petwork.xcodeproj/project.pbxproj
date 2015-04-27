@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C636A29F1AEEB904001C557B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C636A29E1AEEB904001C557B /* SettingsViewController.m */; };
 		C6434AA51AC24348001B93CF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6434AA41AC24348001B93CF /* ProfileViewController.m */; };
 		C66C40891AA6E1FA008C3E52 /* ParseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66C40881AA6E1FA008C3E52 /* ParseLoginViewController.m */; };
 		C66C408B1AA6E650008C3E52 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C408A1AA6E650008C3E52 /* Social.framework */; };
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C636A29D1AEEB904001C557B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		C636A29E1AEEB904001C557B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		C6434AA31AC24348001B93CF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		C6434AA41AC24348001B93CF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		C66C40871AA6E1FA008C3E52 /* ParseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLoginViewController.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				C6CF3C081AA6D25100300292 /* SignUpViewController.h */,
 				C6CF3C091AA6D25100300292 /* SignUpViewController.m */,
 				C6EA00AA1AA6424F006DAB6B /* Main.storyboard */,
+				C636A29D1AEEB904001C557B /* SettingsViewController.h */,
+				C636A29E1AEEB904001C557B /* SettingsViewController.m */,
 				C68A71381AEC76CD00203A55 /* PhotoInfoButton.h */,
 				C68A71391AEC76CD00203A55 /* PhotoInfoButton.m */,
 				C6B2EBE01AC23867008B044D /* FollowButton.h */,
@@ -368,6 +373,7 @@
 				C6EA00A31AA6424F006DAB6B /* AppDelegate.m in Sources */,
 				C671A4271AD043F100906F52 /* TagsTableViewController.m in Sources */,
 				C695EDD61AA81DAD00536830 /* CameraViewController.m in Sources */,
+				C636A29F1AEEB904001C557B /* SettingsViewController.m in Sources */,
 				C68A71371AE4CBCC00203A55 /* DeletePhotoButton.m in Sources */,
 				C6EA00A01AA6424F006DAB6B /* main.m in Sources */,
 				C6C47FD81AC89D7C000F91A5 /* CategoryViewController.m in Sources */,

@@ -323,7 +323,7 @@
                                                 <constraint firstAttribute="height" constant="22" id="Z2r-l2-weD"/>
                                                 <constraint firstAttribute="height" constant="26" id="tqT-R5-HnL"/>
                                             </constraints>
-                                            <state key="normal" image="bin-7">
+                                            <state key="normal" title="Delete" image="bin-7">
                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </state>
                                             <variation key="default">
@@ -369,16 +369,34 @@
                                                 </mask>
                                             </variation>
                                         </button>
+                                        <button opaque="NO" tag="6" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="10" placeholderIntrinsicHeight="10" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-IE-IXJ" customClass="PhotoInfoButton">
+                                            <rect key="frame" x="289" y="347" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="txy-1W-fRl"/>
+                                            </constraints>
+                                            <state key="normal" title="Flag"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="txy-1W-fRl"/>
+                                                </mask>
+                                            </variation>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Lfy-W4-vGQ" firstAttribute="leading" secondItem="bat-zz-cZu" secondAttribute="leadingMargin" id="0bA-pT-3ez"/>
+                                        <constraint firstItem="2IE-IE-IXJ" firstAttribute="bottom" secondItem="raV-3i-PQe" secondAttribute="bottom" id="0bP-1T-2My"/>
                                         <constraint firstAttribute="centerY" secondItem="eOh-Me-SLq" secondAttribute="centerY" id="26h-lK-Yeb"/>
                                         <constraint firstItem="eOh-Me-SLq" firstAttribute="trailing" secondItem="bat-zz-cZu" secondAttribute="trailingMargin" id="2IT-kP-NFY"/>
                                         <constraint firstItem="eOh-Me-SLq" firstAttribute="top" secondItem="bat-zz-cZu" secondAttribute="top" id="8A4-gT-0c9"/>
+                                        <constraint firstAttribute="bottom" secondItem="2IE-IE-IXJ" secondAttribute="bottom" constant="189" id="CST-sa-rEa"/>
                                         <constraint firstItem="j1A-uX-BwA" firstAttribute="top" secondItem="Lfy-W4-vGQ" secondAttribute="top" id="Dcx-GW-Ckx"/>
+                                        <constraint firstAttribute="centerX" secondItem="2IE-IE-IXJ" secondAttribute="centerX" id="FsR-0g-1bR"/>
+                                        <constraint firstItem="2IE-IE-IXJ" firstAttribute="centerX" secondItem="aVx-hI-NJF" secondAttribute="centerX" id="GzX-h9-Z0m"/>
+                                        <constraint firstItem="2IE-IE-IXJ" firstAttribute="top" secondItem="raV-3i-PQe" secondAttribute="top" id="KUR-bC-pRx"/>
                                         <constraint firstAttribute="centerX" secondItem="eOh-Me-SLq" secondAttribute="centerX" constant="-2.5" id="QEI-aY-DCA"/>
                                         <constraint firstItem="Lfy-W4-vGQ" firstAttribute="top" secondItem="aVx-hI-NJF" secondAttribute="bottom" constant="8" id="RpI-oq-H6f"/>
                                         <constraint firstAttribute="centerY" secondItem="eOh-Me-SLq" secondAttribute="centerY" constant="7" id="Use-HO-N6v"/>
+                                        <constraint firstItem="eOh-Me-SLq" firstAttribute="top" secondItem="2IE-IE-IXJ" secondAttribute="top" constant="-8" id="XXn-Yi-7VL"/>
                                         <constraint firstItem="raV-3i-PQe" firstAttribute="centerY" secondItem="j1A-uX-BwA" secondAttribute="centerY" id="bwS-su-1dH"/>
                                         <constraint firstAttribute="centerY" secondItem="eOh-Me-SLq" secondAttribute="centerY" id="fG7-XH-0t1"/>
                                         <constraint firstItem="aVx-hI-NJF" firstAttribute="top" secondItem="eOh-Me-SLq" secondAttribute="bottom" id="gbI-fR-ExZ"/>
@@ -389,6 +407,7 @@
                                         <constraint firstItem="raV-3i-PQe" firstAttribute="centerY" secondItem="j1A-uX-BwA" secondAttribute="centerY" id="oM2-0a-PJf"/>
                                         <constraint firstAttribute="centerX" secondItem="eOh-Me-SLq" secondAttribute="centerX" id="rbA-FL-7hP"/>
                                         <constraint firstItem="j1A-uX-BwA" firstAttribute="leading" secondItem="raV-3i-PQe" secondAttribute="trailing" constant="8" id="rml-iE-Dk8"/>
+                                        <constraint firstItem="eOh-Me-SLq" firstAttribute="leading" secondItem="2IE-IE-IXJ" secondAttribute="leading" constant="-8" id="sIi-4Z-Cb3"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="aVx-hI-NJF" secondAttribute="trailing" id="uKJ-5c-dYE"/>
                                         <constraint firstItem="aVx-hI-NJF" firstAttribute="leading" secondItem="bat-zz-cZu" secondAttribute="leadingMargin" id="wck-nq-gmq"/>
                                         <constraint firstItem="Lfy-W4-vGQ" firstAttribute="top" secondItem="aVx-hI-NJF" secondAttribute="bottom" constant="8" id="yWe-XX-0Fy"/>
@@ -400,9 +419,13 @@
                                             <exclude reference="26h-lK-Yeb"/>
                                             <exclude reference="QEI-aY-DCA"/>
                                             <exclude reference="Use-HO-N6v"/>
+                                            <exclude reference="XXn-Yi-7VL"/>
                                             <exclude reference="fG7-XH-0t1"/>
                                             <exclude reference="rbA-FL-7hP"/>
+                                            <exclude reference="sIi-4Z-Cb3"/>
                                             <exclude reference="yWe-XX-0Fy"/>
+                                            <exclude reference="CST-sa-rEa"/>
+                                            <exclude reference="GzX-h9-Z0m"/>
                                             <exclude reference="bwS-su-1dH"/>
                                             <exclude reference="oM2-0a-PJf"/>
                                             <exclude reference="zAe-15-VuF"/>

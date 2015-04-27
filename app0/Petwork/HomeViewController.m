@@ -16,8 +16,10 @@
 @interface HomeViewController ()
 @property (nonatomic, strong) NSMutableArray *followingArray;
 @property (nonatomic, strong) NSMutableArray *likePhotoArray;
-@property (nonatomic, strong) NSMutableArray *deletePhotoArray;
+@property (nonatomic, strong) NSMutableArray *deletePhotoArray; //store the index of the photo that to be deleted
+@property (nonatomic, strong) NSMutableArray *blackListPhotoArray;
 @property (nonatomic, assign) BOOL noMorePhotosDidWarned;
+@property (nonatomic, assign) NSInteger blockPhotoIndex;
 @end
 
 @implementation HomeViewController
@@ -73,8 +75,6 @@
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
     
-    self.deletePhotoArray = [NSMutableArray array];
-    
     if ([PFUser currentUser]) {
         PFQuery *queryFollow = [PFQuery queryWithClassName:@"Activity"];
         [queryFollow whereKey:@"fromUser" equalTo:[PFUser currentUser]];
@@ -110,9 +110,31 @@
                 [self.tableView reloadData];
             }
         }];
+        
+        
+        PFQuery *queryBlackList = [PFQuery queryWithClassName:@"PhotoActivity"];
+        [queryBlackList whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        [queryBlackList whereKey:@"type" equalTo:@"block"];
+        [queryBlackList includeKey:@"toPhoto"];
+        [queryBlackList findObjectsInBackgroundWithBlock:^(NSArray *blockedPhotos, NSError *error) {
+            if(!error) {
+                self.blackListPhotoArray = [NSMutableArray array];
+                if(blockedPhotos.count > 0) {
+                    for (PFObject *activity in blockedPhotos) {
+                        PFObject *photo = activity[@"toPhoto"];
+                        if(photo[@"image"])
+                           [self.blackListPhotoArray addObject:photo.objectId];
+                    }
+                }
+                [self.tableView reloadData];
+            }
+        }];
+        
     } else {
+        self.deletePhotoArray = [NSMutableArray array];
         self.followingArray = [NSMutableArray array];
         self.likePhotoArray = [NSMutableArray array];
+        self.blackListPhotoArray = [NSMutableArray array];
         [self.tableView reloadData];
     }
     
@@ -302,6 +324,10 @@
         deleteButton.hidden = YES;
     }
 
+    PhotoInfoButton *blockPhotoButton = (PhotoInfoButton *)[cell viewWithTag:6];
+    blockPhotoButton.delegate = self;
+    blockPhotoButton.sectionIndex = indexPath.section;
+    
     return cell;
 }
 
@@ -389,7 +415,7 @@
     NSDictionary *userAttributes = @{NSFontAttributeName: font,
                                      NSForegroundColorAttributeName: [UIColor blackColor]};
     const CGSize textSize = [title sizeWithAttributes: userAttributes];
-    float increment = 18 * (textSize.width/self.view.frame.size.width);
+    float increment = 15 * (textSize.width/self.view.frame.size.width);
     
     return increment + 360.0f;
     //return increment + imageHeight + 40.0f;
@@ -415,11 +441,45 @@
     if (![PFUser currentUser] || ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         return nil;
     }
+     
+     PFQuery *photosFromFollowedUsersQuery = [PFQuery queryWithClassName:@"Photo"];
+     [photosFromFollowedUsersQuery whereKey:@"whoTook" matchesKey:@"toUser" inQuery:followingQuery];
+     
+     PFQuery *photosFromCurrentUserQuery = [PFQuery queryWithClassName:@"Photo"];
+     [photosFromCurrentUserQuery whereKey:@"whoTook" equalTo:[PFUser currentUser]];
+     
+     PFQuery *superQuery = [PFQuery orQueryWithSubqueries:[NSArray arrayWithObjects:photosFromCurrentUserQuery,photosFromFollowedUsersQuery, nil]];
+     [superQuery includeKey:@"whoTook"];
+     [superQuery orderByDescending:@"createdAt"];
+     
+     PFQuery *likePhotoQuery = [PFQuery queryWithClassName:@"PhotoActivity"];
+     [likePhotoQuery whereKey:@"toPhoto" equalTo:object];
+     [likePhotoQuery whereKey:@"type" equalTo:@"like"];
+     [likePhotoQuery findObjectsInBackgroundWithBlock:^(NSArray *likePhotoActivities, NSError *error) {
+     if (!error) {
+     likeNumberLabel.text = [[NSNumber numberWithInteger:likePhotoActivities.count] stringValue];
+     }
+     }];
+
      */
+    
+    if ([PFUser currentUser]) {
+        /*PFQuery *queryForBlackList = [PFQuery queryWithClassName:@"PhotoActivity"];
+        [queryForBlackList whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        [queryForBlackList whereKey:@"type" equalTo:@"block"];
+        [queryForBlackList includeKey:@"toPhoto"];
+        */
+        
+        PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+        if(self.blackListPhotoArray)
+            [query whereKey:@"objectId" notContainedIn:self.blackListPhotoArray];
+        [query includeKey:@"whoTook"];
+        [query orderByDescending:@"createdAt"];
+        return query;
+    }
+    
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
     [query includeKey:@"whoTook"];
-    
     [query orderByDescending:@"createdAt"];
     return query;
 }
@@ -543,7 +603,7 @@
                                                     cancelButtonTitle:cancelTitle
                                                destructiveButtonTitle:deletePhoto
                                                     otherButtonTitles:nil];
-    
+    actionSheet.tag = 1;
     [actionSheet showInView:self.view];
     NSLog(@"Did finished shown actionsheet");
 }
@@ -567,37 +627,80 @@
 
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == 0) {
-        //[self deletePhoto];
-        //Delete
-        NSNumber *index = [self.deletePhotoArray lastObject];
-        PFObject *photo = [self.objects objectAtIndex:[index integerValue]];
-        PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
-        [queryLike whereKey:@"toPhoto" equalTo:photo];
-        [queryLike whereKey:@"type" equalTo:@"like"];
-        [queryLike findObjectsInBackgroundWithBlock:^(NSArray *likeActivities, NSError *error) {
-            if (!error) {
-                for (PFObject *likeActivity in likeActivities) {
-                    [likeActivity deleteEventually];
+    if(actionSheet.tag == 1) {
+        if(buttonIndex == 0) {
+            //[self deletePhoto];
+            //Delete
+            NSNumber *index = [self.deletePhotoArray lastObject];
+            PFObject *photo = [self.objects objectAtIndex:[index integerValue]];
+            PFQuery *queryLike = [PFQuery queryWithClassName:@"PhotoActivity"];
+            [queryLike whereKey:@"toPhoto" equalTo:photo];
+            [queryLike whereKey:@"type" equalTo:@"like"];
+            [queryLike findObjectsInBackgroundWithBlock:^(NSArray *likeActivities, NSError *error) {
+                if (!error) {
+                    for (PFObject *likeActivity in likeActivities) {
+                        [likeActivity deleteEventually];
+                    }
                 }
-            }
-        }];
+            }];
         
-        [self.likePhotoArray removeObject:photo.objectId];
-        [self deletePhoto];
+            [self.likePhotoArray removeObject:photo.objectId];
+            [self deletePhoto];
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Successfully deleted!" message:@"Refresh to see changes" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alertView show];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Successfully deleted!" message:@"Refresh to see changes" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alertView show];
         
         
-        [self.tableView reloadData];
-        NSLog(@"Did delete from actionsheet");
-    }else {
-        //Cancel detele
-        [self.deletePhotoArray removeLastObject];
-        NSLog(@"Did cancel from actionsheet");
+            [self.tableView reloadData];
+            NSLog(@"Did delete from actionsheet");
+        }else {
+            //Cancel detele
+            [self.deletePhotoArray removeLastObject];
+            NSLog(@"Did cancel from actionsheet");
+        }
+        NSLog(@"Did finished actionsheet");
+    } else if (actionSheet.tag == 2) {
+        if(buttonIndex == 0) {
+            PFObject *photo = [self.objects objectAtIndex:_blockPhotoIndex];
+            [self blockPhoto:photo];
+            /*
+            NSData *imageData = UIImagePNGRepresentation(self.chosenImageView.image);
+            PFFile *photoFile = [PFFile fileWithData: imageData];
+            PFObject *photo = [PFObject objectWithClassName:@"Photo"];
+            
+            photo[@"image"] = photoFile;
+            photo[@"user"] = [PFUser currentUser];
+            photo[@"whoTook"] = [PFUser currentUser];
+            if(self.titleTextField.text)
+                photo[@"title"] = self.titleTextField.text;
+            [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!succeeded) {
+                    [self showError];
+                }
+            }];
+             */
+        }
+        else {
+            //Cancel flag
+            
+        }
     }
-    NSLog(@"Did finished actionsheet");
+}
+
+- (void) blockPhoto:(PFObject *) photo {
+    NSInteger indexOfMatchedObject = [self.blackListPhotoArray indexOfObject:photo.objectId];
+    if (indexOfMatchedObject == NSNotFound) {
+        [self.blackListPhotoArray addObject:photo.objectId];
+        PFObject *blockActivity = [PFObject objectWithClassName:@"PhotoActivity"];
+        blockActivity[@"fromUser"] = [PFUser currentUser];
+        blockActivity[@"toPhoto"] = photo;
+        blockActivity[@"toUser"] = photo[@"whoTook"];
+        blockActivity[@"type"] = @"block";
+        [blockActivity saveEventually];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Successfully block photo" message:@"You will not see this photo in the timeline again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        [self.tableView reloadData];
+        }
 }
 
 - (void) askForLogIn {
@@ -652,6 +755,25 @@
     }
 }
 */
+
+
+- (void)photoInfoButton:(PhotoInfoButton *)button didTapWithSectionIndex:(NSInteger)index {
+    if (![PFUser currentUser]) {
+        [self askForLogIn];
+        return;
+    }
+    _blockPhotoIndex = index;
+    NSString *actionSheetTitle = @"Flag offensive content?"; //Action Sheet Title
+    NSString *confirmTitle = @"Yes";
+    NSString *cancelTitle = @"Cancel";
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:actionSheetTitle
+                                                             delegate:self
+                                                    cancelButtonTitle:cancelTitle
+                                               destructiveButtonTitle:confirmTitle
+                                                    otherButtonTitles:nil];
+    actionSheet.tag = 2;
+    [actionSheet showInView:self.view];
+}
 
 - (NSIndexPath *)_indexPathForPaginationCell {
     

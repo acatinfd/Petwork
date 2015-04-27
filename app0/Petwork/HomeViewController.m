@@ -652,9 +652,9 @@
         }
         NSLog(@"Did finished actionsheet");
     } else if (actionSheet.tag == 2) {
-        if(buttonIndex == 0) {
+        if(buttonIndex == 0 || buttonIndex == 1) {
             PFObject *photo = [self.objects objectAtIndex:_blockPhotoIndex];
-            [self blockPhoto:photo];
+            [self blockPhoto:photo offensive:(buttonIndex == 0)];
             /*
             NSData *imageData = UIImagePNGRepresentation(self.chosenImageView.image);
             PFFile *photoFile = [PFFile fileWithData: imageData];
@@ -679,7 +679,7 @@
     }
 }
 
-- (void) blockPhoto:(PFObject *) photo {
+- (void) blockPhoto:(PFObject *) photo  offensive:(BOOL)offensive {
     NSInteger indexOfMatchedObject = [self.blackListPhotoArray indexOfObject:photo.objectId];
     if (indexOfMatchedObject == NSNotFound) {
         [self.blackListPhotoArray addObject:photo.objectId];
@@ -690,7 +690,16 @@
         blockActivity[@"toUser"] = photo[@"whoTook"];
         blockActivity[@"type"] = @"block";
         [blockActivity saveEventually];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Successfully block photo" message:@"You will not see this photo in the timeline again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        if (offensive) {
+            PFObject *badPhoto = [PFObject objectWithClassName:@"PhotoActivity"];
+            badPhoto[@"fromUser"] = [PFUser currentUser];
+            badPhoto[@"toPhoto"] = photo;
+            badPhoto[@"toUser"] = photo[@"whoTook"];
+            badPhoto[@"type"] = @"reportOffensive";
+            [badPhoto saveEventually];
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Successfully block photo" message:@"You will not see this photo in the timeline again after refresh" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [self.tableView reloadData];
     }
@@ -756,14 +765,15 @@
         return;
     }
     _blockPhotoIndex = index;
-    NSString *actionSheetTitle = @"Flag offensive content?"; //Action Sheet Title
-    NSString *confirmTitle = @"Yes";
+    NSString *actionSheetTitle = @"Dislike this photo?"; //Action Sheet Title
+    NSString *hatePhotoTitle = @"I don't like it!";
+    NSString *reportPhotoTitle = @"This is offensive content!";
     NSString *cancelTitle = @"Cancel";
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:actionSheetTitle
                                                              delegate:self
                                                     cancelButtonTitle:cancelTitle
-                                               destructiveButtonTitle:confirmTitle
-                                                    otherButtonTitles:nil];
+                                               destructiveButtonTitle:reportPhotoTitle
+                                                    otherButtonTitles:hatePhotoTitle, nil];
     actionSheet.tag = 2;
     [actionSheet showInView:self.view];
 }

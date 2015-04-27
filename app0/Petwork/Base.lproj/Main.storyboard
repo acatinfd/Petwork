@@ -318,9 +318,14 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="22" id="2J5-6r-uDV"/>
                                                 <constraint firstAttribute="height" constant="22" id="6Fo-GN-kZC"/>
-                                                <constraint firstAttribute="width" constant="22" id="ug0-LG-wNn"/>
-                                                <constraint firstAttribute="height" constant="22" id="z9b-Aq-dSl"/>
+                                                <constraint firstAttribute="width" constant="22" id="ug0-LG-wNn">
+                                                    <variation key="heightClass=regular" constant="25"/>
+                                                </constraint>
+                                                <constraint firstAttribute="height" constant="22" id="z9b-Aq-dSl">
+                                                    <variation key="heightClass=regular" constant="25"/>
+                                                </constraint>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="like" image="heart-7">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -332,7 +337,7 @@
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular" misplaced="YES">
-                                                <rect key="frame" x="561" y="385" width="22" height="22"/>
+                                                <rect key="frame" x="561" y="385" width="25" height="25"/>
                                                 <mask key="constraints">
                                                     <exclude reference="2J5-6r-uDV"/>
                                                     <exclude reference="6Fo-GN-kZC"/>
@@ -944,10 +949,15 @@
                                             <rect key="frame" x="564" y="347" width="22" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="22" id="EGu-Pd-whW"/>
-                                                <constraint firstAttribute="height" constant="22" id="mpc-lS-K0C"/>
-                                                <constraint firstAttribute="width" constant="22" id="pKa-6P-4AI"/>
+                                                <constraint firstAttribute="height" constant="22" id="mpc-lS-K0C">
+                                                    <variation key="heightClass=regular" constant="25"/>
+                                                </constraint>
+                                                <constraint firstAttribute="width" constant="22" id="pKa-6P-4AI">
+                                                    <variation key="heightClass=regular" constant="25"/>
+                                                </constraint>
                                                 <constraint firstAttribute="height" constant="22" id="w7s-qw-usL"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="like" image="heart-7">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -959,7 +969,7 @@
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular" misplaced="YES">
-                                                <rect key="frame" x="561" y="385" width="22" height="22"/>
+                                                <rect key="frame" x="561" y="385" width="25" height="25"/>
                                                 <mask key="constraints">
                                                     <exclude reference="EGu-Pd-whW"/>
                                                     <include reference="mpc-lS-K0C"/>
@@ -1134,7 +1144,7 @@
         <image name="heart-7" width="30" height="30"/>
         <image name="plus-simple-7" width="30" height="30"/>
         <image name="profile_button" width="29" height="29"/>
-        <image name="redheart" width="600" height="600"/>
+        <image name="redheart" width="30" height="30"/>
         <image name="share_background" width="164" height="38"/>
     </resources>
     <color key="tintColor" red="0.20784313730000001" green="0.62352941179999999" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -583,7 +583,7 @@
 }
 
 - (void) deletePhotoButton:(DeletePhotoButton *)button didTapWithSectionIndex:(NSInteger)index {
-    NSLog(@"didTapWithSectionIndex");
+    //NSLog(@"didTapWithSectionIndex");
     [self.deletePhotoArray addObject:[NSNumber numberWithInteger:index]];
     
     NSString *actionSheetTitle = @"Confirm to delete your photo permanently?"; //Action Sheet Title
@@ -596,7 +596,6 @@
                                                     otherButtonTitles:nil];
     actionSheet.tag = 1;
     [actionSheet showInView:self.view];
-    NSLog(@"Did finished shown actionsheet");
 }
 
 - (void) deletePhoto { //Delete photo that appears in self.deletePhotoArray
@@ -644,13 +643,10 @@
         
         
             [self.tableView reloadData];
-            NSLog(@"Did delete from actionsheet");
         }else {
             //Cancel detele
             [self.deletePhotoArray removeLastObject];
-            NSLog(@"Did cancel from actionsheet");
         }
-        NSLog(@"Did finished actionsheet");
     } else if (actionSheet.tag == 2) {
         if(buttonIndex == 0 || buttonIndex == 1) {
             PFObject *photo = [self.objects objectAtIndex:_blockPhotoIndex];

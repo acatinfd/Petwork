@@ -766,8 +766,8 @@
     }
     _blockPhotoIndex = index;
     NSString *actionSheetTitle = @"Dislike this photo?"; //Action Sheet Title
-    NSString *hatePhotoTitle = @"I don't like it!";
-    NSString *reportPhotoTitle = @"This is offensive content!";
+    NSString *hatePhotoTitle = @"Hide this from my feed";
+    NSString *reportPhotoTitle = @"Report inappropiate";
     NSString *cancelTitle = @"Cancel";
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:actionSheetTitle
                                                              delegate:self

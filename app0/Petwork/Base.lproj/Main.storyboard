@@ -546,7 +546,7 @@
                                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="share:" destination="vW5-kr-YRc" eventType="touchUpInside" id="upt-8K-wqU"/>
+                                                    <action selector="share:" destination="vW5-kr-YRc" eventType="touchUpInside" id="LHz-3O-go8"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-aJ-kOY">
@@ -624,8 +624,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="chosenImageView" destination="SzG-8E-uee" id="y0x-MI-V6z"/>
-                        <outlet property="titleTextField" destination="Auz-aJ-kOY" id="Wg5-Rj-GEj"/>
+                        <outlet property="chosenImageView" destination="SzG-8E-uee" id="J1V-mK-iDa"/>
+                        <outlet property="titleTextField" destination="Auz-aJ-kOY" id="yxL-nv-lVE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQ4-XZ-DMz" userLabel="First Responder" sceneMemberID="firstResponder"/>

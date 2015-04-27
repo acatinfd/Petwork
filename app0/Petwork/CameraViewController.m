@@ -38,7 +38,7 @@
 - (void) viewWillAppear:(BOOL)animated {
     _imagePicker = [[UIImagePickerController alloc] init];
     self.imagePicker.delegate = self;
-    
+    self.titleTextField.delegate = self;
     self.imagePicker.allowsEditing = YES;
     if(!self.imagePickerIsDisplayed && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         NSString *actionSheetTitle = @"Pick a photo source"; //Action Sheet Title
@@ -149,6 +149,10 @@
     [self.titleTextField resignFirstResponder];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
 
 - (IBAction)cancelButton:(id)sender {
     [self clear];

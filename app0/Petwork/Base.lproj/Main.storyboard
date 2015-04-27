@@ -935,8 +935,8 @@
                                             <variation key="heightClass=regular" misplaced="YES">
                                                 <rect key="frame" x="505" y="385" width="42" height="22"/>
                                                 <mask key="constraints">
-                                                    <exclude reference="gee-Ry-obd"/>
                                                     <exclude reference="446-3P-cYX"/>
+                                                    <exclude reference="gee-Ry-obd"/>
                                                 </mask>
                                             </variation>
                                         </label>
@@ -954,17 +954,17 @@
                                             <state key="selected" title="Unlike" image="redheart"/>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="pKa-6P-4AI"/>
                                                     <exclude reference="mpc-lS-K0C"/>
+                                                    <exclude reference="pKa-6P-4AI"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular" misplaced="YES">
                                                 <rect key="frame" x="561" y="385" width="22" height="22"/>
                                                 <mask key="constraints">
                                                     <exclude reference="EGu-Pd-whW"/>
-                                                    <exclude reference="w7s-qw-usL"/>
-                                                    <include reference="pKa-6P-4AI"/>
                                                     <include reference="mpc-lS-K0C"/>
+                                                    <include reference="pKa-6P-4AI"/>
+                                                    <exclude reference="w7s-qw-usL"/>
                                                 </mask>
                                             </variation>
                                         </button>
@@ -979,9 +979,6 @@
                                                 <mask key="constraints">
                                                     <exclude reference="cRC-f1-CZo"/>
                                                 </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular" misplaced="YES">
-                                                <rect key="frame" x="8" y="343" width="10" height="22"/>
                                             </variation>
                                         </button>
                                         <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTZ-nV-umw" customClass="DeletePhotoButton">
@@ -999,10 +996,10 @@
                                             </state>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="CFX-gu-eOl"/>
                                                     <exclude reference="7ae-2s-22X"/>
-                                                    <exclude reference="pVG-6Z-HyW"/>
+                                                    <exclude reference="CFX-gu-eOl"/>
                                                     <exclude reference="PXr-eA-opB"/>
+                                                    <exclude reference="pVG-6Z-HyW"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular" misplaced="YES">
@@ -1050,19 +1047,19 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="qGd-La-qdF"/>
                                             <exclude reference="GKR-NJ-GwV"/>
+                                            <exclude reference="HH7-f2-cYl"/>
                                             <exclude reference="QiA-Nk-Sep"/>
-                                            <exclude reference="qth-FX-Zan"/>
                                             <exclude reference="Uyj-LA-Bbo"/>
                                             <exclude reference="Y50-Dk-e2X"/>
-                                            <exclude reference="HH7-f2-cYl"/>
-                                            <exclude reference="ojz-ma-ICv"/>
+                                            <exclude reference="qGd-La-qdF"/>
+                                            <exclude reference="qth-FX-Zan"/>
                                             <exclude reference="3wm-RD-mkA"/>
+                                            <exclude reference="ojz-ma-ICv"/>
                                             <exclude reference="Axj-nX-t47"/>
+                                            <exclude reference="Fj2-rq-FMA"/>
                                             <exclude reference="O1z-TP-8jS"/>
                                             <exclude reference="yuG-1l-syQ"/>
-                                            <exclude reference="Fj2-rq-FMA"/>
                                             <exclude reference="Cv7-aR-JRH"/>
                                             <exclude reference="VcU-gQ-Csr"/>
                                             <exclude reference="a97-pG-fTz"/>
@@ -1071,9 +1068,9 @@
                                     </variation>
                                     <variation key="heightClass=regular">
                                         <mask key="constraints">
-                                            <exclude reference="qGd-La-qdF"/>
-                                            <exclude reference="c74-hp-cgp"/>
                                             <exclude reference="Jrq-RG-XEm"/>
+                                            <exclude reference="c74-hp-cgp"/>
+                                            <exclude reference="qGd-La-qdF"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

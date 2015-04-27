@@ -33,6 +33,7 @@
     return self;
 }
 
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -53,12 +54,11 @@
     // Do any additional setup after loading the view.
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_logo"]];
     [self.tableView setSeparatorColor:[UIColor clearColor]];
-    [self loadObjects];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self loadObjects];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -74,6 +74,7 @@
 #pragma mark - PFQueryTableViewDataSource and Delegates
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
+    self.deletePhotoArray = [NSMutableArray array];
     
     if ([PFUser currentUser]) {
         PFQuery *queryFollow = [PFQuery queryWithClassName:@"Activity"];
@@ -132,7 +133,6 @@
         }];
         
     } else {
-        self.deletePhotoArray = [NSMutableArray array];
         self.followingArray = [NSMutableArray array];
         self.likePhotoArray = [NSMutableArray array];
         self.blackListPhotoArray = [NSMutableArray array];

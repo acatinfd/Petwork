@@ -389,11 +389,13 @@
                                         <constraint firstItem="2IE-IE-IXJ" firstAttribute="leading" secondItem="bat-zz-cZu" secondAttribute="leadingMargin" id="1cc-3v-pR5"/>
                                         <constraint firstAttribute="centerY" secondItem="eOh-Me-SLq" secondAttribute="centerY" id="26h-lK-Yeb"/>
                                         <constraint firstItem="eOh-Me-SLq" firstAttribute="trailing" secondItem="bat-zz-cZu" secondAttribute="trailingMargin" id="2IT-kP-NFY"/>
+                                        <constraint firstItem="aVx-hI-NJF" firstAttribute="height" secondItem="eOh-Me-SLq" secondAttribute="height" id="7Kq-2d-9TN"/>
                                         <constraint firstItem="eOh-Me-SLq" firstAttribute="top" secondItem="bat-zz-cZu" secondAttribute="top" id="8A4-gT-0c9"/>
                                         <constraint firstAttribute="bottom" secondItem="2IE-IE-IXJ" secondAttribute="bottom" constant="189" id="CST-sa-rEa"/>
                                         <constraint firstItem="j1A-uX-BwA" firstAttribute="top" secondItem="Lfy-W4-vGQ" secondAttribute="top" id="Dcx-GW-Ckx"/>
                                         <constraint firstAttribute="centerX" secondItem="2IE-IE-IXJ" secondAttribute="centerX" constant="156.5" id="FsR-0g-1bR"/>
                                         <constraint firstItem="2IE-IE-IXJ" firstAttribute="centerX" secondItem="aVx-hI-NJF" secondAttribute="centerX" id="GzX-h9-Z0m"/>
+                                        <constraint firstItem="aVx-hI-NJF" firstAttribute="width" secondItem="eOh-Me-SLq" secondAttribute="width" id="IoR-m6-3ze"/>
                                         <constraint firstItem="2IE-IE-IXJ" firstAttribute="top" secondItem="raV-3i-PQe" secondAttribute="top" id="KUR-bC-pRx"/>
                                         <constraint firstAttribute="centerX" secondItem="eOh-Me-SLq" secondAttribute="centerX" constant="-2.5" id="QEI-aY-DCA"/>
                                         <constraint firstItem="Lfy-W4-vGQ" firstAttribute="top" secondItem="aVx-hI-NJF" secondAttribute="bottom" constant="8" id="RpI-oq-H6f"/>
@@ -425,11 +427,13 @@
                                             <exclude reference="fG7-XH-0t1"/>
                                             <exclude reference="rbA-FL-7hP"/>
                                             <exclude reference="sIi-4Z-Cb3"/>
-                                            <exclude reference="yWe-XX-0Fy"/>
+                                            <exclude reference="7Kq-2d-9TN"/>
+                                            <exclude reference="IoR-m6-3ze"/>
                                             <exclude reference="0bP-1T-2My"/>
                                             <exclude reference="CST-sa-rEa"/>
                                             <exclude reference="FsR-0g-1bR"/>
                                             <exclude reference="GzX-h9-Z0m"/>
+                                            <exclude reference="yWe-XX-0Fy"/>
                                             <exclude reference="bwS-su-1dH"/>
                                             <exclude reference="oM2-0a-PJf"/>
                                             <exclude reference="zAe-15-VuF"/>

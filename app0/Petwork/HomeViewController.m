@@ -24,6 +24,7 @@
 
 @implementation HomeViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -43,7 +44,6 @@
         self.paginationEnabled = YES;
         self.objectsPerPage = 10;
         self.noMorePhotosDidWarned = NO;
-
     }
     return self;
 }
@@ -127,6 +127,7 @@
                     }
                 }
                 [self.tableView reloadData];
+                //[self loadObjects];
             }
         }];
         
@@ -276,6 +277,7 @@
         UITableViewCell *cell = [self tableView:tableView cellForNextPageAtIndexPath:indexPath];
         return cell;
     }
+    
     static NSString *CellIdentifier = @"PhotoCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     PFImageView *photo = (PFImageView *)[cell viewWithTag:1];
@@ -327,8 +329,21 @@
     PhotoInfoButton *blockPhotoButton = (PhotoInfoButton *)[cell viewWithTag:6];
     blockPhotoButton.delegate = self;
     blockPhotoButton.sectionIndex = indexPath.section;
+    /*
+     NSInteger indexOfMatchedObject1 = [self.blackListPhotoArray indexOfObject:object.objectId];
+    if (indexOfMatchedObject1 == NSNotFound) {
+        blockPhotoButton.hidden = NO;
+    }
+    else {
+        blockPhotoButton.hidden = YES;
+    }
+    */
+    //To hide blocked photo.
+    //if ([self.blackListPhotoArray containsObject:object.objectId])
+    //    cell.hidden = true;
     
     return cell;
+    
 }
 
 
@@ -336,6 +351,12 @@
     if (section == self.objects.count) {
         return 0.0f;
     }
+    
+    //PFObject *photoObject = [self.objects objectAtIndex:section];
+    //To hide blocked photo.
+    //if ([self.blackListPhotoArray containsObject:photoObject.objectId])
+    //    return 0.0f;
+    
     return 50.0f;
 }
 
@@ -401,15 +422,11 @@
     }
 //    return 320.0f;
     PFObject *photoObject = [self.objects objectAtIndex:indexPath.section];
-    /*
-    PFFile *photo = [photoObject objectForKey:@"image"];
-    UIImage *image = [UIImage imageWithData:[photo getData]];
-    NSLog(@"--, %f, %f", image.size.height, image.size.width);
-    float imageHeight = self.view.frame.size.width;
-    if(image.size.height < image.size.width) {
-        imageHeight = image.size.height/(image.size.width/imageHeight);
-    }
-     */
+    
+    //To hide blocked photo.
+   // if ([self.blackListPhotoArray containsObject:photoObject.objectId])
+     //   return 0.0f;
+    
     NSString *title = photoObject[@"title"];
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:12];
     NSDictionary *userAttributes = @{NSFontAttributeName: font,
@@ -437,47 +454,21 @@
 }
 
 - (PFQuery *)queryForTable {
-    /*
-    if (![PFUser currentUser] || ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-        return nil;
-    }
-     
-     PFQuery *photosFromFollowedUsersQuery = [PFQuery queryWithClassName:@"Photo"];
-     [photosFromFollowedUsersQuery whereKey:@"whoTook" matchesKey:@"toUser" inQuery:followingQuery];
-     
-     PFQuery *photosFromCurrentUserQuery = [PFQuery queryWithClassName:@"Photo"];
-     [photosFromCurrentUserQuery whereKey:@"whoTook" equalTo:[PFUser currentUser]];
-     
-     PFQuery *superQuery = [PFQuery orQueryWithSubqueries:[NSArray arrayWithObjects:photosFromCurrentUserQuery,photosFromFollowedUsersQuery, nil]];
-     [superQuery includeKey:@"whoTook"];
-     [superQuery orderByDescending:@"createdAt"];
-     
-     PFQuery *likePhotoQuery = [PFQuery queryWithClassName:@"PhotoActivity"];
-     [likePhotoQuery whereKey:@"toPhoto" equalTo:object];
-     [likePhotoQuery whereKey:@"type" equalTo:@"like"];
-     [likePhotoQuery findObjectsInBackgroundWithBlock:^(NSArray *likePhotoActivities, NSError *error) {
-     if (!error) {
-     likeNumberLabel.text = [[NSNumber numberWithInteger:likePhotoActivities.count] stringValue];
-     }
-     }];
-
-     */
-    
     if ([PFUser currentUser]) {
-        /*PFQuery *queryForBlackList = [PFQuery queryWithClassName:@"PhotoActivity"];
-        [queryForBlackList whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-        [queryForBlackList whereKey:@"type" equalTo:@"block"];
-        [queryForBlackList includeKey:@"toPhoto"];
-        */
+        PFQuery *blockedPhotoQuery = [PFQuery queryWithClassName:@"PhotoActivity"];
+        [blockedPhotoQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        [blockedPhotoQuery whereKey:@"type" equalTo:@"block"];
+        [blockedPhotoQuery includeKey:@"toPhotoObjectId"];
         
         PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
         if(self.blackListPhotoArray)
             [query whereKey:@"objectId" notContainedIn:self.blackListPhotoArray];
+        else
+            [query whereKey:@"objectId" doesNotMatchKey:@"toPhotoObjectId" inQuery:blockedPhotoQuery];
         [query includeKey:@"whoTook"];
         [query orderByDescending:@"createdAt"];
         return query;
     }
-    
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     [query includeKey:@"whoTook"];
     [query orderByDescending:@"createdAt"];
@@ -622,6 +613,7 @@
             }
         }];
         [self.deletePhotoArray removeLastObject];
+        [self.tableView reloadData];
     }
 }
 
@@ -694,13 +686,14 @@
         PFObject *blockActivity = [PFObject objectWithClassName:@"PhotoActivity"];
         blockActivity[@"fromUser"] = [PFUser currentUser];
         blockActivity[@"toPhoto"] = photo;
+        blockActivity[@"toPhotoObjectId"] = photo.objectId;
         blockActivity[@"toUser"] = photo[@"whoTook"];
         blockActivity[@"type"] = @"block";
         [blockActivity saveEventually];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Successfully block photo" message:@"You will not see this photo in the timeline again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [self.tableView reloadData];
-        }
+    }
 }
 
 - (void) askForLogIn {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C636A29F1AEEB904001C557B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C636A29E1AEEB904001C557B /* SettingsViewController.m */; };
+		C636A2A11AEF2C08001C557B /* AppIcon120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = C636A2A01AEF2C08001C557B /* AppIcon120x120.png */; };
 		C6434AA51AC24348001B93CF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6434AA41AC24348001B93CF /* ProfileViewController.m */; };
 		C66C40891AA6E1FA008C3E52 /* ParseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66C40881AA6E1FA008C3E52 /* ParseLoginViewController.m */; };
 		C66C408B1AA6E650008C3E52 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66C408A1AA6E650008C3E52 /* Social.framework */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		C636A29D1AEEB904001C557B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		C636A29E1AEEB904001C557B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		C636A2A01AEF2C08001C557B /* AppIcon120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon120x120.png; sourceTree = "<group>"; };
 		C6434AA31AC24348001B93CF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		C6434AA41AC24348001B93CF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		C66C40871AA6E1FA008C3E52 /* ParseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLoginViewController.h; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		C6EA009C1AA6424F006DAB6B /* Petwork */ = {
 			isa = PBXGroup;
 			children = (
+				C636A2A01AEF2C08001C557B /* AppIcon120x120.png */,
 				C6EA00A11AA6424F006DAB6B /* AppDelegate.h */,
 				C6EA00A21AA6424F006DAB6B /* AppDelegate.m */,
 				C66C40871AA6E1FA008C3E52 /* ParseLoginViewController.h */,
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6EA00AC1AA6424F006DAB6B /* Main.storyboard in Resources */,
+				C636A2A11AEF2C08001C557B /* AppIcon120x120.png in Resources */,
 				C6EA00B11AA6424F006DAB6B /* LaunchScreen.xib in Resources */,
 				C6EA00AE1AA6424F006DAB6B /* Images.xcassets in Resources */,
 			);

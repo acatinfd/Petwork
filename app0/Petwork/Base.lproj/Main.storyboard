@@ -529,10 +529,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="eze-1j-Ere">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="eze-1j-Ere">
                                 <rect key="frame" x="0.0" y="79" width="605" height="464"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5P-45-3Bz">
+                                    <view multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5P-45-3Bz">
                                         <rect key="frame" x="0.0" y="17" width="612" height="450"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qT-3Q-k50">

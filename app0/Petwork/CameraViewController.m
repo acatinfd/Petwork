@@ -40,6 +40,13 @@
     self.imagePicker.delegate = self;
     self.titleTextField.delegate = self;
     self.imagePicker.allowsEditing = YES;
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignFirstResponder:)];
+    gestureRecognizer.delegate = self;
+    UIScrollView *scrollView = (UIScrollView * )[self.view viewWithTag:1];
+    [scrollView addGestureRecognizer:gestureRecognizer];
+    
+    /*
     if(!self.imagePickerIsDisplayed && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         NSString *actionSheetTitle = @"Pick a photo source"; //Action Sheet Title
         NSString *camera = @"Take photo";
@@ -55,7 +62,27 @@
     }else{
         [self pickImageSource:1]; //from library
     }
+     */
     [super viewWillAppear:animated];
+}
+
+- (void) viewDidAppear:(BOOL) animated {
+    if(!self.imagePickerIsDisplayed && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        NSString *actionSheetTitle = @"Pick a photo source"; //Action Sheet Title
+        NSString *camera = @"Take photo";
+        NSString *library = @"Choose from library";
+        NSString *cancelTitle = @"Cancel";
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:actionSheetTitle
+                                                                 delegate:self
+                                                        cancelButtonTitle:cancelTitle
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:camera, library, nil];
+        
+        [actionSheet showInView:self.view];
+    }else{
+        [self pickImageSource:1]; //from library
+    }
+    [super viewDidAppear:animated];
 }
 
 -(void) pickImageSource:(NSInteger ) source {
@@ -152,6 +179,11 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return NO;
+}
+
+-(void) resignFirstResponder:(UITapGestureRecognizer *) gesture
+{
+    [self.titleTextField resignFirstResponder];
 }
 
 - (IBAction)cancelButton:(id)sender {
